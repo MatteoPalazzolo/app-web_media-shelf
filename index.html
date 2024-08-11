@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        @font-face {
+            font-family: 'Persona';
+            src: url('assets/fonts/heavy-heap-rg.otf');
+        }
+        :root {
+            --color-primary: #ffa500;
+            --color-secondary: #76643e;
+            --color-details: #fff523;
+        }
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            height: 100vh;
+            overflow: hidden;
+        }
+        .circle {
+            position: absolute;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+
+        /*
+        .date {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }*/
+        .date {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 8000px;
+
+            border: 8px solid var(--color-details);
+            
+            font-family: 'Persona';
+            font-size: 150px;
+            
+            transform: translate(-50%,-50%) rotate(-18deg) translateX(0);
+            transition: transform .5s;
+            
+            text-align: center;
+            background-color: var(--color-primary);
+
+            cursor: pointer;
+        }
+        .date.open {
+            /* transform: translate(-50%,-50%) rotate(-18deg) translateX(3000px); */
+            animation: .4s forwards ease-in open;
+        }
+        @keyframes open {
+            0% {
+                transform: translate(-50%,-50%) rotate(-18deg) translateX(0);
+                opacity: 1;
+            }
+            20% {
+                transform: translate(-50%,-50%) rotate(-18deg) translateX(-200px);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%,-50%) rotate(-18deg) translateX(3000px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <svg class="circle" xmlns="http://www.w3.org/2000/svg">
+        
+        <mask id="clip-mask">
+            <rect width="300%" height="100%" fill="white"/>
+            <circle r="0" cx="50%" cy="50%" fill="black">
+                <animate
+                    attributeName="r"
+                    from="0"
+                    to="150%"
+                    dur=".5s"
+                    begin="1.2s"
+                    fill="freeze"
+                />
+            </circle>
+        </mask>
+
+        <g mask="url(#clip-mask)">
+            
+            <rect width="100%" height="100%" fill="var(--color-secondary)"/>
+
+            <!--
+            <circle r="0" cx="50%" cy="50%" mask="url(#erase-mask)" fill="var(--color-secondary)">
+                <animate
+                    attributeName="r"
+                    from="0"
+                    to="150%"
+                    dur=".5s"
+                    begin="0s"
+                    fill="freeze"
+                />
+            </circle>
+            -->
+
+            <circle r="0" cx="50%" cy="50%" fill="var(--color-primary)">
+                <animate
+                    attributeName="r"
+                    from="0"
+                    to="150%"
+                    dur=".5s"
+                    begin=".2s"
+                    fill="freeze"
+                />
+            </circle>
+
+            <circle r="0" cx="50%" cy="50%" fill="var(--color-details)">
+                <animate
+                    attributeName="r"
+                    from="0"
+                    to="150%"
+                    dur=".5s"
+                    begin=".7s"
+                    fill="freeze"
+                />
+            </circle>
+            
+        </g>
+    </svg>
+    
+    <p class="date">00/00/0000</p>
+
+    <script>
+        nextPage = undefined;
+        $.ajax({
+            url: "pages/cards.php",
+            type: 'GET',
+            success: function(res) {
+                nextPage = res;
+            }
+        });
+
+        // remove svgs after animation
+        setTimeout(function() {
+            $(".circle").hide();
+        }, 1700);
+
+        // update intro date
+        $(".date").html(new Date().toLocaleDateString());
+
+        // trigger intro date animation
+        $(".date").click(function() {
+
+            // start animation
+            $(this).toggleClass("open");
+
+            // hide date on finished animation
+            setTimeout(function() {
+                $(".date").hide();
+
+                // load main page
+                $("html").html(nextPage);
+            }, 1000);
+        });
+        
+    </script>
+</body>
+</html>
