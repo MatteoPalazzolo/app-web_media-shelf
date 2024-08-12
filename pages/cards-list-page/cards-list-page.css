@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'Persona';
+    src: url('../assets/fonts/heavy-heap-rg.otf');
+}
+
+:root {
+    --bg-border-raidus: 0px;
+}
+
+body {
+    background-image: url('./bg-chess.png');
+    background-repeat: repeat;
+}
+
+.page-background {
+    background-color: rgba(0, 0, 0, 0.37);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+}

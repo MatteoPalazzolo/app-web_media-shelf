@@ -147,13 +147,22 @@
     <script>
         nextPage = undefined;
         $.ajax({
-            url: "pages/cards.php",
+            url: "pages/cards-list-page/cards-list-page.php",
             type: 'GET',
             success: function(res) {
                 nextPage = res;
             }
         });
 
+        //TODO: an incoplete fix for shifted overflow: hidden in the intro page
+        /*
+        $(document).ready(() => setTimeout(() => {
+            $("body").css("overflow","auto");
+            window.scrollTo(0, 0);
+            $("body").css("overflow","hidden");
+        }, .1));
+        */
+        
         // remove svgs after animation
         setTimeout(function() {
             $(".circle").hide();
@@ -173,7 +182,7 @@
                 $(".date").hide();
 
                 // load main page
-                $("html").html(nextPage);
+                document.write(nextPage)
             }, 1000);
         });
         
