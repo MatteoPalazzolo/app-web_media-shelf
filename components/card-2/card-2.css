@@ -15,8 +15,9 @@
 .card-2 .bg-three p {
     font-family: "PersonaBold", sans-serif;
     font-size: 20px;
-    transform: scaleX(1.5);
+    transform: scaleX(1.1);
     transform-origin: left;
+    margin-left: 5px;
 }
 
 /*
@@ -81,15 +82,24 @@
     bottom: 0;
     left: 50%;
 
-    width: 100%;
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 10px;
+    padding-bottom: 5px;
 
     text-align: center;
-    background-image: linear-gradient(transparent, rgb(80, 80, 80));
+    background-image: linear-gradient(#00000000, #00000099, #000000CC, #000000FF);
+
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 20px;    
+    color: whitesmoke;
 
     opacity: 0;
 
     transform: translateX(-50%);
-    z-index: 1s;
+    z-index: 10;
 
     transition: opacity .1s;
 }

@@ -4,14 +4,14 @@ $(`<style><?= file_get_contents(__DIR__ . "/card-2.css"); ?></style>`).appendTo(
 
 <?php require_once("../../utils/utils.php"); ?>
 
-<?php function UI_RenderCard2($title, $year, $rating, $img_url, $color_two="#ffa500", $color_three="#fff523") { ?>
+<?php function UI_RenderCard2($title, $year, $rating, $img_url, $color_two="#ffa500", $color_three="#fff523", $font="PersonaBold") { ?>
     <div class="card-2">
         <div class="bg-one"></div>
         <div class="bg-two" style="background-color: <?= $color_two ?>;">
-            <p>CALENDAR</p>
+            <p style="font-family: <?= $font ?>;">CALENDAR</p>
         </div>
         <div class="bg-three" style="background-color: <?= $color_three ?>;">
-            <p>DETAILS</p>
+            <p style="font-family: <?= $font ?>;">EDIT</p>
         </div>
         <p class="year"><?= $year ?></p>
 
