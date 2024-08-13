@@ -10,10 +10,20 @@
             font-family: 'Persona';
             src: url('assets/fonts/heavy-heap-rg.otf');
         }
-        :root {
+
+        @font-face {
+            font-family: 'PersonaBold';
+            src: url('assets/fonts/MightySouly-lxggD.ttf');
+        }
+
+        :root {/*
             --color-primary: #ffa500;
             --color-secondary: #76643e;
-            --color-details: #fff523;
+            --color-details: #fff523;*/
+            
+            --color-secondary: #76643e;
+            --color-primary: #28829C;
+            --color-details: #E0F1F7;
         }
         * {
             padding: 0;
@@ -145,7 +155,7 @@
     <p class="date">00/00/0000</p>
 
     <script>
-        nextPage = undefined;
+        nextPage = "unlucky :(";
         $.ajax({
             url: "pages/cards-list-page/cards-list-page.php",
             type: 'GET',

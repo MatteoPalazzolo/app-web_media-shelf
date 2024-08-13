@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Persona';
-    src: url('../assets/fonts/heavy-heap-rg.otf');
+    src: url('../../assets/fonts/heavy-heap-rg.otf');
 }
 
 :root {
@@ -8,14 +8,23 @@
 }
 
 body {
-    background-image: url('./bg-chess.png');
+    background-image: url('../../assets/images/b&w-tiles-background.png');
     background-repeat: repeat;
 }
 
 .page-background {
-    background-color: rgba(0, 0, 0, 0.37);
+    background-color: #0000005e;
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: -10;
+}
+
+.container {
+    display: flex;
+    overflow: hidden;
+    flex-wrap: wrap;
+    margin-right: 60px;
+    margin-left: 60px;
+    justify-content: space-between;
 }

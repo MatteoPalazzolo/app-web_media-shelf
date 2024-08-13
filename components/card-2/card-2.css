@@ -1,0 +1,134 @@
+.card-2 {
+    width: 200px;
+    margin: 50px;
+    border-radius: 4px;
+    background-color: #00000000;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.card-2 .bg-two p,
+.card-2 .bg-three p {
+    font-family: "PersonaBold", sans-serif;
+    font-size: 20px;
+    transform: scaleX(1.5);
+    transform-origin: left;
+}
+
+/*
+.card-2 .bg-one {
+    border-radius: var(--bg-border-raidus);
+    width: 100%;
+    height: 100%;
+    background-color: #76643e;
+    position: absolute;
+    transform: rotate(0deg);
+    z-index: 3;
+}
+*/
+
+.card-2 .bg-two {
+    border-radius: var(--bg-border-raidus);
+    width: 100%;
+    height: 100%;
+    background-color: orange;
+    border: 1px dashed #aaaaaa;
+    position: absolute;
+    z-index: 2;
+    transform: rotate(1.5deg) translate(0px);
+    transition: transform .1s;
+}
+.card-2:hover > .bg-two {
+    transform: rotate(5deg) translate(15px, -2px);
+}
+.card-2 .bg-two:hover {
+    transform: rotate(5deg) translate(15px, -2px) translateY(-25px);
+}
+
+.card-2 .bg-three {
+    border-radius: var(--bg-border-raidus);
+    width: 100%;
+    height: 100%;
+    background-color: #fff523;
+    border: 1px dashed #aaaaaa;
+    position: absolute;
+    z-index: 1;
+    transform: rotate(3deg) translate(0px);
+    transition: transform .1s;
+}
+.card-2:hover > .bg-three {
+    transform: rotate(10deg) translate(25px, -6px);
+}
+.card-2 .bg-three:hover {
+    transform: rotate(10deg) translate(25px, -6px) translateY(-25px);
+}
+
+.card-2 img {
+    height: 250px;
+    aspect-ratio: 9 / 13;
+    object-fit: cover;
+
+    position: relative;
+    z-index: 4;
+}
+
+.card-2 .title {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+
+    width: 100%;
+
+    text-align: center;
+    background-image: linear-gradient(transparent, rgb(80, 80, 80));
+
+    opacity: 0;
+
+    transform: translateX(-50%);
+    z-index: 1s;
+
+    transition: opacity .1s;
+}
+.card-2:hover > .title {
+    opacity: 1;
+}
+
+.card-2 .year {
+    font-family: 'Persona';
+    font-size: 30px;
+    text-align: end;
+
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    z-index: -1;
+
+    transition: transform .1s;
+}
+.card-2:hover > .year {
+    transform: translateY(-32px);
+}
+
+.card-2 .rating {
+    font-size: 2.4rem;
+    writing-mode: vertical-rl;
+    direction: rtl;
+    text-align: center;
+
+    height: 100%;
+
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    transition: transform .1s;
+}
+.card-2:hover > .rating {
+    transform: translateY(-50%) translateX(-48px);
+}
