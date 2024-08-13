@@ -18,7 +18,6 @@
     <div class="container">
         
         <?php
-            require_once("../../components/card-1/card-1.php");
             require_once("../../components/card-2/card-2.php");
             UI_RenderCard2("Citizen Kane", 1942, 4, "https://flxt.tmsimg.com/assets/p1485_p_v8_aa.jpg",
                             "#1A5058","#E9490B");

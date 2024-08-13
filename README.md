@@ -12,3 +12,4 @@ https://www.flaticon.com/free-icons/weather
 ## TODO
 - [ ] image color picker -> dynamic card palette
 - [ ] custom font and palette for each card
+- [ ] keep in mind that sql constrains are a thing

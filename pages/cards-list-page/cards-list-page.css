@@ -22,7 +22,7 @@ body {
     background-image: url('../../assets/images/b&w-tiles-background.png');
     background-repeat: repeat;
     */
-    background-color: #0000005e;
+    background-color: #6b6565;
 }
 
 .page-background {
@@ -39,5 +39,4 @@ body {
     margin-right: 60px;
     margin-left: 60px;
     justify-content: space-evenly;
-    background-color: #0000005e;
 }
