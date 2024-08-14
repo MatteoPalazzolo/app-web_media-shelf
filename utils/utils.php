@@ -1,4 +1,6 @@
-<?php function calcStarRating($rating) {
+<?php 
+
+function calcStarRating($rating) {
     if ($rating < 0 || $rating > 5) {
         return "invalid number";
     }
@@ -11,4 +13,4 @@
         }
     }
     return $out;
-} ?>
+}

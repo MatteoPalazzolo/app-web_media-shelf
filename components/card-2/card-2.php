@@ -1,8 +1,8 @@
-<script>
-$(`<style><?= file_get_contents(__DIR__ . "/card-2.css"); ?></style>`).appendTo("head");
-</script>
+<style>
+<?= file_get_contents(__DIR__ . "/card-2.css"); ?>
+</style>
 
-<?php require_once("../../utils/utils.php"); ?>
+<?php require_once __DIR__ . '/../../utils/utils.php'; ?>
 
 <?php function UI_RenderCard2($title, $year, $rating, $img_url, $color_two="#ffa500", $color_three="#fff523", $font="PersonaBold") { ?>
     <div class="card-2">

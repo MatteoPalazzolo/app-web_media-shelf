@@ -1,3 +1,8 @@
+
+:root {
+    --card-border-raidus: 0px;
+}
+
 .card-2 {
     width: 200px;
     margin: 50px;
@@ -9,6 +14,10 @@
     align-items: center;
     cursor: pointer;
     width: fit-content;
+    transition: transform .1s;
+}
+.card-2:hover {
+    transform: scale(1.15);
 }
 
 .card-2 .bg-two p,
@@ -22,7 +31,7 @@
 
 /*
 .card-2 .bg-one {
-    border-radius: var(--bg-border-raidus);
+    border-radius: var(--card-border-raidus);
     width: 100%;
     height: 100%;
     background-color: #76643e;
@@ -33,7 +42,7 @@
 */
 
 .card-2 .bg-two {
-    border-radius: var(--bg-border-raidus);
+    border-radius: var(--card-border-raidus);
     width: 100%;
     height: 100%;
     background-color: orange;
@@ -51,7 +60,7 @@
 }
 
 .card-2 .bg-three {
-    border-radius: var(--bg-border-raidus);
+    border-radius: var(--card-border-raidus);
     width: 100%;
     height: 100%;
     background-color: #fff523;
