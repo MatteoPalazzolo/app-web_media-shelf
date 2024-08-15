@@ -17,7 +17,14 @@ body {
 .container {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 25px;
     margin-right: 60px;
     margin-left: 60px;
     justify-content: space-evenly;
+}
+
+header {
+    width: 100%;
+    background-color: var(--color-primary);
+    height: 100px;
 }
