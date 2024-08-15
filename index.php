@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assets/css/init.css">
 </head>
 <body>
-     <div hx-get="/pages/intro/intro.php" hx-trigger="load" hx-target="body"></div> 
-    <!-- <div hx-get="/pages/cards-list-page/cards-list-page.php" hx-trigger="load" hx-target="body"></div> -->
+    <!-- <div hx-get="/pages/intro/intro.php" hx-trigger="load" hx-target="body"></div> -->
+    <div hx-get="/pages/cards-list-page/cards-list-page.php" hx-trigger="load" hx-target="body"></div>
 </body>
 </html>

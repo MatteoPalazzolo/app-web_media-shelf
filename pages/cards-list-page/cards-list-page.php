@@ -12,5 +12,6 @@
 </main>
 
 <?php
+require_once __DIR__ . "/../../components/new-card-form/form.php";
 require_once __DIR__ . "/../../components/refresh-cards/refresh.php";
 ?>

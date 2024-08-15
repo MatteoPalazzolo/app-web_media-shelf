@@ -1,17 +1,17 @@
 <style>
-<?= file_get_contents(__DIR__ . "/card-2.css"); ?>
+<?= file_get_contents(__DIR__ . "/card.css"); ?>
 </style>
 
 <?php require_once __DIR__ . '/../../utils/utils.php'; ?>
 
-<?php function UI_RenderCard2($title, $year, $rating, $img_url, $color_two="#ffa500", $color_three="#fff523", $font="PersonaBold") { ?>
-    <div class="card-2">
+<?php function UI_RenderCard2($title, $year, $rating, $img_url, $color_two="#ffa500", $color_three="#fff523") { ?>
+    <div class="card">
         <div class="bg-one"></div>
         <div class="bg-two" style="background-color: <?= $color_two ?>;">
-            <p style="font-family: <?= $font ?>;">CALENDAR</p>
+            <p>CALENDAR</p>
         </div>
         <div class="bg-three" style="background-color: <?= $color_three ?>;">
-            <p style="font-family: <?= $font ?>;">EDIT</p>
+            <p>EDIT</p>
         </div>
         <p class="year"><?= $year ?></p>
 

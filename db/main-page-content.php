@@ -1,6 +1,6 @@
 <?php
 
-require_once '../components/card-2/card-2.php';
+require_once '../components/card/card.php';
 require 'init-db.php';
 
 // create cards from db content

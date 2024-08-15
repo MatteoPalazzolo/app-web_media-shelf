@@ -1,0 +1,118 @@
+.form-card {
+    z-index: 10;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    width: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    width: fit-content;
+    transition: transform .1s;
+
+}
+
+.form-card .bg-two {
+    border-radius: var(--card-border-raidus);
+    width: 100%;
+    height: 100%;
+    background-color: orange;
+    border: 1px dashed #aaaaaa;
+    position: absolute;
+    z-index: 2;
+    /*
+    transform: rotate(5deg) translate(15px, -2px);*/
+    transition: transform .1s;
+}
+
+.form-card .bg-three {
+    border-radius: var(--card-border-raidus);
+    width: 100%;
+    height: 100%;
+    background-color: #fff523;
+    border: 1px dashed #aaaaaa;
+    position: absolute;
+    z-index: 1;
+    /*
+    transform: rotate(10deg) translate(25px, -6px);*/
+    transition: transform .1s;
+}
+
+.form-card img {
+    height: 500px;
+    aspect-ratio: 9 / 13;
+    object-fit: cover;
+    background-color: #aaaaaa;
+
+    position: relative;
+    z-index: 4;
+}
+
+.form-card .title {
+    position: absolute;
+    z-index: 5;
+    bottom: 0;
+    left: 50%;
+
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 10px;
+    padding-bottom: 5px;
+
+    text-align: center;
+    background-image: linear-gradient(#00000000, #00000099, #000000CC, #000000FF);
+
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 20px;    
+    color: whitesmoke;
+
+    opacity: 1;
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    transform: translateX(-50%);
+
+    transition: opacity .1s;
+}
+
+.form-card .year {
+    font-family: 'Persona';
+    font-size: 30px;
+    text-align: end;
+
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    z-index: -1;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    transform: translateY(-100%);
+    transition: transform .1s;
+}
+
+.form-card .rating {
+    font-size: 4.5rem;
+    writing-mode: vertical-rl;
+    direction: rtl;
+    text-align: center;
+
+    height: 100%;
+
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) translateX(-100%);
+    transition: transform .1s;
+}
