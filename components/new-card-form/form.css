@@ -33,6 +33,13 @@
     transform: scaleX(1.1);
     transform-origin: left;
     margin-left: 5px;
+    width: 50%;
+    transition: font-size .1s;
+}
+
+.form-card .bg-two:hover p,
+.form-card .bg-three:hover p {
+    font-size: 1.8rem;
 }
 
 .form-card .bg-two input,
@@ -55,39 +62,44 @@
     transition: transform .1s;
 }
 
+.form-card .bg-two:hover label img,
+.form-card .bg-three:hover label img {
+    transform: scale(1.2);
+}
+
 .form-card .bg-two label img:hover,
 .form-card .bg-three label img:hover {
-    transform: scale(1.2);
+    transform: scale(1.4);
 }
 
 .form-card .bg-two {
     border-radius: var(--card-border-raidus);
     width: 100%;
     height: 100%;
-    background-color: orange;
-    border: 1px dashed #aaaaaa;
+    background-color: orange;/*
+    border: 1px dashed #aaaaaa;*/
     position: absolute;
     z-index: 2;
-    transform: rotate(5deg) translate(15px, -2px);
+    transform: rotate(8deg) translate(15px, -2px) translateY(-10px);
     transition: transform .1s;
 }
 .form-card .bg-two:hover {
-    transform: rotate(5deg) translate(15px, -2px) translateY(-25px);
+    transform: rotate(8deg) translate(15px, -2px) translateY(-27px);
 }
 
 .form-card .bg-three {
     border-radius: var(--card-border-raidus);
     width: 100%;
     height: 100%;
-    background-color: #fff523;
-    border: 1px dashed #aaaaaa;
+    background-color: #fff523;/*
+    border: 1px dashed #aaaaaa;*/
     position: absolute;
     z-index: 1;
-    transform: rotate(10deg) translate(25px, -6px);
+    transform: rotate(16deg) translate(25px, -6px) translateY(-20px);
     transition: transform .1s;
 }
 .form-card .bg-three:hover {
-    transform: rotate(10deg) translate(25px, -6px) translateY(-25px);
+    transform: rotate(16deg) translate(25px, -6px) translateY(-35px);
 }
 
 .form-card img {

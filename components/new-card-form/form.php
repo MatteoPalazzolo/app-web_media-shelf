@@ -4,7 +4,7 @@
 
 <?php
 define("ADD_IMG_PATH",      "assets/images/img-add.png");
-define("BROKEN_IMG_PATH",   "assets/images/img-error.jpg'");
+define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
 ?>
 
 <main>
@@ -88,13 +88,11 @@ $("form.form #image-input").on("change", event => {
 })
 // image url selection
 $("form.form #input-image-url > button").on("click", () => {
-    /*
     var value = $("#input-image-url > input").val();
     if (value) {
         $("#image-label > img").attr("src", value);
         setTimeout(updatePalette, 100);
     }
-    */
 });
 // color thief
 function updatePalette() {
