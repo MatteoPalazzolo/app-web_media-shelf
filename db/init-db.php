@@ -4,14 +4,15 @@ require 'init-db-connection.php';
 // create media table if not exists
 try {
     $sql = "CREATE TABLE IF NOT EXISTS media (
-                id                  INTEGER AUTO INCREMENT,
-                m_title             TEXT PRIMARY KEY                                        NOT NULL,
-                m_year              INT                                                     NOT NULL,
-                m_rating            INT  CHECK( m_rating >= 0 AND m_rating <= 5 )           NOT NULL,
-                m_type              TEXT CHECK( m_type IN ('Movie','Videogame','Anime','Cartoon','TV Series','Book','Manga','Other') )    NOT NULL,
-                m_img_url           TEXT                                                    NOT NULL,
-                m_color_two         TEXT                                                    NOT NULL,
-                m_color_three       TEXT                                                    NOT NULL
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                m_title VARCHAR(255) NOT NULL,
+                m_year INT NOT NULL,
+                m_rating INT NOT NULL,
+                m_type ENUM('Movie', 'Videogame', 'Anime', 'Cartoon', 'TV Series', 'Book', 'Manga', 'Other') NOT NULL,
+                m_img_url TEXT NOT NULL,
+                m_color_two VARCHAR(7) NOT NULL,
+                m_color_three VARCHAR(7) NOT NULL,
+                UNIQUE (m_title)
             )";
     $pdo->exec($sql);
 } catch (PDOException $e) {
@@ -20,7 +21,7 @@ try {
 
 // populate media table with some data
 try {
-    $sql = "INSERT OR IGNORE INTO media (m_title, m_year, m_rating, m_type, m_img_url, m_color_two, m_color_three) 
+    $sql = "INSERT IGNORE INTO media (m_title, m_year, m_rating, m_type, m_img_url, m_color_two, m_color_three) 
             VALUES (:m_title, :m_year, :m_rating, :m_type, :m_img_url, :m_color_two, :m_color_three)";
     $stmt = $pdo->prepare($sql);
 

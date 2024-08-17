@@ -4,7 +4,7 @@
 
 <main>
     <header>
-        <button class="add-card" onclick="refreshCardsList(); toggleAddCardMenu();"> ADD NEW CARD </button>
+        <button class="add-card" onclick="toggleAddCardMenu();"> ADD NEW CARD </button>
     </header>
 
     <div class="page-background"></div>

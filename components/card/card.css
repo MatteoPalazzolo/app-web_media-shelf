@@ -101,6 +101,7 @@
 
     text-align: center;
     background-image: linear-gradient(#00000000, #00000099, #000000CC, #000000FF);
+    word-wrap: break-word;
 
     font-family: "Open Sans", sans-serif;
     font-weight: 400;

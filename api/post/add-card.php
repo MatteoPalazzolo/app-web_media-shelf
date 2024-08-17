@@ -81,6 +81,10 @@ else {
 if (!preg_match('/^\d{1,4}$/', $_POST["year"])) {
     die("ERROR: The year is not in a valid format.");
 }
+// check color_two and color_three
+if (!preg_match('/^#[0-9A-Fa-f]{6}$/', $_POST["color_two"]) || !preg_match('/^#[0-9A-Fa-f]{6}$/', $_POST["color_three"])) {
+    die("ERROR: The colors are not in a valid format.");
+}
 
 // ADD DATA TO DB
 require __DIR__ . "/../../db/init-db-connection.php";
@@ -97,8 +101,8 @@ try {
         'm_rating' => 5,                    //TODO: add to form
         'm_type' => 'Movie',                //TODO: add to form
         'm_img_url' => IMAGE_DIR_GLOBAL . $target_filename,
-        'm_color_two' => '#1A5058',         //TODO: add to form
-        'm_color_three' => '#E9490B',       //TODO: add to form
+        'm_color_two' => $_POST["color_two"],
+        'm_color_three' => $_POST["color_three"]
     ]);
 } catch (PDOException $e) {
     die("ERROR: media table insert failed: " . $e->getMessage());

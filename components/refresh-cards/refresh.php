@@ -48,7 +48,17 @@
 </svg>
 
 <script>
-function refreshCardsList() {
+function refreshCardsList(col1="", col2="") {
+
+    if (col1) {
+        console.log("col1",col1)
+        $("#circle-one").attr("fill",col1);
+    }
+    
+    if (col2) {
+        console.log("col2",col2)
+        $("#circle-two").attr("fill",col2);
+    }
 
     $("body").css("overflow","hidden");
 

@@ -7,7 +7,7 @@ require      __DIR__ . '/../../db/init-db.php';
 
 // create cards from db content
 try {
-    $sql = "SELECT * FROM media ORDER BY m_year DESC;";
+    $sql = "SELECT * FROM media ORDER BY id DESC;";
     $stmt = $pdo->query($sql);
     $entries = $stmt->fetchAll(PDO::FETCH_ASSOC);
     foreach ($entries as $entry) {

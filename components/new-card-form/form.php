@@ -14,12 +14,20 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.jpg'");
 
             <div class="bg-one"></div>
 
-            <div class="bg-two" onclick="updatePalette()">
-                <p>PALETTE</p>
+            <div class="bg-two" style="cursor: auto">
+                <p>TAGS</p>
+                <label for="input-color-two">
+                    <img src="assets/icons/paint-brush-icon.svg" >
+                </label>
+                <input type="color" id="input-color-two" name="color_two">
             </div>
 
-            <label class="bg-three" style="cursor: pointer;" for="subimit-form">
+            <label class="bg-three" for="subimit-form">
                 <p>SUBMIT</p>
+                <label for="input-color-three">
+                    <img src="assets/icons/paint-brush-icon.svg" >
+                </label>
+                <input type="color" id="input-color-three" name="color_three">
             </label>
             <input style="display: none;" type="submit" id="subimit-form" >
 
@@ -63,13 +71,13 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.jpg'");
 
 <script>
 function toggleAddCardMenu() {
-    $(".form").toggle();
+    $("form.form").toggle();
 }
 
 // image file selection
 // TODO: load image.png from file -> load image from url -> load image.png from file again
 //      => the last wont update because change event is not triggered
-$("#image-input").on("change", event => {
+$("form.form #image-input").on("change", event => {
     file = event.target.files[0];
     if (file) {
         var reader = new FileReader();
@@ -79,25 +87,29 @@ $("#image-input").on("change", event => {
     }
 })
 // image url selection
-$("#input-image-url > button").on("click", () => {
+$("form.form #input-image-url > button").on("click", () => {
+    /*
     var value = $("#input-image-url > input").val();
     if (value) {
         $("#image-label > img").attr("src", value);
         setTimeout(updatePalette, 100);
     }
+    */
 });
 // color thief
 function updatePalette() {
     const colorThief = new ColorThief();
     const img = $("#image-label > img")[0];
 
-    var palette = colorThief.getPalette(img);
+    var palette = colorThief.getPalette(img, 5);
     var hexPalette = palette.map(e => rgbToHex(e));
     palette.forEach(e => {
         colorConsoleLog(rgbToHex(e), rgbToHex(e));
     });
-    $(".form .bg-two").css("background-color",hexPalette[0]);
-    $(".form .bg-three").css("background-color",hexPalette[1]);
+    $("form.form .bg-two").css("background-color", hexPalette[0]);
+    $("form.form .bg-three").css("background-color", hexPalette[1]);
+    $("#input-color-two").val(hexPalette[0]);
+    $("#input-color-three").val(hexPalette[1]);
 
     /*
     update = () => {
@@ -111,17 +123,12 @@ function updatePalette() {
     */
 }
 
-const colorThief = new ColorThief();
-    const img = document.querySelector('img');
-
-    // Make sure image is finished loading
-    if (img.complete) {
-      colorThief.getColor(img);
-    } else {
-      image.addEventListener('load', function() {
-        colorThief.getColor(img);
-      });
-    }
+$("form.form #input-color-two").on("change", e => {
+    $("form.form .bg-two").css("background-color", e.target.value);
+});
+$("form.form #input-color-three").on("change", e => {
+    $("form.form .bg-three").css("background-color", e.target.value);
+});
 
 // form submit
 $("form.form").on("submit", function(e) {
@@ -143,7 +150,10 @@ $("form.form").on("submit", function(e) {
                     // $('#show-form-error').html(response);
                     alert(response);
                 } else {
-                    refreshCardsList();
+                    refreshCardsList(
+                        $("#input-color-two").val(),
+                        $("#input-color-three").val()
+                    );
                     toggleAddCardMenu();
 
                     // reset form
