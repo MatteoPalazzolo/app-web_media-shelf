@@ -1,17 +1,19 @@
 <?php
 
-require_once '../components/card/card.php';
-require 'init-db.php';
+if ($_SERVER['REQUEST_METHOD'] !== 'GET') die("request method not allowed");
+
+require_once __DIR__ . '/../../components/card/card.php';
+require      __DIR__ . '/../../db/init-db.php';
 
 // create cards from db content
 try {
-    $sql = "SELECT * FROM media";
+    $sql = "SELECT * FROM media ORDER BY m_year DESC;";
     $stmt = $pdo->query($sql);
     $entries = $stmt->fetchAll(PDO::FETCH_ASSOC);
     foreach ($entries as $entry) {
         UI_RenderCard2(
             $entry['m_title'],
-            $entry['m_date'],
+            $entry['m_year'],
             $entry['m_rating'],
             $entry['m_img_url'],
             $entry['m_color_two'],

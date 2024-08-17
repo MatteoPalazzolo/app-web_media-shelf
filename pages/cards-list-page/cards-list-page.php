@@ -4,11 +4,11 @@
 
 <main>
     <header>
-        <button onclick="refreshCardsList()"> ADD NEW CARD </button>
+        <button class="add-card" onclick="refreshCardsList(); toggleAddCardMenu();"> ADD NEW CARD </button>
     </header>
 
     <div class="page-background"></div>
-    <div id="container" class="container" hx-get="/db/main-page-content.php" hx-trigger="load"></div>
+    <div id="container" class="container" hx-get="/api/get/main-page-content.php" hx-trigger="load"></div>
 </main>
 
 <?php

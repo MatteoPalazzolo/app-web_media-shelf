@@ -7,6 +7,8 @@
     <!-- JS CDN -->
     <script src="https://unpkg.com/htmx.org@2.0.2"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+    <script src="assets/js/color-utils.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/init.css">
 </head>

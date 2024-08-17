@@ -5,7 +5,6 @@
 
 .card {
     width: fit-content;
-    margin: 50px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -14,13 +13,18 @@
     transition: transform .1s;
 }
 .card:hover {
-    transform: scale(1.15);
+    transform: scale(1.12);
+}
+@media (max-width: 768px) {
+    .card:hover {
+        transform: scale(1.05);
+    }
 }
 
 .card .bg-two p,
 .card .bg-three p {
     font-family: "PersonaBold", sans-serif;
-    font-size: 20px;
+    font-size: 1.4rem;
     transform: scaleX(1.1);
     transform-origin: left;
     margin-left: 5px;
@@ -75,7 +79,7 @@
 }
 
 .card img {
-    height: 250px;
+    height: 325px;
     aspect-ratio: 9 / 13;
     object-fit: cover;
     background-color: #aaaaaa;
@@ -116,7 +120,7 @@
 
 .card .year {
     font-family: 'Persona';
-    font-size: 30px;
+    font-size: 34px;
     text-align: end;
 
     position: absolute;
@@ -127,11 +131,11 @@
     transition: transform .1s;
 }
 .card:hover > .year {
-    transform: translateY(-32px);
+    transform: translateY(-90%);
 }
 
 .card .rating {
-    font-size: 2.4rem;
+    font-size: 3rem;
     writing-mode: vertical-rl;
     direction: rtl;
     text-align: center;
@@ -147,5 +151,5 @@
     transition: transform .1s;
 }
 .card:hover > .rating {
-    transform: translateY(-50%) translateX(-48px);
+    transform: translateY(-50%) translateX(-95%);
 }

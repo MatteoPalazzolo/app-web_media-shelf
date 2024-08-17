@@ -53,7 +53,7 @@ function refreshCardsList() {
     $("body").css("overflow","hidden");
 
     $.ajax({
-        url: '/db/main-page-content.php',
+        url: '/api/get/main-page-content.php',
         type: 'GET',
         success: function(response) {
             $("#container").html(response);

@@ -17,14 +17,20 @@ body {
 .container {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 25px;
-    margin-right: 60px;
-    margin-left: 60px;
+    margin-top: 90px;
+    margin-right: 8%;
+    margin-left: 8%;
     justify-content: space-evenly;
+    gap: 100px;
 }
 
 header {
     width: 100%;
     background-color: var(--color-primary);
     height: 100px;
+}
+
+.add-card {
+    position: relative;
+    z-index: 10;
 }
