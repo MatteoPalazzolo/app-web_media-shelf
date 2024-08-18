@@ -16,7 +16,7 @@ try {
             )";
     $pdo->exec($sql);
 } catch (PDOException $e) {
-    die( "init-db.php falied: " . $e->getMessage() . '<br>' );
+    die("\nERROR: init-db.php falied: " . $e->getMessage());
 }
 
 // populate media table with some data
@@ -147,6 +147,6 @@ try {
     ]);
 
 } catch (PDOException $e) {
-    die( "media table debug polpulation failed: " . $e->getMessage() . '<br>' );
+    die("\nERROR: media table debug polpulation failed: " . $e->getMessage());
 }
 

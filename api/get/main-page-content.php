@@ -21,5 +21,5 @@ try {
         );
     }
 } catch (PDOException $e) {
-    die( "create cards from db content failed: " . $e->getMessage() . '<br>' );
+    die("\nERROR: create cards from db content failed: " . $e->getMessage());
 }

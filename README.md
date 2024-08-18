@@ -17,13 +17,11 @@ https://www.flaticon.com/free-icons/weather
 
 #### NOW
 - [x] animate background color transition in form
-- [ ] animate card falling from top in form
+- [x] animate card falling from top in form
 - [ ] refactor card image import from url
 - [ ] put card image in a blob in the db and clear uploads folder
 - [ ] check that there is no php in the filename before saving it
 - [ ] move db folder in api
-
-- [ ] reset form when closed
 
 #### PROGRAMMING
 - [ ] rimuovere sostituzione pagina dalla intro alla home -> carica da subito tutti i css e aggiorna il body con htmx

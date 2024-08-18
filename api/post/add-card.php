@@ -2,7 +2,8 @@
 define("IMAGE_DIR_GLOBAL", "uploads/cover-images/");
 define("IMAGE_DIR_LOCAL", __DIR__ . "/../../uploads/cover-images/");
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') die("ERROR: request method not allowed");
+if ($_SERVER['REQUEST_METHOD'] !== 'POST')
+    die("\nERROR: request method not allowed");
 
 /*
 print_r($_POST);
@@ -35,14 +36,17 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         if (move_uploaded_file($_FILES["image"]["tmp_name"], IMAGE_DIR_LOCAL . $target_filename)) {
             // echo "The file " . htmlspecialchars( basename( $_FILES["image"]["name"])) . " has been uploaded." . "<br>";
         } else {
-            die("ERROR: Sorry, there was an error uploading your file.");
+            die("\nERROR: Sorry, there was an error uploading your file.");
         }
     } else {
-        die("ERROR: File is not an image.");
+        die("\nERROR: File is not an image.");
     }
+
+    $target_filename = IMAGE_DIR_GLOBAL . $target_filename;
 } 
 // ChatGPT
 elseif (isset($_POST["image_url"])) {
+    /*
     // Fetch headers to determine MIME type
     $headers = get_headers($_POST["image_url"], 1);
     $mime_type = $headers['Content-Type'] ?? 'unknown';
@@ -52,7 +56,7 @@ elseif (isset($_POST["image_url"])) {
 
     // Handle cases where the MIME type is unknown
     if ($file_extension === 'unknown') {
-        die("ERROR: Unsupported MIME type: $mime_type" . "<br>");
+        die("\nERROR: Unsupported MIME type: $mime_type" . "<br>");
     }
 
     // Determine the save path
@@ -66,24 +70,27 @@ elseif (isset($_POST["image_url"])) {
         if (file_put_contents(IMAGE_DIR_LOCAL . $target_filename, $image_data)) {
             // echo "Image downloaded successfully as $target_file.";
         } else {
-            die("ERROR: Failed to save the image.");
+            die("\nERROR: Failed to save the image.");
         }
     } else {
-        die("ERROR: Failed to download the image.");
+        die("\nERROR: Failed to download the image.");
     }
+    */
+
+    $target_filename = $_POST["image_url"];
 } 
 else {
-    die("ERROR: No uploaded image found.");
+    die("\nERROR: No uploaded image found.");
 }
 
 // PERFORM CHECKS ON DATA
 // check year
 if (!preg_match('/^\d{1,4}$/', $_POST["year"])) {
-    die("ERROR: The year is not in a valid format.");
+    die("\nERROR: The year is not in a valid format.");
 }
 // check color_two and color_three
 if (!preg_match('/^#[0-9A-Fa-f]{6}$/', $_POST["color_two"]) || !preg_match('/^#[0-9A-Fa-f]{6}$/', $_POST["color_three"])) {
-    die("ERROR: The colors are not in a valid format.");
+    die("\nERROR: The colors are not in a valid format.");
 }
 
 // ADD DATA TO DB
@@ -100,12 +107,12 @@ try {
         'm_year' => $_POST["year"],
         'm_rating' => 5,                    //TODO: add to form
         'm_type' => 'Movie',                //TODO: add to form
-        'm_img_url' => IMAGE_DIR_GLOBAL . $target_filename,
+        'm_img_url' => file_get_contents(__DIR__ . "/../../$target_filename"),
         'm_color_two' => $_POST["color_two"],
         'm_color_three' => $_POST["color_three"]
     ]);
 } catch (PDOException $e) {
-    die("ERROR: media table insert failed: " . $e->getMessage());
+    die("\nERROR: media table insert failed: " . $e->getMessage());
 }
 
 // TODO:

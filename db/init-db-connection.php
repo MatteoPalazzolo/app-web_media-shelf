@@ -19,5 +19,5 @@ try {
     // Set error mode to exceptions
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    die("ERROR: Connection failed: " . $e->getMessage());
+    die("\nERROR: Connection failed: " . $e->getMessage());
 }
