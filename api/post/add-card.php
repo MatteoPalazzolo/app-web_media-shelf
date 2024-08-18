@@ -78,7 +78,7 @@ elseif (isset($_POST["image_url"])) {
     */
 
     $target_filename = $_POST["image_url"];
-} 
+}
 else {
     die("\nERROR: No uploaded image found.");
 }
@@ -97,8 +97,8 @@ if (!preg_match('/^#[0-9A-Fa-f]{6}$/', $_POST["color_two"]) || !preg_match('/^#[
 require __DIR__ . "/../../db/init-db-connection.php";
 
 try {
-    $sql = "INSERT INTO media (m_title, m_year, m_rating, m_type, m_img_url, m_color_two, m_color_three) 
-            VALUES (:m_title, :m_year, :m_rating, :m_type, :m_img_url, :m_color_two, :m_color_three)";
+    $sql = "INSERT INTO media (m_title, m_year, m_rating, m_type, m_img_data, m_color_two, m_color_three) 
+            VALUES (:m_title, :m_year, :m_rating, :m_type, :m_img_data, :m_color_two, :m_color_three)";
     $stmt = $pdo->prepare($sql);
 
     // Insert Citizen Kane
@@ -107,13 +107,10 @@ try {
         'm_year' => $_POST["year"],
         'm_rating' => 5,                    //TODO: add to form
         'm_type' => 'Movie',                //TODO: add to form
-        'm_img_url' => file_get_contents(__DIR__ . "/../../$target_filename"),
+        'm_img_data' => file_get_contents(__DIR__ . "/../../$target_filename"),
         'm_color_two' => $_POST["color_two"],
         'm_color_three' => $_POST["color_three"]
     ]);
 } catch (PDOException $e) {
     die("\nERROR: media table insert failed: " . $e->getMessage());
 }
-
-// TODO:
-// load image into the db as blob

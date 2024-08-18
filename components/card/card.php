@@ -4,7 +4,11 @@
 
 <?php require_once __DIR__ . '/../../utils/utils.php'; ?>
 
-<?php function UI_RenderCard2($title, $year, $rating, $img_url, $color_two="#ffa500", $color_three="#fff523") { ?>
+<?php function UI_RenderCard2($title, $year, $rating, $img_data, $color_two="#ffa500", $color_three="#fff523") { ?>
+    <?php 
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $mimeType = $finfo->buffer($img_data);
+    ?>
     <div class="card">
         <div class="bg-one"></div>
         <div class="bg-two" style="background-color: <?= $color_two ?>;">
@@ -14,8 +18,7 @@
             <p>EDIT</p>
         </div>
         <p class="year"><?= $year ?></p>
-
-        <img src="<?= $img_url ?>" alt="">
+        <img src="<?= 'data:'. $mimeType . ';base64,' . base64_encode($img_data) ?>" alt="card-image">
         <h2 class="title"><?= $title ?></h2>
         <p class="rating"><?= calcStarRating($rating) ?></p>
     </div>
