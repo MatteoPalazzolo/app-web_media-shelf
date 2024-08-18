@@ -2,3 +2,5 @@ uploads/cover-images/*
 !uploads/cover-images/.gitkeep
 
 db/db.sqlite
+
+ngrok.exe

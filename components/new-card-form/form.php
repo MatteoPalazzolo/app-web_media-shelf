@@ -63,7 +63,9 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
 
             <div id="input-image-url" class="submit">
                 <input name="image_url" type="text">
-                <button type="button">GO!</button>
+                <!--
+                <button type="button">GO!</button> -->
+                <img src="assets/icons/stars.png" >
             </div>
         </div>
     </form>
@@ -71,15 +73,39 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
 
 <script>
 function toggleAddCardMenu() {
-    $("form.form").toggle();
+    if ($("form.form").css("display") === "none") {
+        $("form.form").toggle();
+        fallFromGrace();
+    }
+    else if ($("form.form").css("display") === "block") {
+        $("form.form").toggle();
+        shatterInPieces();
+    }
+    else {
+        console.log("FUCK YOU!!");
+    }
 }
-
+function fallFromGrace() {
+    $(".form-card").addClass("fall");
+    $(".form-card").addClass("shine");
+    setTimeout(() => {
+        $(".form-card").addClass("open");
+    }, 1500);
+    setTimeout(() => {
+        $(".form-card").removeClass("shine");
+    }, 1800);
+}
+function shatterInPieces() {
+    $(".form-card").removeClass("fall");
+    $(".form-card").removeClass("open");
+}
 // image file selection
 // TODO: load image.png from file -> load image from url -> load image.png from file again
 //      => the last wont update because change event is not triggered
 $("form.form #image-input").on("change", event => {
     file = event.target.files[0];
     if (file) {
+        $("#input-image-url > input").val("");
         var reader = new FileReader();
         reader.onload = e => $("#image-label > img").attr("src", e.target.result);
         reader.readAsDataURL(file);
@@ -87,7 +113,8 @@ $("form.form #image-input").on("change", event => {
     }
 })
 // image url selection
-$("form.form #input-image-url > button").on("click", () => {
+$("form.form #input-image-url > img").on("click", () => {
+    $("form.form #image-input").val("");
     var value = $("#input-image-url > input").val();
     if (value) {
         $("#image-label > img").attr("src", value);

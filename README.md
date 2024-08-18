@@ -3,6 +3,9 @@ https://www.1001fonts.com/heavy-heap-font.html
 https://www.fontspace.com/mighty-souly-font-f111821
 https://www.fontspace.com/gildeon-font-f109208
 
+## ICONS
+[Twinkle icons created by meaicon - Flaticon](https://www.flaticon.com/free-icons/twinkle)
+
 ## WEATHER API
 https://www.weatherapi.com/pricing.aspx
 
@@ -11,6 +14,16 @@ https://www.flaticon.com/free-icons/weather
 
 
 ## TODO
+
+#### NOW
+- [x] animate background color transition in form
+- [ ] animate card falling from top in form
+- [ ] refactor card image import from url
+- [ ] put card image in a blob in the db and clear uploads folder
+- [ ] check that there is no php in the filename before saving it
+- [ ] move db folder in api
+
+- [ ] reset form when closed
 
 #### PROGRAMMING
 - [ ] rimuovere sostituzione pagina dalla intro alla home -> carica da subito tutti i css e aggiorna il body con htmx

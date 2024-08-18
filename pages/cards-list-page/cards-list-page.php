@@ -4,7 +4,8 @@
 
 <main>
     <header>
-        <button class="add-card" onclick="toggleAddCardMenu();"> ADD NEW CARD </button>
+        <!-- check if card is open -->
+        <button class="add-card" onclick="toggleAddCardMenu();"> PUF </button>
     </header>
 
     <div class="page-background"></div>

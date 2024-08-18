@@ -13,7 +13,7 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%) translateY(-80vh) rotateY(0deg);
 
     width: fit-content;
 
@@ -22,8 +22,19 @@
     align-items: center;
     cursor: pointer;
     width: fit-content;
-    transition: transform .1s;
 
+    transition: transform 1.5s, box-shadow .1s;
+}
+.form-card.fall {
+    transform: translate(-50%,-50%) translateY(0) rotateY(360deg);
+}
+.form-card.shine {
+    filter: brightness(1);
+    box-shadow:
+      0 0 60px 30px #fff,  /* inner white */
+      0 0 100px 60px #f0f, /* middle magenta */
+      0 0 140px 90px #0ff; /* outer cyan */
+    transition: transform 1.5s, box-shadow .5s !important;
 }
 
 .form-card .bg-two p,
@@ -80,12 +91,19 @@
     border: 1px dashed #aaaaaa;*/
     position: absolute;
     z-index: 2;
+    transform: rotate(0deg) translate(0, 0) translateY(0);
+    transition: transform .1s, background-color .3s;
+}
+.form-card.shine .bg-two {
+    transition: transform .5s, background-color .3s;
+}
+.form-card.open .bg-two {
     transform: rotate(8deg) translate(15px, -2px) translateY(-10px);
-    transition: transform .1s;
 }
 .form-card .bg-two:hover {
     transform: rotate(8deg) translate(15px, -2px) translateY(-27px);
 }
+
 
 .form-card .bg-three {
     border-radius: var(--card-border-raidus);
@@ -95,14 +113,20 @@
     border: 1px dashed #aaaaaa;*/
     position: absolute;
     z-index: 1;
+    transform: rotate(0deg) translate(0, 0) translateY(0);
+    transition: transform .1s, background-color .3s;
+}
+.form-card.shine .bg-three {
+    transition: transform .5s, background-color .3s;
+}
+.form-card.open .bg-three {
     transform: rotate(16deg) translate(25px, -6px) translateY(-20px);
-    transition: transform .1s;
 }
 .form-card .bg-three:hover {
     transform: rotate(16deg) translate(25px, -6px) translateY(-35px);
 }
 
-.form-card img {
+.form-card #image-label > img {
     height: 500px;
     aspect-ratio: 9 / 13;
     object-fit: cover;
@@ -182,4 +206,32 @@
     position: absolute;
     top: -50px;
     left: 0;
+}
+
+.form-card #input-image-url {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 6;
+
+    display: flex;
+    flex-direction: row-reverse;
+}
+.form-card #input-image-url > input {
+    background-color: #00000000;
+    border: none;
+    outline: none;
+    border-bottom: solid #6AACFF 1px;
+    width: 92%;
+    font-size: 0.9em;
+    padding-left: 5px;
+    color: #6AACFF;
+}
+.form-card #input-image-url > img {
+    width: 8%;
+    transition: transform .1s;
+}
+.form-card #input-image-url > img:hover {
+    transform: scale(1.1);
 }
