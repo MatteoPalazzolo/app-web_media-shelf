@@ -18,19 +18,19 @@ https://www.flaticon.com/free-icons/weather
 #### NOW
 - [x] animate background color transition in form
 - [x] animate card falling from top in form
-- [ ] refactor card image import from url
-- [ ] put card image in a blob in the db and clear uploads folder
+- [x] refactor card image import from url
+- [x] put card image in a blob in the db
+- [x] move db folder in api
 - [ ] check that there is no php in the filename before saving it
-- [ ] move db folder in api
+- [ ] clear uploads folder
 
 #### PROGRAMMING
-- [ ] rimuovere sostituzione pagina dalla intro alla home -> carica da subito tutti i css e aggiorna il body con htmx
-- [ ] creare pagina per aggiungere una card
+- [x] creare pagina per aggiungere una card
 - [ ] creare pagina per editare una card
 
 #### CARD CREATION WINDOW
-- [ ] image color picker -> dynamic card palette
-- [ ] keep in mind that sql constrains are a thing
+- [x] image color picker -> dynamic card palette
+- [ ] set image as active to send its palette to the whole website
 
 #### HOME LAYOUT
 - [ ] separated sections for Film, Anime, Videogames, ...

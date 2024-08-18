@@ -94,7 +94,7 @@ if (!preg_match('/^#[0-9A-Fa-f]{6}$/', $_POST["color_two"]) || !preg_match('/^#[
 }
 
 // ADD DATA TO DB
-require __DIR__ . "/../../db/init-db-connection.php";
+require __DIR__ . "/../db/init-db-connection.php";
 
 try {
     $sql = "INSERT INTO media (m_title, m_year, m_rating, m_type, m_img_data, m_color_two, m_color_three) 

@@ -1,5 +1,5 @@
-uploads/cover-images/*
-!uploads/cover-images/.gitkeep
+uploads/temp/*
+!uploads/temp/.gitkeep
 
 db/db.sqlite
 

@@ -3,7 +3,7 @@
 if ($_SERVER['REQUEST_METHOD'] !== 'GET') die("request method not allowed");
 
 require_once __DIR__ . '/../../components/card/card.php';
-require      __DIR__ . '/../../db/init-db.php';
+require      __DIR__ . '/../db/init-db-connection.php';
 
 // create cards from db content
 try {
