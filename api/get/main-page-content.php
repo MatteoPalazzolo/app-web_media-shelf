@@ -16,6 +16,7 @@ try {
             $entry['m_year'],
             $entry['m_rating'],
             $entry['m_img_data'],
+            $entry['m_color_one'],
             $entry['m_color_two'],
             $entry['m_color_three']
         );

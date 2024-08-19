@@ -16,8 +16,8 @@ https://www.flaticon.com/free-icons/weather
 ## TODO
 
 #### NOW
-- [ ] handle better all the palette stuff frontend and backend
-    - [ ] reset form-card background colors on closing
+- [ ] adjust --color-contrast according to the brightness of the primary color
+- [ ] order color thief's palette for brightness (HUE)
 
 #### PROGRAMMING
 - [ ] creare pagina per editare una card

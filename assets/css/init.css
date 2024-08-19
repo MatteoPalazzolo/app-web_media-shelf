@@ -17,16 +17,3 @@
     margin: 0;
     padding: 0;
 }
-
-/* GLOBAL VARS */
-:root {
-    --color-primary: #ffa500;
-    --color-secondary: #76643e;
-    --color-details: #fff523;
-    
-    /*
-    --color-secondary: #76643e;
-    --color-primary: #28829C;
-    --color-details: #E0F1F7;
-    */
-}

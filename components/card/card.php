@@ -4,12 +4,12 @@
 
 <?php require_once __DIR__ . '/../../utils/utils.php'; ?>
 
-<?php function UI_RenderCard2($title, $year, $rating, $img_data, $color_two="#ffa500", $color_three="#fff523") { ?>
+<?php function UI_RenderCard2($title, $year, $rating, $img_data, $color_one, $color_two, $color_three) { ?>
     <?php 
     $finfo = new finfo(FILEINFO_MIME_TYPE);
     $mime_type = $finfo->buffer($img_data);
     ?>
-    <div class="card">
+    <div class="card" style="--color-one: <?= $color_one ?>">
         <div class="bg-one"></div>
         <div class="bg-two" style="background-color: <?= $color_two ?>;">
             <p>CALENDAR</p>

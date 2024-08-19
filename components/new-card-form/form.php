@@ -12,9 +12,15 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
         <div class="separator"></div>
         <div class="form-card">
 
-            <div class="bg-one"></div>
+            <div class="bg-one color-picker" style="cursor: auto">
+                <p>USELESS LOL</p>
+                <label for="input-color-one">
+                    <img src="assets/icons/paint-brush-icon.svg" >
+                </label>
+                <input type="color" id="input-color-one" name="color_one">
+            </div>
 
-            <div class="bg-two" style="cursor: auto">
+            <div class="bg-two color-picker" style="cursor: auto">
                 <p>TAGS</p>
                 <label for="input-color-two">
                     <img src="assets/icons/paint-brush-icon.svg" >
@@ -22,7 +28,7 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
                 <input type="color" id="input-color-two" name="color_two">
             </div>
 
-            <label class="bg-three" for="subimit-form">
+            <label class="bg-three color-picker" for="subimit-form">
                 <p>SUBMIT</p>
                 <label for="input-color-three">
                     <img src="assets/icons/paint-brush-icon.svg" >
@@ -105,6 +111,10 @@ function shatterInPieces() {
     $("form.form")[0].reset();
     $("#image-label > img").attr("src", "<?= ADD_IMG_PATH ?>");
     $("#input-image-url > input[type='text']").val("");
+    // remove custom background-color
+    $("form.form .bg-one").css("background-color", "");
+    $("form.form .bg-two").css("background-color", "");
+    $("form.form .bg-three").css("background-color", "");
 }
 
 // image file selection
@@ -160,15 +170,17 @@ function updatePalette() {
     const colorThief = new ColorThief();
     const img = $("#image-label > img")[0];
 
-    var palette = colorThief.getPalette(img, 5);
+    var palette = colorThief.getPalette(img, 3);
     var hexPalette = palette.map(e => rgbToHex(e));
     palette.forEach(e => {
         colorConsoleLog(rgbToHex(e), rgbToHex(e));
     });
-    $("form.form .bg-two").css("background-color", hexPalette[0]);
-    $("form.form .bg-three").css("background-color", hexPalette[1]);
-    $("#input-color-two").val(hexPalette[0]);
-    $("#input-color-three").val(hexPalette[1]);
+    $("form.form .bg-one").css("background-color", hexPalette[0]);
+    $("form.form .bg-two").css("background-color", hexPalette[1]);
+    $("form.form .bg-three").css("background-color", hexPalette[2]);
+    $("#input-color-one").val(hexPalette[0]);
+    $("#input-color-two").val(hexPalette[1]);
+    $("#input-color-three").val(hexPalette[2]);
 
     /*
     update = () => {
@@ -182,6 +194,18 @@ function updatePalette() {
     */
 }
 
+// set root palette 
+function setRootPalette(agidyne, bufudyne, ziodyne) {
+    console.log("palette set to: ", agidyne, bufudyne, ziodyne);
+    $(":root").css("--color-agidyne",   agidyne);
+    $(":root").css("--color-bufudyne",  bufudyne);
+    $(":root").css("--color-ziodyne",   ziodyne);
+}
+
+// keep color-background updated
+$("form.form #input-color-one").on("change", e => {
+    $("form.form .bg-one").css("background-color", e.target.value);
+});
 $("form.form #input-color-two").on("change", e => {
     $("form.form .bg-two").css("background-color", e.target.value);
 });
@@ -189,7 +213,7 @@ $("form.form #input-color-three").on("change", e => {
     $("form.form .bg-three").css("background-color", e.target.value);
 });
 
-// form submit
+// submit form
 $("form.form").on("submit", function(e) {
     e.preventDefault();
     
@@ -209,15 +233,16 @@ $("form.form").on("submit", function(e) {
                     alert(response);
                 } else {
                     refreshCardsList(
+                        $("#input-color-one").val(),
+                        $("#input-color-two").val(),
+                        $("#input-color-three").val()
+                    );
+                    setRootPalette(
+                        $("#input-color-one").val(),
                         $("#input-color-two").val(),
                         $("#input-color-three").val()
                     );
                     toggleAddCardMenu();
-
-                    // reset form
-                    $("form.form")[0].reset();
-                    $("#image-label > img").attr("src", "<?= ADD_IMG_PATH ?>");
-                    $("#input-image-url > input[type='text']").val("");
                 }
             },
             error: function() {

@@ -20,9 +20,9 @@
 
     <g mask="url(#clip-mask)">
         
-        <rect width="100%" height="100%" fill="var(--color-secondary)"/>
+        <rect id="rect-bg" width="100%" height="100%" fill="var(--color-bufudyne)"/>
     
-        <circle id="circle-one" r="0" cx="50%" cy="50%" fill="var(--color-primary)">
+        <circle id="circle-one" r="0" cx="50%" cy="50%" fill="var(--color-agidyne)">
             <animate
                 attributeName="r"
                 from="0"
@@ -33,7 +33,7 @@
             <set attributeName="r" to="0" />
         </circle>
 
-        <circle id="circle-two" r="0" cx="50%" cy="50%" fill="var(--color-details)">
+        <circle id="circle-two" r="0" cx="50%" cy="50%" fill="var(--color-ziodyne)">
             <animate
                 attributeName="r"
                 from="0"
@@ -48,16 +48,21 @@
 </svg>
 
 <script>
-function refreshCardsList(col1="", col2="") {
+function refreshCardsList(color1, color2, color3) {
+    // TODO: may need to rename col order 
+    if (color1) {
+        // console.log("color1", color1);
+        $("#rect-bg").attr("fill", color1);
+    }
 
-    if (col1) {
-        console.log("col1",col1)
-        $("#circle-one").attr("fill",col1);
+    if (color2) {
+        // console.log("color2", color2);
+        $("#circle-one").attr("fill", color2);
     }
     
-    if (col2) {
-        console.log("col2",col2)
-        $("#circle-two").attr("fill",col2);
+    if (color3) {
+        // console.log("color3", color3);
+        $("#circle-two").attr("fill", color3);
     }
 
     $("body").css("overflow","hidden");

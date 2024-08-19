@@ -44,8 +44,10 @@ else {
 if (!preg_match('/^\d{1,4}$/', $_POST["year"])) {
     die("\nERROR: The year is not in a valid format.");
 }
-// validate color_two and color_three
-if (!preg_match('/^#[0-9A-Fa-f]{6}$/', $_POST["color_two"]) || !preg_match('/^#[0-9A-Fa-f]{6}$/', $_POST["color_three"])) {
+// validate color one, two and three
+if (!preg_match('/^#[0-9A-Fa-f]{6}$/', $_POST["color_one"]) ||
+    !preg_match('/^#[0-9A-Fa-f]{6}$/', $_POST["color_two"]) || 
+    !preg_match('/^#[0-9A-Fa-f]{6}$/', $_POST["color_three"])) {
     die("\nERROR: The colors are not in a valid format.");
 }
 
@@ -53,19 +55,33 @@ if (!preg_match('/^#[0-9A-Fa-f]{6}$/', $_POST["color_two"]) || !preg_match('/^#[
 require __DIR__ . "/../db/init-db-connection.php";
 
 try {
-    $sql = "INSERT INTO media (m_title, m_year, m_rating, m_type, m_img_data, m_color_two, m_color_three) 
-            VALUES (:m_title, :m_year, :m_rating, :m_type, :m_img_data, :m_color_two, :m_color_three)";
-    $stmt = $pdo->prepare($sql);
+    $pdo->beginTransaction();
 
+    $sql = "INSERT INTO media (m_title, m_year, m_rating, m_type, m_img_data, m_color_one, m_color_two, m_color_three, m_active) 
+            VALUES (:m_title, :m_year, :m_rating, :m_type, :m_img_data, :m_color_one, :m_color_two, :m_color_three, :m_active);";
+    $stmt = $pdo->prepare($sql);
     $stmt->execute([
         'm_title' => htmlspecialchars($_POST["title"]),
         'm_year' => $_POST["year"],
         'm_rating' => 5,                    //TODO: add to form
         'm_type' => 'Movie',                //TODO: add to form
         'm_img_data' => $img_data,
+        'm_color_one' => $_POST["color_one"],
         'm_color_two' => $_POST["color_two"],
-        'm_color_three' => $_POST["color_three"]
+        'm_color_three' => $_POST["color_three"],
+        'm_active' => 1
     ]);
+
+    $sql = "UPDATE media SET m_active = 0 WHERE m_title != :m_title";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        'm_title' => htmlspecialchars($_POST["title"])
+    ]);
+
+    $pdo->commit();
+
 } catch (PDOException $e) {
-    die("\nERROR: media table insert failed: " . $e->getMessage());
+    echo "\nERROR: media table insert failed: " . $e->getMessage();
+    $pdo->rollBack();
+    die();
 }

@@ -37,8 +37,7 @@
     transition: transform 1.5s, box-shadow .5s !important;
 }
 
-.form-card .bg-two p,
-.form-card .bg-three p {
+.form-card .color-picker p {
     font-family: "PersonaBold", sans-serif;
     font-size: 1.4rem;
     transform: scaleX(1.1);
@@ -47,22 +46,16 @@
     width: 50%;
     transition: font-size .1s;
 }
-
-.form-card .bg-two:hover p,
-.form-card .bg-three:hover p {
+.form-card .color-picker:hover p {
     font-size: 1.8rem;
 }
-
-.form-card .bg-two input,
-.form-card .bg-three input {
+.form-card .color-picker input {
     visibility: hidden;
     position: absolute;
     top: 0;
     right: 0;
 }
-
-.form-card .bg-two label img,
-.form-card .bg-three label img {
+.form-card .color-picker label img {
     position: absolute;
     top: 3px;
     right: 3px;
@@ -72,15 +65,32 @@
     cursor: pointer;
     transition: transform .1s;
 }
-
-.form-card .bg-two:hover label img,
-.form-card .bg-three:hover label img {
+.form-card .color-picker:hover label img {
     transform: scale(1.2);
 }
-
-.form-card .bg-two label img:hover,
-.form-card .bg-three label img:hover {
+.form-card .color-picker label img:hover {
     transform: scale(1.4);
+}
+
+.form-card .bg-one {
+    border-radius: var(--card-border-raidus);
+    width: 100%;
+    height: 100%;
+    background-color: orange;/*
+    border: 1px dashed #aaaaaa;*/
+    position: absolute;
+    z-index: 3;/*
+    transform: rotate(0deg) translate(0, 0) translateY(0);*/
+    transition: transform .1s, background-color .3s;
+}
+.form-card.shine .bg-one {
+    transition: transform .5s, background-color .3s;
+}
+.form-card.open .bg-one {
+    transform: rotate(4deg) translate(15px, -2px) translateY(-10px);
+}
+.form-card .bg-one:hover {
+    transform: rotate(4deg) translate(15px, -2px) translateY(-27px);
 }
 
 .form-card .bg-two {
@@ -90,8 +100,8 @@
     background-color: orange;/*
     border: 1px dashed #aaaaaa;*/
     position: absolute;
-    z-index: 2;
-    transform: rotate(0deg) translate(0, 0) translateY(0);
+    z-index: 2;/*
+    transform: rotate(0deg) translate(0, 0) translateY(0);*/
     transition: transform .1s, background-color .3s;
 }
 .form-card.shine .bg-two {
@@ -104,7 +114,6 @@
     transform: rotate(8deg) translate(15px, -2px) translateY(-27px);
 }
 
-
 .form-card .bg-three {
     border-radius: var(--card-border-raidus);
     width: 100%;
@@ -112,8 +121,8 @@
     background-color: #fff523;/*
     border: 1px dashed #aaaaaa;*/
     position: absolute;
-    z-index: 1;
-    transform: rotate(0deg) translate(0, 0) translateY(0);
+    z-index: 1;/*
+    transform: rotate(0deg) translate(0, 0) translateY(0);*/
     transition: transform .1s, background-color .3s;
 }
 .form-card.shine .bg-three {

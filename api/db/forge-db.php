@@ -4,19 +4,21 @@ require 'init-db-connection.php';
 // create media table if not exists
 try {
     $sql = "CREATE TABLE IF NOT EXISTS media (
-                id INT AUTO_INCREMENT PRIMARY KEY,
-                m_title VARCHAR(255) NOT NULL,
-                m_year INT NOT NULL,
-                m_rating INT NOT NULL,
-                m_type ENUM('Movie', 'Videogame', 'Anime', 'Cartoon', 'TV Series', 'Book', 'Manga', 'Other') NOT NULL,
-                m_img_data LONGBLOB NOT NULL,
-                m_color_two VARCHAR(7) NOT NULL,
-                m_color_three VARCHAR(7) NOT NULL,
+                id                  INT             AUTO_INCREMENT PRIMARY KEY,
+                m_title             VARCHAR(255)    NOT NULL,
+                m_year              INT             NOT NULL,
+                m_rating            INT             NOT NULL,
+                m_type ENUM('Movie', 'Videogame', 'Anime', 'Cartoon', 'TV Series', 'Book', 'Manga') NOT NULL,
+                m_img_data          MEDIUMBLOB      NOT NULL,
+                m_color_one         VARCHAR(7)      NOT NULL,
+                m_color_two         VARCHAR(7)      NOT NULL,
+                m_color_three       VARCHAR(7)      NOT NULL,
+                m_active            TINYINT         NOT NULL,
                 UNIQUE (m_title)
             )";
     $pdo->exec($sql);
 } catch (PDOException $e) {
-    die("\nERROR: init-db.php falied: " . $e->getMessage());
+    die("\nERROR: forge-db.php falied: " . $e->getMessage());
 }
 
 function insertMedia($pdo, $title, $year, $rating, $type, $imgUrl, $colorTwo, $colorThree) {
@@ -32,8 +34,8 @@ function insertMedia($pdo, $title, $year, $rating, $type, $imgUrl, $colorTwo, $c
         }
 
         // Prepare the SQL statement
-        $sql = "INSERT INTO media (m_title, m_year, m_rating, m_type, m_img_data, m_color_two, m_color_three) 
-                VALUES (:m_title, :m_year, :m_rating, :m_type, :m_img_data, :m_color_two, :m_color_three)";
+        $sql = "INSERT INTO media (m_title, m_year, m_rating, m_type, m_img_data, m_color_one, m_color_two, m_color_three, m_active) 
+                VALUES (:m_title, :m_year, :m_rating, :m_type, :m_img_data, :m_color_one, :m_color_two, :m_color_three, :m_active)";
         $stmt = $pdo->prepare($sql);
 
         // Get image data
@@ -46,11 +48,13 @@ function insertMedia($pdo, $title, $year, $rating, $type, $imgUrl, $colorTwo, $c
             ':m_rating' => $rating,
             ':m_type' => $type,
             ':m_img_data' => $imgData,
+            ':m_color_one' => $colorTwo, //NOTICE
             ':m_color_two' => $colorTwo,
-            ':m_color_three' => $colorThree
+            ':m_color_three' => $colorThree,
+            ':m_active' => 1
         ]);
     } catch (PDOException $e) {
-        echo "\nERROR: Could not insert record for '{$title}'. " . $e->getMessage();
+        die("\nERROR: Could not insert record for '$title'. " . $e->getMessage());
     }
 }
 
