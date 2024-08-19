@@ -7,7 +7,7 @@
 <?php function UI_RenderCard2($title, $year, $rating, $img_data, $color_two="#ffa500", $color_three="#fff523") { ?>
     <?php 
     $finfo = new finfo(FILEINFO_MIME_TYPE);
-    $mimeType = $finfo->buffer($img_data);
+    $mime_type = $finfo->buffer($img_data);
     ?>
     <div class="card">
         <div class="bg-one"></div>
@@ -18,7 +18,7 @@
             <p>EDIT</p>
         </div>
         <p class="year"><?= $year ?></p>
-        <img src="<?= 'data:'. $mimeType . ';base64,' . base64_encode($img_data) ?>" alt="card-image">
+        <img src="<?= 'data:'. $mime_type . ';base64,' . base64_encode($img_data) ?>" alt="card-image">
         <h2 class="title"><?= $title ?></h2>
         <p class="rating"><?= calcStarRating($rating) ?></p>
     </div>

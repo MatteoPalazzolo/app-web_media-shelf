@@ -16,20 +16,13 @@ https://www.flaticon.com/free-icons/weather
 ## TODO
 
 #### NOW
-- [x] animate background color transition in form
-- [x] animate card falling from top in form
-- [x] refactor card image import from url
-- [x] put card image in a blob in the db
-- [x] move db folder in api
-- [ ] check that there is no php in the filename before saving it
-- [ ] clear uploads folder
+- [ ] handle better all the palette stuff frontend and backend
+    - [ ] reset form-card background colors on closing
 
 #### PROGRAMMING
-- [x] creare pagina per aggiungere una card
 - [ ] creare pagina per editare una card
 
 #### CARD CREATION WINDOW
-- [x] image color picker -> dynamic card palette
 - [ ] set image as active to send its palette to the whole website
 
 #### HOME LAYOUT

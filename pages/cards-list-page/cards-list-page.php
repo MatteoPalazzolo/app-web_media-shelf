@@ -4,7 +4,6 @@
 
 <main>
     <header>
-        <!-- check if card is open -->
         <button class="add-card" onclick="toggleAddCardMenu();"> PUF </button>
     </header>
 

@@ -71,6 +71,7 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
 </main>
 
 <script>
+// public
 function toggleAddCardMenu() {
     if ($("form.form").css("display") === "none") {
         $("form.form").toggle();
@@ -84,6 +85,7 @@ function toggleAddCardMenu() {
         console.log("FUCK YOU!!");
     }
 }
+// private
 function fallFromGrace() {
     $(".form-card").addClass("fall");
     $(".form-card").addClass("shine");
@@ -94,6 +96,7 @@ function fallFromGrace() {
         $(".form-card").removeClass("shine");
     }, 1800);
 }
+// private
 function shatterInPieces() {
     // reset animation
     $(".form-card").removeClass("fall");
@@ -103,9 +106,8 @@ function shatterInPieces() {
     $("#image-label > img").attr("src", "<?= ADD_IMG_PATH ?>");
     $("#input-image-url > input[type='text']").val("");
 }
+
 // image file selection
-// TODO: load image.png from file -> load image from url -> load image.png from file again
-//      => the last wont update because change event is not triggered
 $("form.form #image-input").on("change", event => {
     file = event.target.files[0];
     if (file) {
@@ -117,34 +119,32 @@ $("form.form #image-input").on("change", event => {
         setTimeout(updatePalette, 100);
     }
 })
+
 // image url selection
-/*
 $("form.form #input-image-url > img").on("click", () => {
-    $("form.form #image-input").val("");
-    var value = $("#input-image-url > input").val();
-    if (value) {
-        $("#image-label > img").attr("src", value);
-        setTimeout(updatePalette, 100);
-    }
-}); 
-*/
-$("form.form #input-image-url > img").on("click", () => {
-    $("form.form #image-input").val("");
-    var value = $("#input-image-url > input").val();
-    if (value) {
+    var url = $("#input-image-url > input[type='text']").val();
+    if (url) {
         $.ajax({
             type: 'POST',
-            url: 'api/post/save-temp-img.php',
-            data: { image_url: value },
+            url: 'api/post/url-to-base64.php',
+            data: { image_url: url },
             success: function(response) {
                 var lines = response.split("\n");
                 console.log(lines);
                 if (lines[lines.length - 1].slice(0,5) === "ERROR") {
                     alert(response);
                 } else {
+                    /*
                     $("#image-label > img").attr("src", lines[lines.length - 1]);
                     $("#input-image-url > input[type='hidden']").val(lines[lines.length - 1]);
                     $("#input-image-url > input[type='text']").val("");
+                    */
+
+                    $("#image-label > img").attr("src", response);
+                    $("#input-image-url > input[type='hidden']").val(url);
+                    $("#input-image-url > input[type='text']").val("");
+                    $("form.form #image-input").val("");
+
                     setTimeout(updatePalette, 100);
                 }
             },
@@ -154,6 +154,7 @@ $("form.form #input-image-url > img").on("click", () => {
         });
     }
 });
+
 // color thief
 function updatePalette() {
     const colorThief = new ColorThief();
@@ -198,14 +199,13 @@ $("form.form").on("submit", function(e) {
     if (data.image.name || data.image_url) {
         $.ajax({
             type: 'POST',
-            url: 'api/post/add-card.php', 
+            url: 'api/post/submit-card.php', 
             data: formData,
             processData: false,
             contentType: false,
             success: function(response) {
                 var iserror = response.split("\n");
                 if (iserror[iserror.length - 1].slice(0,5) === "ERROR") {
-                    // $('#show-form-error').html(response);
                     alert(response);
                 } else {
                     refreshCardsList(
@@ -221,7 +221,6 @@ $("form.form").on("submit", function(e) {
                 }
             },
             error: function() {
-                // $('#show-form-error').html('<p>Errore nell\'invio del form.</p>');
                 alert("ERROR: An error occurred while submitting the form.");
             }
         });
