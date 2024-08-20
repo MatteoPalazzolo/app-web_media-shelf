@@ -1,19 +1,28 @@
+/*
 body {
     background-color: var(--color-bufu);
-}
+}*/
 
 header {
     width: 100%;
-    height: 100px;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: var(--color-agi);
     z-index: 10;
 }
-.add-card {
-    position: relative;
-    z-index: 10;
+header .add-card {
+    width: 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%,-50%) translate(40px,42px);
+}
+header .ui-circle {
+    width: 250px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%,-50%) translate(20px,20px);
 }
 .card-container {
     display: flex;

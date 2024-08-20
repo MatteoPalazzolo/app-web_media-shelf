@@ -4,7 +4,7 @@
 
 <?php require_once __DIR__ . '/../../utils/utils.php'; ?>
 
-<?php function UI_RenderCard2($title, $year, $rating, $img_data, $color_one, $color_two, $color_three) { ?>
+<?php function UI_RenderCard($title, $year, $rating, $img_data, $color_one, $color_two, $color_three) { ?>
     <?php 
     $finfo = new finfo(FILEINFO_MIME_TYPE);
     $mime_type = $finfo->buffer($img_data);

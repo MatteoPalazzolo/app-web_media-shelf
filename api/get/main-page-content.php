@@ -11,7 +11,7 @@ try {
     $stmt = $pdo->query($sql);
     $entries = $stmt->fetchAll(PDO::FETCH_ASSOC);
     foreach ($entries as $entry) {
-        UI_RenderCard2(
+        UI_RenderCard(
             $entry['m_title'],
             $entry['m_year'],
             $entry['m_rating'],

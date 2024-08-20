@@ -5,7 +5,8 @@ https://www.fontspace.com/gildeon-font-f109208
 
 ## ICONS
 [Twinkle icons created by meaicon - Flaticon](https://www.flaticon.com/free-icons/twinkle)
-[Image by freepik](https://www.freepik.com/free-vector/flat-sparkling-star-collection_15591227.htm#fromView=keyword&page=1&position=2&uuid=b7a01977-91ce-4b36-98a2-10a11ce26070") 
+[Image by freepik](https://www.freepik.com/free-vector/flat-sparkling-star-collection_15591227.htm#fromView=keyword&page=1&position=2&uuid=b7a01977-91ce-4b36-98a2-10a11ce26070")
+[Card by sundari sugiyono from Noun Project (CC BY 3.0)](https://thenounproject.com/browse/icons/term/card/)
 
 ## WEATHER API
 https://www.weatherapi.com/pricing.aspx
