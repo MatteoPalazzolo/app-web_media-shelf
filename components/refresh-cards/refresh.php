@@ -71,7 +71,7 @@ function refreshCardsList(color1, color2, color3) {
         url: '/api/get/main-page-content.php',
         type: 'GET',
         success: function(response) {
-            $("#container").html(response);
+            $("#card-container").html(response);
         },
         error: function(xhr, status, error) {
             console.error("An error occurred: " + error);

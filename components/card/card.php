@@ -9,7 +9,8 @@
     $finfo = new finfo(FILEINFO_MIME_TYPE);
     $mime_type = $finfo->buffer($img_data);
     ?>
-    <div class="card" style="--color-one: <?= $color_one ?>">
+    <div class="card" style="--color-one: <?= $color_one ?>"
+        draggable="true" ondragover="event.preventDefault()" ondrop="console.log(event)">
         <div class="bg-one"></div>
         <div class="bg-two" style="background-color: <?= $color_two ?>;">
             <p>CALENDAR</p>
@@ -18,7 +19,7 @@
             <p>EDIT</p>
         </div>
         <p class="year"><?= $year ?></p>
-        <img src="<?= 'data:'. $mime_type . ';base64,' . base64_encode($img_data) ?>" alt="card-image">
+        <img src="<?= 'data:'. $mime_type . ';base64,' . base64_encode($img_data) ?>" draggable="false">
         <h2 class="title"><?= $title ?></h2>
         <p class="rating"><?= calcStarRating($rating) ?></p>
     </div>

@@ -15,7 +15,8 @@
         die("\nERROR: Create cards from db content failed: " . $e->getMessage());
     }
 
-    $contrast = isColorBright($colors['m_color_one']) ? "black" : "white";
+    $agidyne_contrast  = isColorBright($colors['m_color_one']) ? "black" : "white";
+    $bufudyne_contrast = isColorBright($colors['m_color_two']) ? "black" : "white";
 
 ?>
 
@@ -34,15 +35,18 @@
     <link rel="stylesheet" href="assets/css/init.css">
     <style>
     :root {
-        --color-agidyne:    <?= $colors['m_color_one']      ?>;
-        --color-bufudyne:   <?= $colors['m_color_two']      ?>;
-        --color-ziodyne:    <?= $colors['m_color_three']    ?>;
-        --color-contrast:   <?= $contrast                   ?>;
+        --color-hama: #FFF;
+        --color-mudo: #000;
+        --color-agidyne:            <?= $colors['m_color_one']      ?>;
+        --color-bufudyne:           <?= $colors['m_color_two']      ?>;
+        --color-ziodyne:            <?= $colors['m_color_three']    ?>;
+        --color-contrast-agidyne:   <?= $agidyne_contrast           ?>;
+        --color-contrast-bufudyne:  <?= $bufudyne_contrast          ?>;
     }
     </style>
 </head>
 <body>
-    <div hx-get="/pages/intro/intro.php" hx-trigger="load" hx-target="body"></div>
-    <!-- <div hx-get="/pages/cards-list-page/cards-list-page.php" hx-trigger="load" hx-target="body"></div> -->
+    <!-- <div hx-get="/pages/intro/intro.php" hx-trigger="load" hx-target="body"></div> -->
+    <div hx-get="/pages/cards-list-page/cards-list-page.php" hx-trigger="load" hx-target="body"></div>
 </body>
 </html>

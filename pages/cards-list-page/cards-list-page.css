@@ -1,37 +1,58 @@
-
 body {
-    /*
-    background-image: url('../../assets/images/b&w-tiles-background.png');
-    background-repeat: repeat;
-    */
-    background-color: #6b6565;
+    background-color: var(--color-bufudyne);
 }
 
-.page-background {
+.parallax {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    z-index: -10;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transform-style: preserve-3d;
+    perspective: 1px;
 }
-
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 90px;
-    margin-right: 8%;
-    margin-left: 8%;
-    margin-bottom: 120px;
-    justify-content: space-evenly;
-    gap: 100px;
+.parallax .parallax-layer {
+    position: absolute;
+    width:  100%;
+    height: 100%;
+    top:       0;
+    right:     0;
+}
+.parallax .parallax-layer.layer-back-back-back {
+    transform: translateZ(-3px) scale(4);
+}
+.parallax .parallax-layer.layer-back-back {
+    transform: translateZ(-2px) scale(3);
+}
+.parallax .parallax-layer.layer-back {
+    transform: translateZ(-1px) scale(2);
+}
+.parallax .parallax-layer.layer-base {
+    transform: translateZ(0) scale(1);
 }
 
 header {
     width: 100%;
-    background-color: var(--color-agidyne);
     height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--color-agidyne);
+    z-index: 10;
 }
-
 .add-card {
     position: relative;
     z-index: 10;
+}
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 180px;
+    margin-right: 8%;
+    margin-left: 8%;
+    padding-bottom: 200px;
+    justify-content: space-evenly;
+    gap: 100px;
 }

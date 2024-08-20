@@ -5,11 +5,22 @@
 <main>
     <header>
         <button class="add-card" onclick="toggleAddCardMenu();"> PUF </button>
-        <h1 style="color: var(--color-contrast)">THIS IS A TEST BRRRRRRRRRRRRRRRRRRRRRRRRRRR</h1>
+        <h1 style="color: var(--color-contrast-agidyne)">THIS IS A TEST BRRRRRRRRRRRRRRRRRRRRRRRRRRR</h1>
     </header>
-
-    <div class="page-background"></div>
-    <div id="container" class="container" hx-get="/api/get/main-page-content.php" hx-trigger="load"></div>
+    <div class="parallax">
+        <div class="parallax-layer layer-back-back-back"    >
+            <p style="font-size: 30em;">HELLOOOOOOOOOOOOOOOOOOOOOOOO</p>
+        </div>
+        <div class="parallax-layer layer-back-back"         >
+            <p style="font-size: 40em;">HELLOOOOOOOOOOOOOOOOOOOOOOOO</p>
+        </div>
+        <div class="parallax-layer layer-back"              >
+            <p style="font-size: 50em;">HELLOOOOOOOOOOOOOOOOOOOOOOOO</p>
+        </div>
+        <div class="parallax-layer layer-base">
+            <div id="card-container" class="card-container" hx-get="/api/get/main-page-content.php" hx-trigger="load"></div>
+        </div>
+    </div>
 </main>
 
 <?php

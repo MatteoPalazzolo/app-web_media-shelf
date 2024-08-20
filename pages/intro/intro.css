@@ -19,7 +19,7 @@ body.intro {
     left: 50%;
     width: 8000px;
 
-    color: var(--color-contrast);
+    color: var(--color-contrast-agidyne);
     border: 8px solid var(--color-ziodyne);
     background-color: var(--color-agidyne);
     

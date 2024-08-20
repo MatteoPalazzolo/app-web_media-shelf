@@ -144,12 +144,6 @@ $("form.form #input-image-url > img").on("click", () => {
                 if (lines[lines.length - 1].slice(0,5) === "ERROR") {
                     alert(response);
                 } else {
-                    /*
-                    $("#image-label > img").attr("src", lines[lines.length - 1]);
-                    $("#input-image-url > input[type='hidden']").val(lines[lines.length - 1]);
-                    $("#input-image-url > input[type='text']").val("");
-                    */
-
                     $("#image-label > img").attr("src", response);
                     $("#input-image-url > input[type='hidden']").val(url);
                     $("#input-image-url > input[type='text']").val("");
@@ -201,10 +195,11 @@ function updatePalette() {
 // set root palette 
 function setRootPalette(agidyne, bufudyne, ziodyne) {
     console.log("palette set to: ", agidyne, bufudyne, ziodyne);
-    $(":root").css("--color-agidyne",   agidyne);
-    $(":root").css("--color-bufudyne",  bufudyne);
-    $(":root").css("--color-ziodyne",   ziodyne);
-    $(":root").css("--color-contrast",  isColorBright(agidyne) ? "black" : "white");
+    $(":root").css("--color-agidyne",  agidyne);
+    $(":root").css("--color-bufudyne", bufudyne);
+    $(":root").css("--color-ziodyne",  ziodyne);
+    $(":root").css("--color-contrast-agidyne",  isColorBright(agidyne)  ? "var(--color-mudo)" : "var(--color-hama)");
+    $(":root").css("--color-contrast-bufudyne", isColorBright(bufudyne) ? "var(--color-mudo)" : "var(--color-hama)");
 }
 
 // keep color-background updated
