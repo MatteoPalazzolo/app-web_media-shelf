@@ -76,7 +76,7 @@
 .form-card .bg-one {
     width: 100%;
     height: 100%;
-    background-color: var(--color-agidyne);
+    background-color: var(--color-agi);
     position: absolute;
     z-index: 3;/*
     transform: rotate(0deg) translate(0, 0) translateY(0);*/
@@ -95,7 +95,7 @@
 .form-card .bg-two {
     width: 100%;
     height: 100%;
-    background-color: var(--color-bufudyne);
+    background-color: var(--color-bufu);
     position: absolute;
     z-index: 2;/*
     transform: rotate(0deg) translate(0, 0) translateY(0);*/
@@ -114,7 +114,7 @@
 .form-card .bg-three {
     width: 100%;
     height: 100%;
-    background-color: var(--color-ziodyne);
+    background-color: var(--color-zio);
     position: absolute;
     z-index: 1;/*
     transform: rotate(0deg) translate(0, 0) translateY(0);*/

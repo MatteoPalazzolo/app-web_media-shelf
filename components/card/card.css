@@ -126,7 +126,7 @@
     right: 5px;
     z-index: -1;
 
-    color: var(--color-contrast-bufudyne);
+    color: var(--color-contrast-bufu);
     
     transition: transform .1s;
 }
@@ -142,7 +142,7 @@
 
     height: 100%;
     
-    color: var(--color-contrast-bufudyne);
+    color: var(--color-contrast-bufu);
     
     position: absolute;
     z-index: -1;

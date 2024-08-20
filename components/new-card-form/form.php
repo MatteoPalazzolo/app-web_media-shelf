@@ -193,13 +193,13 @@ function updatePalette() {
 }
 
 // set root palette 
-function setRootPalette(agidyne, bufudyne, ziodyne) {
-    console.log("palette set to: ", agidyne, bufudyne, ziodyne);
-    $(":root").css("--color-agidyne",  agidyne);
-    $(":root").css("--color-bufudyne", bufudyne);
-    $(":root").css("--color-ziodyne",  ziodyne);
-    $(":root").css("--color-contrast-agidyne",  isColorBright(agidyne)  ? "var(--color-mudo)" : "var(--color-hama)");
-    $(":root").css("--color-contrast-bufudyne", isColorBright(bufudyne) ? "var(--color-mudo)" : "var(--color-hama)");
+function setRootPalette(agi, bufu, zio) {
+    console.log("palette set to: ", agi, bufu, zio);
+    $(":root").css("--color-agi",  agi);
+    $(":root").css("--color-bufu", bufu);
+    $(":root").css("--color-zio",  zio);
+    $(":root").css("--color-contrast-agi",  isColorBright(agi)  ? "var(--color-mudo)" : "var(--color-hama)");
+    $(":root").css("--color-contrast-bufu", isColorBright(bufu) ? "var(--color-mudo)" : "var(--color-hama)");
 }
 
 // keep color-background updated

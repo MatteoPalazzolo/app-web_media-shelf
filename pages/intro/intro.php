@@ -21,10 +21,10 @@
 
         <g mask="url(#clip-mask)">
             
-            <rect width="100%" height="100%" fill="var(--color-bufudyne)"/>
+            <rect width="100%" height="100%" fill="var(--color-bufu)"/>
 
             <!--
-            <circle r="0" cx="50%" cy="50%" mask="url(#erase-mask)" fill="var(--color-bufudyne)">
+            <circle r="0" cx="50%" cy="50%" mask="url(#erase-mask)" fill="var(--color-bufu)">
                 <animate
                     attributeName="r"
                     from="0"
@@ -36,7 +36,7 @@
             </circle>
             -->
 
-            <circle r="0" cx="50%" cy="50%" fill="var(--color-agidyne)">
+            <circle r="0" cx="50%" cy="50%" fill="var(--color-agi)">
                 <animate
                     attributeName="r"
                     from="0"
@@ -47,7 +47,7 @@
                 />
             </circle>
 
-            <circle r="0" cx="50%" cy="50%" fill="var(--color-ziodyne)">
+            <circle r="0" cx="50%" cy="50%" fill="var(--color-zio)">
                 <animate
                     attributeName="r"
                     from="0"
@@ -62,7 +62,7 @@
     </svg>
 
     <p  class="date" 
-        hx-get="/pages/cards-list-page/cards-list-page.php" 
+        hx-get="/pages/main/main.php" 
         hx-target="body" 
         hx-trigger="click delay:1s"
         onclick="$(this).addClass('open')">

@@ -15,8 +15,11 @@
         die("\nERROR: Create cards from db content failed: " . $e->getMessage());
     }
 
-    $agidyne_contrast  = isColorBright($colors['m_color_one']) ? "black" : "white";
-    $bufudyne_contrast = isColorBright($colors['m_color_two']) ? "black" : "white";
+    $hama = "#FFF";
+    $mudo = "#000";
+
+    $agi_contrast  = isColorBright($colors['m_color_one']) ? $mudo : $hama;
+    $bufu_contrast = isColorBright($colors['m_color_two']) ? $mudo : $hama;
 
 ?>
 
@@ -35,18 +38,18 @@
     <link rel="stylesheet" href="assets/css/init.css">
     <style>
     :root {
-        --color-hama: #FFF;
-        --color-mudo: #000;
-        --color-agidyne:            <?= $colors['m_color_one']      ?>;
-        --color-bufudyne:           <?= $colors['m_color_two']      ?>;
-        --color-ziodyne:            <?= $colors['m_color_three']    ?>;
-        --color-contrast-agidyne:   <?= $agidyne_contrast           ?>;
-        --color-contrast-bufudyne:  <?= $bufudyne_contrast          ?>;
+        --color-agi:            <?= $colors['m_color_one']  ?>;
+        --color-bufu:           <?= $colors['m_color_two']  ?>;
+        --color-zio:            <?= $colors['m_color_three']?>;
+        --color-hama:           <?= $hama                   ?>;
+        --color-mudo:           <?= $mudo                   ?>;
+        --color-contrast-agi:   <?= $agi_contrast           ?>;
+        --color-contrast-bufu:  <?= $bufu_contrast          ?>;
     }
     </style>
 </head>
 <body>
     <!-- <div hx-get="/pages/intro/intro.php" hx-trigger="load" hx-target="body"></div> -->
-    <div hx-get="/pages/cards-list-page/cards-list-page.php" hx-trigger="load" hx-target="body"></div>
+    <div hx-get="/pages/main/main.php" hx-trigger="load" hx-target="body"></div>
 </body>
 </html>

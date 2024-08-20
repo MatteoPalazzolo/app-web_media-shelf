@@ -1,11 +1,12 @@
 <style>
-<?= file_get_contents("./cards-list-page.css"); ?>
+<?= file_get_contents("./main.css"); ?>
+<?= file_get_contents("./parallax-background.css"); ?>
 </style>
 
 <main>
     <header>
         <button class="add-card" onclick="toggleAddCardMenu();"> PUF </button>
-        <h1 style="color: var(--color-contrast-agidyne)">THIS IS A TEST BRRRRRRRRRRRRRRRRRRRRRRRRRRR</h1>
+        <h1 style="color: var(--color-contrast-agi)">THIS IS A TEST BRRRRRRRRRRRRRRRRRRRRRRRRRRR</h1>
     </header>
     <div class="parallax">
         <div class="parallax-layer layer-back-back-back"    >
@@ -15,6 +16,7 @@
             <p style="font-size: 40em;">HELLOOOOOOOOOOOOOOOOOOOOOOOO</p>
         </div>
         <div class="parallax-layer layer-back"              >
+            <div class="milky-way-back"></div>
             <p style="font-size: 50em;">HELLOOOOOOOOOOOOOOOOOOOOOOOO</p>
         </div>
         <div class="parallax-layer layer-base">

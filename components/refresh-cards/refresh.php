@@ -20,9 +20,9 @@
 
     <g mask="url(#clip-mask)">
         
-        <rect id="rect-bg" width="100%" height="100%" fill="var(--color-bufudyne)"/>
+        <rect id="rect-bg" width="100%" height="100%" fill="var(--color-bufu)"/>
     
-        <circle id="circle-one" r="0" cx="50%" cy="50%" fill="var(--color-agidyne)">
+        <circle id="circle-one" r="0" cx="50%" cy="50%" fill="var(--color-agi)">
             <animate
                 attributeName="r"
                 from="0"
@@ -33,7 +33,7 @@
             <set attributeName="r" to="0" />
         </circle>
 
-        <circle id="circle-two" r="0" cx="50%" cy="50%" fill="var(--color-ziodyne)">
+        <circle id="circle-two" r="0" cx="50%" cy="50%" fill="var(--color-zio)">
             <animate
                 attributeName="r"
                 from="0"

@@ -19,7 +19,7 @@ https://www.flaticon.com/free-icons/weather
 #### NOW
 - [x] adjust --color-contrast according to the brightness of the primary color
 - [x] order color thief's palette for brightness (HUE)
-- [x] consider to add --color-contrast also for --color-bufudyne
+- [x] consider to add --color-contrast also for --color-bufu
 - [ ] work on parallax background for card-list-page.php (and change the name pls)
 - [ ] work on fallFromGrace animation
 

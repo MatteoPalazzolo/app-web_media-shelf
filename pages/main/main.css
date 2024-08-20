@@ -1,5 +1,5 @@
 body {
-    background-color: var(--color-bufudyne);
+    background-color: var(--color-bufu);
 }
 
 .parallax {
@@ -39,7 +39,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: var(--color-agidyne);
+    background-color: var(--color-agi);
     z-index: 10;
 }
 .add-card {
