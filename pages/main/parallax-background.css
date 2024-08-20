@@ -1,0 +1,56 @@
+.parallax {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transform-style: preserve-3d;
+    perspective: 1px;
+}
+.parallax .parallax-layer {
+    position: absolute;
+    width:  100%;
+    height: 150%;
+    top:       0;
+    right:     0;
+}
+.parallax .parallax-layer.layer-back-back-back {
+    transform: translateZ(-3px) scale(4.1);
+}
+.parallax .parallax-layer.layer-back-back {
+    transform: translateZ(-2px) scale(3.1);
+}
+.parallax .parallax-layer.layer-back {
+    transform: translateZ(-1px) scale(2.1);
+}
+.parallax .parallax-layer.layer-base {
+    transform: translateZ(0) scale(1);
+}
+
+.milky-way {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.milky-way.back-back-back {
+    background-color: var(--color-bufu);
+}
+.milky-way.back-back {
+}
+.milky-way.back {
+}
+.milky-way > svg {
+    position: absolute;
+    width: 75px;
+}
+
+@keyframes star-shine {
+    0%,100% {
+        transform: scale(0.8);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}

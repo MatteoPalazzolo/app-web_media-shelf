@@ -12,10 +12,10 @@
     <div class="card" style="--color-one: <?= $color_one ?>"
         draggable="true" ondragover="event.preventDefault()" ondrop="console.log(event)">
         <div class="bg-one"></div>
-        <div class="bg-two" style="background-color: <?= $color_two ?>;">
+        <div class="bg-two" draggable="true" style="background-color: <?= $color_two ?>;">
             <p>CALENDAR</p>
         </div>
-        <div class="bg-three" style="background-color: <?= $color_three ?>;">
+        <div class="bg-three" draggable="true" style="background-color: <?= $color_three ?>;">
             <p>EDIT</p>
         </div>
         <p class="year"><?= $year ?></p>

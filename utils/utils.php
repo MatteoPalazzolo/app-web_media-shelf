@@ -28,6 +28,10 @@ function isColorBright($color) {
     return $brightness > 127.5;
 }
 
+function randomFloat($min, $max) {
+    return $min + mt_rand() / mt_getrandmax() * ($max - $min);
+}
+
 /*
 function generateRandomString($length) {
     //$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
