@@ -1,11 +1,15 @@
 .separator {
     position: fixed;
     z-index: 9;
-    background-color: #000000cc;
+    background-color: #00000000;
     width: 100vw;
     height: 100vh;
     top: 0;
     left: 0;
+    transition: background-color .8s ease-in-out;
+}
+.separator.show {
+    background-color: #000000;
 }
 
 .form-card {

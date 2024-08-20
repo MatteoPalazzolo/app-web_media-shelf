@@ -77,14 +77,15 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
 </main>
 
 <script>
-// public
 function toggleAddCardMenu() {
     if ($("form.form").css("display") === "none") {
         $("form.form").toggle();
+        $("form.form .separator").toggleClass("show");
         fallFromGrace();
     }
     else if ($("form.form").css("display") === "block") {
         $("form.form").toggle();
+        $("form.form .separator").toggleClass("show");
         shatterInPieces();
     }
     else {

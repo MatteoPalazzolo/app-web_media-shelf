@@ -18,7 +18,7 @@ https://www.flaticon.com/free-icons/weather
 ## TODO
 
 #### NOW
-- [ ] work on fallFromGrace animation
+- [ ] work on fallFromGrace animation :=)
 
 #### PROGRAMMING
 - [ ] creare pagina per editare una card
