@@ -171,10 +171,14 @@ function updatePalette() {
     const img = $("#image-label > img")[0];
 
     var palette = colorThief.getPalette(img, 3);
-    var hexPalette = palette.map(e => rgbToHex(e));
+    var hexPalette = palette.map(e => rgbToHex(e)).sort((a,b) => getColorBrightness(a) - getColorBrightness(b));
+
+    // console log
     palette.forEach(e => {
         colorConsoleLog(rgbToHex(e), rgbToHex(e));
     });
+
+    // update
     $("form.form .bg-one").css("background-color", hexPalette[0]);
     $("form.form .bg-two").css("background-color", hexPalette[1]);
     $("form.form .bg-three").css("background-color", hexPalette[2]);
@@ -200,6 +204,7 @@ function setRootPalette(agidyne, bufudyne, ziodyne) {
     $(":root").css("--color-agidyne",   agidyne);
     $(":root").css("--color-bufudyne",  bufudyne);
     $(":root").css("--color-ziodyne",   ziodyne);
+    $(":root").css("--color-contrast",  isColorBright(agidyne) ? "black" : "white");
 }
 
 // keep color-background updated

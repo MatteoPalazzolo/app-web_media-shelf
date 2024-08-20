@@ -19,7 +19,9 @@ body.intro {
     left: 50%;
     width: 8000px;
 
+    color: var(--color-contrast);
     border: 8px solid var(--color-ziodyne);
+    background-color: var(--color-agidyne);
     
     font-family: 'Persona';
     font-size: 150px;
@@ -28,7 +30,6 @@ body.intro {
     transition: transform .5s;
     
     text-align: center;
-    background-color: var(--color-agidyne);
 
     cursor: pointer;
 }

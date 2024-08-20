@@ -15,6 +15,20 @@ function calcStarRating($rating) {
     return $out;
 }
 
+function isColorBright($color) {
+    if (strlen($color) !== 7)
+        die("\nERROR: Only colors in the format #FFFFFF are allowed.");
+
+    $r = hexdec(substr($color, 1, 2));
+    $g = hexdec(substr($color, 3, 2));
+    $b = hexdec(substr($color, 5, 2));
+
+    $brightness = sqrt(0.299 * ($r * $r) + 0.587 * ($g * $g) + 0.114 * ($b * $b));
+
+    return $brightness > 127.5;
+}
+
+/*
 function generateRandomString($length) {
     //$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $characters = 'abcdefghijklmnopqrstuvwxyz';
@@ -27,3 +41,4 @@ function generateRandomString($length) {
 
     return $randomString;
 }
+*/

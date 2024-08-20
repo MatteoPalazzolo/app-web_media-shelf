@@ -5,6 +5,7 @@
 <main>
     <header>
         <button class="add-card" onclick="toggleAddCardMenu();"> PUF </button>
+        <h1 style="color: var(--color-contrast)">THIS IS A TEST BRRRRRRRRRRRRRRRRRRRRRRRRRRR</h1>
     </header>
 
     <div class="page-background"></div>

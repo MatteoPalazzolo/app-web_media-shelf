@@ -11,32 +11,26 @@ $mime_to_extension = [
     'image/bmp' => 'bmp'
 ];
 
-$img_data = "";
+$file_url = "";
 
 if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-
-    $img_data = file_get_contents($_FILES["image"]["tmp_name"]);
-    $finfo = new finfo(FILEINFO_MIME_TYPE);
-    $mime_type = $finfo->buffer($img_data);
-
-    if (!isset($mime_to_extension[$mime_type])) {
-        die("\nERROR: Unsupported MIME type: $mime_type");
-    }
-
+    $file_url = $_FILES["image"]["tmp_name"];
 } 
 elseif (isset($_POST["image_url"])) {
-
-    $img_data = file_get_contents($_POST["image_url"]);
-    $finfo = new finfo(FILEINFO_MIME_TYPE);
-    $mime_type = $finfo->buffer($img_data);
-
-    if (!isset($mime_to_extension[$mime_type])) {
-        die("\nERROR: Unsupported MIME type: $mime_type");
-    }
-    
+    $file_url = $_POST["image_url"];
 }
 else {
     die("\nERROR: No uploaded image found.");
+}
+
+// DOWNLOAD FILE
+$img_data = file_get_contents($file_url);
+$finfo = new finfo(FILEINFO_MIME_TYPE);
+$mime_type = $finfo->buffer($img_data);
+
+// CHECK MIME TYPE
+if (!isset($mime_to_extension[$mime_type])) {
+    die("\nERROR: Unsupported MIME type: $mime_type");
 }
 
 // DATA VALIDATION

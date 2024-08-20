@@ -16,8 +16,10 @@ https://www.flaticon.com/free-icons/weather
 ## TODO
 
 #### NOW
-- [ ] adjust --color-contrast according to the brightness of the primary color
-- [ ] order color thief's palette for brightness (HUE)
+- [x] adjust --color-contrast according to the brightness of the primary color
+- [x] order color thief's palette for brightness (HUE)
+- [ ] work on animated background for card-list-page.php (and change the name pls)
+- [ ] consider to add --color-contrast also for --color-bufudyne
 
 #### PROGRAMMING
 - [ ] creare pagina per editare una card

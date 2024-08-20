@@ -1,5 +1,6 @@
 <?php
     require_once __DIR__ . '/api/db/forge-db.php';
+    require_once __DIR__ . '/utils/utils.php';
 
     try {
         $sql = "SELECT m_color_one, m_color_two, m_color_three FROM media WHERE m_active=1;";
@@ -13,6 +14,8 @@
     } catch (PDOException $e) {
         die("\nERROR: Create cards from db content failed: " . $e->getMessage());
     }
+
+    $contrast = isColorBright($colors['m_color_one']) ? "black" : "white";
 
 ?>
 
@@ -29,22 +32,17 @@
     <script src="assets/js/color-utils.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/init.css">
-    <style> /* to update using htmx on palette change */
+    <style>
     :root {
-        --color-agidyne: <?= $colors['m_color_one'] ?>;
-        --color-bufudyne: <?= $colors['m_color_two'] ?>;
-        --color-ziodyne: <?= $colors['m_color_three'] ?>;
-        --color-contrast: #000; /*
-        WIP: should be white on black background and the other way around
-        - ex. always chose bufudyne as the bg color
-        - do stuff in php to set contrast as always visible on bufudyne
-        */
+        --color-agidyne:    <?= $colors['m_color_one']      ?>;
+        --color-bufudyne:   <?= $colors['m_color_two']      ?>;
+        --color-ziodyne:    <?= $colors['m_color_three']    ?>;
+        --color-contrast:   <?= $contrast                   ?>;
     }
     </style>
 </head>
 <body>
     <div hx-get="/pages/intro/intro.php" hx-trigger="load" hx-target="body"></div>
     <!-- <div hx-get="/pages/cards-list-page/cards-list-page.php" hx-trigger="load" hx-target="body"></div> -->
-    
 </body>
 </html>
