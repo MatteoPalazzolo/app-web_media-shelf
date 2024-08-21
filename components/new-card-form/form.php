@@ -12,7 +12,7 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
         <div class="separator"></div>
         <div class="form-card">
 
-            <div class="bg-one color-picker" style="cursor: auto">
+            <div class="form-card-bg bg-one color-picker" style="cursor: auto">
                 <p>USELESS LOL</p>
                 <label for="input-color-one">
                     <img src="assets/icons/paint-brush-icon.svg" >
@@ -20,7 +20,7 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
                 <input type="color" id="input-color-one" name="color_one">
             </div>
 
-            <div class="bg-two color-picker" style="cursor: auto">
+            <div class="form-card-bg bg-two color-picker" style="cursor: auto">
                 <p>TAGS</p>
                 <label for="input-color-two">
                     <img src="assets/icons/paint-brush-icon.svg" >
@@ -28,7 +28,7 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
                 <input type="color" id="input-color-two" name="color_two">
             </div>
 
-            <label class="bg-three color-picker" for="subimit-form">
+            <label class="form-card-bg bg-three color-picker" for="subimit-form">
                 <p>SUBMIT</p>
                 <label for="input-color-three">
                     <img src="assets/icons/paint-brush-icon.svg" >

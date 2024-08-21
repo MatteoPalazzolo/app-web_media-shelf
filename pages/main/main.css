@@ -1,7 +1,3 @@
-/*
-body {
-    background-color: var(--color-bufu);
-}*/
 
 header {
     width: 100%;
@@ -10,19 +6,17 @@ header {
     left: 0;
     z-index: 10;
 }
-header .add-card {
-    width: 80px;
+header #add-card {
+    width: 175px;
     position: absolute;
     top: 0;
     left: 0;
-    transform: translate(-50%,-50%) translate(40px,42px);
+    transform: translate(-50%,-50%) translate(50px,52px);
 }
-header .ui-circle {
-    width: 250px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(-50%,-50%) translate(20px,20px);
+header #draw-card-icon:hover {
+    transform: scale(1.1);
+    transform-origin: center;
+    cursor: pointer;
 }
 .card-container {
     display: flex;

@@ -35,14 +35,9 @@ function randomFloat($min, $max) {
 function randomInvFloat($min, $max, $strenght) {
     if ($strenght < 1) die("\nERROR: The param strenght must be > 1.");
     $r = randomFloat(1, $strenght);
-    // $rn = ((1/$r) - 1/$strenght) / (1 - 1/$strenght);
-    $rn = ($strenght - $r) / ($r * ($strenght -1)); // rewritten
-    echo $rn . " => " . (($strenght - $strenght) / ($strenght * ($strenght - 1))) . " -> " . (($strenght - 1) / (1 * ($strenght - 1))) . " => ";
+    //rewritten $rn = ((1/$r) - 1/$strenght) / (1 - 1/$strenght);
+    $rn = ($strenght - $r) / ($r * ($strenght -1));
     return $min + $rn * ($max - $min);
-}
-
-for ($i=0; $i<100; $i++) {
-    echo randomInvFloat(0,100,5) . "<br>";
 }
 
 /*

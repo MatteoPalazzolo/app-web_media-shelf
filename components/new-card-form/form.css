@@ -31,16 +31,142 @@
     transition: transform 1.5s, box-shadow .1s;
 }
 .form-card.fall {
-    transform: translate(-50%,-50%) translateY(0) perspective(1200px) rotateY(360deg);
+    /* transform: translate(-50%,-50%) translateY(0) perspective(1200px) rotateY(360deg); */
+    animation-name: fallFromGraceCard;
+    animation-duration: 6s;
+    animation-fill-mode: forwards;
 }
+/*
 .form-card.shine {
     filter: brightness(1);
     box-shadow:
-      0 0 60px 30px #fff,  /* inner white */
-      0 0 100px 60px #f0f, /* middle magenta */
-      0 0 140px 90px #0ff; /* outer cyan */
+      0 0 60px 30px #fff, 
+      0 0 100px 60px #f0f,
+      0 0 140px 90px #0ff;
     transition: transform 1.5s, box-shadow .5s !important;
 }
+*/
+
+/* START BACKGROUND */
+
+.form-card .bg-one {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-agi);
+    position: absolute;
+    z-index: 3;
+    --transform-start:  rotate(0deg)    translate(0, 0)       translateY(0)    ;
+    --transform-end:    rotate(11.5deg) translate(10px, -4px) translateY(-10px);
+    /* transform: rotate(0deg) translate(0, 0) translateY(0); */
+    transition: transform .1s, background-color .3s;
+}/*
+.form-card.shine .bg-one {
+    transition: transform .5s, background-color .3s;
+}*/
+.form-card.open .bg-one {
+    transform: rotate(11.5deg) translate(10px, -4px) translateY(-10px);
+}
+.form-card .bg-one:hover {
+    transform: rotate(11.5deg) translate(10px, -4px) translateY(-27px);
+}
+
+.form-card .bg-two {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bufu);
+    position: absolute;
+    z-index: 2;
+    --transform-start:  rotate(0deg)  translate(0, 0)       translateY(0)    ;
+    --transform-end:    rotate(18deg) translate(15px, -8px) translateY(-10px);
+    /* transform: rotate(0deg) translate(0, 0) translateY(0); */
+    transition: transform .1s, background-color .3s;
+}/*
+.form-card.shine .bg-two {
+    transition: transform .5s, background-color .3s;
+}*/
+.form-card.open .bg-two {
+    transform: rotate(18deg) translate(15px, -8px) translateY(-10px);
+}
+.form-card .bg-two:hover {
+    transform: rotate(18deg) translate(15px, -8px) translateY(-27px);
+}
+
+.form-card .bg-three {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-zio);
+    position: absolute;
+    z-index: 1;
+    --transform-start:  rotate(0deg)  translate(0, 0)       translateY(0)    ;
+    --transform-end:    rotate(24deg) translate(20px, -6px) translateY(-20px);
+    /* transform: rotate(0deg) translate(0, 0) translateY(0); */
+    transition: transform .1s, background-color .3s;
+}/*
+.form-card.shine .bg-three {
+    transition: transform .5s, background-color .3s;
+}*/
+.form-card.open .bg-three {
+    transform: rotate(24deg) translate(20px, -6px) translateY(-20px);
+}
+.form-card .bg-three:hover {
+    transform: rotate(24deg) translate(20px, -6px) translateY(-35px);
+}
+
+.form-card.fall .form-card-bg {
+    border-bottom-left-radius:  50%;
+    border-bottom-right-radius: 35%;
+    
+    animation-name: fallFromGraceBackground;
+    animation-duration: 6s;
+    animation-fill-mode: forwards;
+}
+
+/* END BACKGROUND */
+
+/* START CARD AND BACKGROUND ANIMATIONS */
+
+@keyframes fallFromGraceCard {
+    0% {
+        transform: translate(-50%,-50%) translateY(-120vh) perspective(1200px) rotateY(0deg);
+        box-shadow: none;/*
+        box-shadow: rgb(255, 255, 255) 0px 0px 100px 15px;*/
+    }
+    60% {
+        transform: translate(-50%,-50%) translateY(0) perspective(1200px) rotateY(360deg);
+        box-shadow: none;/*
+        box-shadow: rgb(255, 255, 255) 0px 0px 100px 15px;*/
+    }
+    80% {
+        transform: translate(-50%,-50%) translateY(0) perspective(1200px) rotateY(360deg);
+        box-shadow:
+          0 0 60px 30px #fff,  /* inner white */
+          0 0 100px 60px #f0f, /* middle magenta */
+          0 0 140px 90px #0ff; /* outer cyan */
+    }
+    100% {
+        transform: translate(-50%,-50%) translateY(0) perspective(1200px) rotateY(360deg);
+        box-shadow: none;/*
+        box-shadow: rgb(255, 255, 255) 0px 0px 100px 15px;*/
+    }
+}
+
+@keyframes fallFromGraceBackground {
+    0% {
+        transform: var(--transform-start);
+    }
+    60% {
+        transform: var(--transform-start);
+    }
+    80% {
+        transform: var(--transform-end);
+    }
+    100% {
+        transform: var(--transform-end);
+    }
+}
+
+/* END CARD AND BACKGROUND ANIMATIONS */
+
 
 .form-card .color-picker p {
     font-family: "PersonaBold", sans-serif;
@@ -75,70 +201,6 @@
 }
 .form-card .color-picker label img:hover {
     transform: scale(1.4);
-}
-
-.form-card .bg-one {
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-agi);
-    position: absolute;
-    z-index: 3;/*
-    transform: rotate(0deg) translate(0, 0) translateY(0);*/
-    transition: transform .1s, background-color .3s;
-}
-.form-card.shine .bg-one {
-    transition: transform .5s, background-color .3s;
-}
-.form-card.open .bg-one {
-    transform: rotate(11.5deg) translate(10px, -4px) translateY(-10px);
-}
-.form-card .bg-one:hover {
-    transform: rotate(11.5deg) translate(10px, -4px) translateY(-27px);
-}
-
-.form-card .bg-two {
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-bufu);
-    position: absolute;
-    z-index: 2;/*
-    transform: rotate(0deg) translate(0, 0) translateY(0);*/
-    transition: transform .1s, background-color .3s;
-}
-.form-card.shine .bg-two {
-    transition: transform .5s, background-color .3s;
-}
-.form-card.open .bg-two {
-    transform: rotate(18deg) translate(15px, -8px) translateY(-10px);
-}
-.form-card .bg-two:hover {
-    transform: rotate(18deg) translate(15px, -8px) translateY(-27px);
-}
-
-.form-card .bg-three {
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-zio);
-    position: absolute;
-    z-index: 1;/*
-    transform: rotate(0deg) translate(0, 0) translateY(0);*/
-    transition: transform .1s, background-color .3s;
-}
-.form-card.shine .bg-three {
-    transition: transform .5s, background-color .3s;
-}
-.form-card.open .bg-three {
-    transform: rotate(24deg) translate(20px, -6px) translateY(-20px);
-}
-.form-card .bg-three:hover {
-    transform: rotate(24deg) translate(20px, -6px) translateY(-35px);
-}
-
-.form-card .bg-one,
-.form-card .bg-two,
-.form-card .bg-three {
-    border-bottom-left-radius:  50%;
-    border-bottom-right-radius: 35%;
 }
 
 .form-card #image-label > img {

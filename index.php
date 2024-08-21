@@ -49,7 +49,36 @@
     </style>
 </head>
 <body>
-    <!-- <div hx-get="/pages/intro/intro.php" hx-trigger="load" hx-target="body"></div> -->
-    <div hx-get="/pages/main/main.php" hx-trigger="load" hx-target="body"></div>
+    <script>
+        $.ajax({
+            url: '/pages/main/main.php' + window.location.search,
+            // url: '/pages/intro/intro.php' + window.location.search,
+            type: 'GET',
+            success: function(response) {
+                $("body").html(response);
+            },
+            error: function(xhr, status, error) {
+                console.error("An error occurred while loading in index.php: " + error);
+            }
+        });
+
+        console.group("GET params info");
+        console.info("num=[0 < int < 300] : ammount of rendered stars per parallax layer (3 layers)");
+        console.info("str=[0 < int < 100] : determines how heavily the generated random values are biased towards the upper part of the page");
+        console.groupEnd();
+
+        console.table([
+            {
+                Parameter: "num",
+                Range: "[0 < int < 300]",
+                Description: "Amount of rendered stars per parallax layer (3 layers)"
+            },
+            {
+                Parameter: "str",
+                Range: "[0 < int < 100]",
+                Description: "Determines how heavily the generated random values are biased towards the upper part of the page"
+            }
+        ]);
+    </script>
 </body>
 </html>
