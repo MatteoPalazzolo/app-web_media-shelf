@@ -26,10 +26,11 @@ require_once __DIR__ . "/../../components/starry-background/starry-background.ph
         </svg>
     </header>
     <div class="parallax">
+        <?php $inv_strength = 10; ?>
         <div class="parallax-layer layer-back-back-back">
             <div class="milky-way back-back-back">
                 <?php for ($i=0; $i<50; $i++) {
-                    $top =      randomFloat(0,100);
+                    $top =      randomInvFloat(0,100,$inv_strength);
                     $left =     randomFloat(0,100);
                     $scale =    randomFloat(20,35);
                     UI_RenderRandomStar($top,$left,$scale);
@@ -39,7 +40,7 @@ require_once __DIR__ . "/../../components/starry-background/starry-background.ph
         <div class="parallax-layer layer-back-back">
             <div class="milky-way back-back">
                 <?php for ($i=0; $i<50; $i++) {
-                    $top =      randomFloat(0,100);
+                    $top =      randomInvFloat(0,100,$inv_strength);
                     $left =     randomFloat(0,100);
                     $scale =    randomFloat(35,50);
                     UI_RenderRandomStar($top,$left,$scale);
@@ -49,7 +50,7 @@ require_once __DIR__ . "/../../components/starry-background/starry-background.ph
         <div class="parallax-layer layer-back">
             <div class="milky-way back">
                 <?php for ($i=0; $i<50; $i++) {
-                    $top =      randomFloat(0,100);
+                    $top =      randomInvFloat(0,100,$inv_strength);
                     $left =     randomFloat(0,100);
                     $scale =    randomFloat(50,65);
                     UI_RenderRandomStar($top,$left,$scale);
@@ -57,10 +58,32 @@ require_once __DIR__ . "/../../components/starry-background/starry-background.ph
             </div>
         </div>
         <div class="parallax-layer layer-base">
-            <div id="card-container" class="card-container" hx-get="/api/get/main-page-content.php" hx-trigger="load"></div>
+            <!-- <div id="card-container" class="card-container" hx-get="/api/get/main-page-content.php" hx-trigger="load"></div> -->
+            <div id="card-container" class="card-container"></div>
         </div>
     </div>
 </main>
+
+<!-- Set all milky-way to the right height -->
+<script>
+    function refreshCardList() {
+        $.ajax({
+        url: '/api/get/main-page-content.php',
+        type: 'GET',
+        success: function(response) {
+            $("#card-container").html(response);
+            $(".milky-way").css("height", $("#card-container").height());
+        },
+        error: function(xhr, status, error) {
+            console.error("An error occurred while refreshing the card list: " + error);
+        }});
+    }
+    $(document).ready(refreshCardList);
+    $(window).on("resize", () => {
+        $(".milky-way").css("height", $("#card-container").height());
+    });
+    
+</script>
 
 <?php
 require_once __DIR__ . "/../../components/new-card-form/form.php";

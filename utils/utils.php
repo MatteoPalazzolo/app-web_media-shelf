@@ -32,6 +32,19 @@ function randomFloat($min, $max) {
     return $min + mt_rand() / mt_getrandmax() * ($max - $min);
 }
 
+function randomInvFloat($min, $max, $strenght) {
+    if ($strenght < 1) die("\nERROR: The param strenght must be > 1.");
+    $r = randomFloat(1, $strenght);
+    // $rn = ((1/$r) - 1/$strenght) / (1 - 1/$strenght);
+    $rn = ($strenght - $r) / ($r * ($strenght -1)); // rewritten
+    echo $rn . " => " . (($strenght - $strenght) / ($strenght * ($strenght - 1))) . " -> " . (($strenght - 1) / (1 * ($strenght - 1))) . " => ";
+    return $min + $rn * ($max - $min);
+}
+
+for ($i=0; $i<100; $i++) {
+    echo randomInvFloat(0,100,5) . "<br>";
+}
+
 /*
 function generateRandomString($length) {
     //$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

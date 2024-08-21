@@ -234,7 +234,7 @@ $("form.form").on("submit", function(e) {
                 if (iserror[iserror.length - 1].slice(0,5) === "ERROR") {
                     alert(response);
                 } else {
-                    refreshCardsList(
+                    refreshCardsListAnimated(
                         $("#input-color-one").val(),
                         $("#input-color-two").val(),
                         $("#input-color-three").val()

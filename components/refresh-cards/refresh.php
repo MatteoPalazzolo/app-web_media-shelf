@@ -48,7 +48,7 @@
 </svg>
 
 <script>
-function refreshCardsList(color1, color2, color3) {
+function refreshCardsListAnimated(color1, color2, color3) {
     // TODO: may need to rename col order 
     if (color1) {
         // console.log("color1", color1);
@@ -67,16 +67,7 @@ function refreshCardsList(color1, color2, color3) {
 
     $("body").css("overflow","hidden");
 
-    $.ajax({
-        url: '/api/get/main-page-content.php',
-        type: 'GET',
-        success: function(response) {
-            $("#card-container").html(response);
-        },
-        error: function(xhr, status, error) {
-            console.error("An error occurred: " + error);
-        }
-    });
+    refreshCardList();
 
     $("#svg-animation").show();
 
