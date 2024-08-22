@@ -61,11 +61,7 @@
         </g>
     </svg>
 
-    <p  class="date" 
-        hx-get="/pages/main/main.php" 
-        hx-target="body" 
-        hx-trigger="click delay:1s"
-        onclick="$(this).addClass('open')">
+    <p class="date" onclick="nextPage()">
         <?= date('d/m/Y'); ?>
     </p>
 </main>
@@ -74,4 +70,17 @@
     setTimeout(function() {
         $(".circle").hide();
     }, 1700);
+    function nextPage() {
+        $(".date").addClass('open');
+        setTimeout(() => $.ajax({
+            url: '/pages/main/main.php' + window.location.search,
+            type: 'GET',
+            success: function(response) {
+                $("body").html(response);
+            },
+            error: function(xhr, status, error) {
+                console.error("An error occurred while loading in index.php: " + error);
+            }
+        }), 1000);
+    }
 </script>

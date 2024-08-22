@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET')
 if (!isset($_GET['id']))                  
     die("\nERROR: id param not set");
 
-require      __DIR__ . '/../db/init-db-connection.php';
+require __DIR__ . '/../db/init-db-connection.php';
 
 try {
     $sql = "SELECT m_img_data FROM media WHERE id=:id;";

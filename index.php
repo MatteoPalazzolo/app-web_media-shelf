@@ -26,7 +26,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <title>Intro</title>
     <!-- JS CDN -->
     <script src="https://unpkg.com/htmx.org@2.0.2"></script>
@@ -51,8 +51,8 @@
 <body>
     <script>
         $.ajax({
-            url: '/pages/main/main.php' + window.location.search,
-            // url: '/pages/intro/intro.php' + window.location.search,
+            url: '/pages/intro/intro.php' + window.location.search,
+            // url: '/pages/main/main.php' + window.location.search,
             type: 'GET',
             success: function(response) {
                 $("body").html(response);

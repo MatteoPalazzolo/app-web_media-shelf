@@ -17,13 +17,14 @@ https://www.flaticon.com/free-icons/weather
 ## USEFUL LINKS
 https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path
 
+
 ## TODO
 
 #### NOW
 - [x] make fallFromGrace work on firefox
 - [x] make serve-images.php
-- [ ] shuffle animation
-- [ ] add tag selection to form
+- [ ] implement shuffle animation and refactor fallFromGrace stuff
+- [ ] add tag selection to form and db
 
 #### PROGRAMMING
 - [ ] creare pagina per editare una card

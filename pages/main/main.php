@@ -60,13 +60,11 @@ require_once __DIR__ . "/../../components/starry-background/starry-background.ph
             </div>
         </div>
         <div class="parallax-layer layer-base">
-            <!-- <div id="card-container" class="card-container" hx-get="/api/get/main-page-content.php" hx-trigger="load"></div> -->
             <div id="card-container" class="card-container"></div>
         </div>
     </div>
 </main>
 
-<!-- Set all milky-way to the right height -->
 <script>
     function refreshCardList() {
         $.ajax({
