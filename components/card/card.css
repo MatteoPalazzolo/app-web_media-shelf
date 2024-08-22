@@ -130,8 +130,12 @@
 
 .card .rating {
     font-size: 3rem;
+    /*
+    unicode-bidi: bidi-override !important;
+    direction: unset !important;
+    text-align:right;
+    */
     writing-mode: vertical-rl;
-    direction: rtl;
     text-align: center;
 
     height: 100%;

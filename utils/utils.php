@@ -7,9 +7,9 @@ function calcStarRating($rating) {
     $out = "";
     for ($i = 0; $i < 5; $i++) {
         if ($i < $rating) {
-            $out .= "★";
+            $out = "★" . $out;
         } else {
-            $out .= "☆";
+            $out = "☆" . $out;
         }
     }
     return $out;
