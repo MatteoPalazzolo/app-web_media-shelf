@@ -12,6 +12,10 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
         <div class="separator"></div>
         <div class="form-card">
 
+            <div class="backface">
+
+            </div>
+
             <div class="form-card-bg bg-one color-picker" style="cursor: auto">
                 <p>USELESS LOL</p>
                 <label for="input-color-one">
@@ -37,6 +41,7 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
             </label>
             <input style="display: none;" type="submit" id="subimit-form" >
 
+            <div class="frontface">
             <input 
                 class="year"
                 name="year"
@@ -50,28 +55,30 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
             <label style="cursor: pointer;" id="image-label" for="image-input">
                 <img src="<?= ADD_IMG_PATH ?>"
                      onerror="this.src = this.src === '<?= BROKEN_IMG_PATH ?>' ? undefined : '<?= BROKEN_IMG_PATH ?>';" />
-            </label>
-            <input 
-                id="image-input" 
-                style="display: none;" 
-                name="image"
-                type="file" 
-                accept="image/*" />
+                </label>
+                <input 
+                    id="image-input" 
+                    style="display: none;" 
+                    name="image"
+                    type="file" 
+                    accept="image/*" />
 
-            <input 
-                class="title"
-                name="title"
-                type="text"
-                placeholder="Amogus - The Legent of The SUS"
-                required />
+                <input 
+                    class="title"
+                    name="title"
+                    type="text"
+                    placeholder="Amogus - The Legent of The SUS"
+                    required />
 
-            <p class="rating"> ☆☆☆☆☆ </p>
+                <p class="rating"> ☆☆☆☆☆ </p>
 
-            <div id="input-image-url" class="submit">
-                <input type="text">
-                <input type="hidden" name="image_url">
-                <img src="assets/icons/stars.png" >
+                <div id="input-image-url" class="submit">
+                    <input type="text">
+                    <input type="hidden" name="image_url">
+                    <img src="assets/icons/stars.png" >
+                </div>
             </div>
+            
         </div>
     </form>
 </main>

@@ -20,10 +20,10 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path
 ## TODO
 
 #### NOW
-- [ ] make fallFromGrace work on firefox 
-- [ ] ? shuffle animation ?
+- [x] make fallFromGrace work on firefox
+- [x] make serve-images.php
+- [ ] shuffle animation
 - [ ] add tag selection to form
-- [ ] make serve-images.php and dont print them into the GET request directly!!!
 
 #### PROGRAMMING
 - [ ] creare pagina per editare una card

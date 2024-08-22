@@ -1,7 +1,3 @@
-
-:root {
-}
-
 .card {
     width: fit-content;
     position: relative;
@@ -13,9 +9,7 @@
 }
 .card:hover {
     transform: scale(1.12);
-}
-@media (max-width: 768px) {
-    .card:hover {
+    @media (max-width: 768px) {
         transform: scale(1.05);
     }
 }
