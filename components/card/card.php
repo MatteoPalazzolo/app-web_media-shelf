@@ -2,7 +2,7 @@
 <?= file_get_contents(__DIR__ . "/card.css"); ?>
 </style>
 
-<?php require_once __DIR__ . '/../../utils/utils.php'; ?>
+<?php require_once __DIR__ . '/../..//assets/php/utils.php'; ?>
 
 <?php function UI_RenderCard($id, $title, $year, $rating, $color_one, $color_two, $color_three) { ?>
     <div class="card" style="

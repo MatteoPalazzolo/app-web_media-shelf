@@ -1,6 +1,6 @@
 <?php
     require_once __DIR__ . '/api/db/forge-db.php';
-    require_once __DIR__ . '/utils/utils.php';
+    require_once __DIR__ . '/assets/php/utils.php';
 
     try {
         $sql = "SELECT m_color_one, m_color_two, m_color_three FROM media WHERE m_active=1;";
