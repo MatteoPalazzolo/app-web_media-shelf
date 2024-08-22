@@ -77,37 +77,56 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
 </main>
 
 <script>
-function toggleAddCardMenu() {
-    if ($("form.form").css("display") === "none") {
-        $("form.form").toggle();
-        $("form.form .separator").toggleClass("show");
+let isAnimating = false;
+function toggleAddCardMenu(dudeJustCloseIt=false) {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    if (dudeJustCloseIt) {
+        justCloseIt();
+    } else if ($("form.form").css("display") === "none") {
         fallFromGrace();
-    }
-    else if ($("form.form").css("display") === "block") {
-        $("form.form").toggle();
-        $("form.form .separator").toggleClass("show");
+    } else {
         shatterInPieces();
     }
-    else {
-        console.log("FUCK YOU!!");
-    }
+    
+    setTimeout(() => isAnimating = false, 6000);
 }
 // private
 function fallFromGrace() {
+    $("form.form").toggle(); 
+    $(".parallax").removeClass("shine"); // in main.php
+    $("form.form .separator").toggleClass("show");
     $(".form-card").addClass("fall");
-    $(".form-card").addClass("shine");
-    setTimeout(() => {
-        $(".form-card").addClass("open");
-    }, 1500);
-    setTimeout(() => {
-        $(".form-card").removeClass("shine");
-    }, 1800);
 }
 // private
 function shatterInPieces() {
+    // TODO: bind .show to the opacity of the page
+    $("form.form .separator").toggleClass("show");
+    setTimeout(() => {
+        // restart shine animation
+        $(".parallax").addClass("shine"); // in main.php
+        // hide form
+        $("form.form").toggle();
+        // reset animation
+        $(".form-card").removeClass("fall");
+        // reset form
+        $("form.form")[0].reset();
+        $("#image-label > img").attr("src", "<?= ADD_IMG_PATH ?>");
+        $("#input-image-url > input[type='text']").val("");
+        // remove custom background-color
+        $("form.form .bg-one").css("background-color", "");
+        $("form.form .bg-two").css("background-color", "");
+        $("form.form .bg-three").css("background-color", "");
+    }, 800);
+}
+// private
+function justCloseIt() {
+    // restart shine animation
+    $(".parallax").addClass("shine"); // in main.php
     // reset animation
+    $("form.form .separator").toggleClass("show");
     $(".form-card").removeClass("fall");
-    $(".form-card").removeClass("open");
     // reset form
     $("form.form")[0].reset();
     $("#image-label > img").attr("src", "<?= ADD_IMG_PATH ?>");
@@ -194,13 +213,13 @@ function updatePalette() {
 }
 
 // set root palette 
-function setRootPalette(agidyne, bufudyne, ziodyne) {
-    console.log("palette set to: ", agidyne, bufudyne, ziodyne);
-    $(":root").css("--color-agidyne",  agidyne);
-    $(":root").css("--color-bufudyne", bufudyne);
-    $(":root").css("--color-ziodyne",  ziodyne);
-    $(":root").css("--color-contrast-agidyne",  isColorBright(agidyne)  ? "var(--color-mudo)" : "var(--color-hama)");
-    $(":root").css("--color-contrast-bufudyne", isColorBright(bufudyne) ? "var(--color-mudo)" : "var(--color-hama)");
+function setRootPalette(agi, bufu, zio) {
+    console.log("palette set to: ", agi, bufu, zio);
+    $(":root").css("--color-agi",  agi);
+    $(":root").css("--color-bufu", bufu);
+    $(":root").css("--color-zio",  zio);
+    $(":root").css("--color-contrast-agi",  isColorBright(agi)  ? "var(--color-mudo)" : "var(--color-hama)");
+    $(":root").css("--color-contrast-bufu", isColorBright(bufu) ? "var(--color-mudo)" : "var(--color-hama)");
 }
 
 
@@ -244,7 +263,9 @@ $("form.form").on("submit", function(e) {
                         $("#input-color-two").val(),
                         $("#input-color-three").val()
                     );
-                    toggleAddCardMenu();
+                    // hide form
+                    $("form.form").css("display","none");
+                    setTimeout(() => toggleAddCardMenu(true), 1000);
                 }
             },
             error: function() {

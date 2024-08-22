@@ -7,7 +7,6 @@
         $stmt = $pdo->query($sql);
         $entries = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if (!isset($entries[0])) {
-            print_r($entries);
             die("\nERROR: No active card palette found.");
         }
         $colors = $entries[0];
@@ -36,6 +35,7 @@
     <script src="assets/js/color-utils.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/init.css">
+    <link rel="stylesheet" href="assets/css/scrollbar.css">
     <style>
     :root {
         --color-agi:            <?= $colors['m_color_one']  ?>;
@@ -66,7 +66,7 @@
         console.info("num=[0 < int < 300] : ammount of rendered stars per parallax layer (3 layers)");
         console.info("str=[0 < int < 100] : determines how heavily the generated random values are biased towards the upper part of the page");
         console.groupEnd();
-
+        /*
         console.table([
             {
                 Parameter: "num",
@@ -79,6 +79,7 @@
                 Description: "Determines how heavily the generated random values are biased towards the upper part of the page"
             }
         ]);
+        */
     </script>
 </body>
 </html>

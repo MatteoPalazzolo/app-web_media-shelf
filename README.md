@@ -14,11 +14,16 @@ https://www.weatherapi.com/pricing.aspx
 ## WEATHER ICONS
 https://www.flaticon.com/free-icons/weather
 
+## USEFUL LINKS
+https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path
 
 ## TODO
 
 #### NOW
-- [ ] work on fallFromGrace animation :=)
+- [ ] make fallFromGrace work on firefox 
+- [ ] ? shuffle animation ?
+- [ ] add tag selection to form
+- [ ] make serve-images.php and dont print them into the GET request directly!!!
 
 #### PROGRAMMING
 - [ ] creare pagina per editare una card

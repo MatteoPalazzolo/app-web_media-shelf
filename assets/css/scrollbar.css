@@ -1,0 +1,26 @@
+/* Apply to the entire page */
+body {
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: var(--color-zio) var(--color-agi); /* For Firefox */
+}
+
+/* Webkit-based browsers */
+::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--color-agi); /* Color of the track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--color-zio); /* Color of the scroll thumb */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Optional: Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-zio); /* Slightly darker color on hover */
+}

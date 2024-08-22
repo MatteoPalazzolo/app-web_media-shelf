@@ -16,151 +16,126 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%) translateY(-80vh) perspective(1200px) rotateY(0deg);
-
+    
     z-index: 10;
 
     width: fit-content;
+    backface-visibility: hidden;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
     width: fit-content;
-
-    transition: transform 1.5s, box-shadow .1s;
 }
 .form-card.fall {
-    /* transform: translate(-50%,-50%) translateY(0) perspective(1200px) rotateY(360deg); */
     animation-name: fallFromGraceCard;
     animation-duration: 6s;
     animation-fill-mode: forwards;
 }
-/*
-.form-card.shine {
-    filter: brightness(1);
-    box-shadow:
-      0 0 60px 30px #fff, 
-      0 0 100px 60px #f0f,
-      0 0 140px 90px #0ff;
-    transition: transform 1.5s, box-shadow .5s !important;
+.form-card.fall::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #0ff;
+
+    animation-name: fallFromGraceCardBack;
+    animation-duration: 6s;
+    animation-fill-mode: forwards;
 }
-*/
 
 /* START BACKGROUND */
 
-.form-card .bg-one {
+.form-card .form-card-bg {
     width: 100%;
     height: 100%;
-    background-color: var(--color-agi);
     position: absolute;
-    z-index: 3;
-    --transform-start:  rotate(0deg)    translate(0, 0)       translateY(0)    ;
-    --transform-end:    rotate(11.5deg) translate(10px, -4px) translateY(-10px);
     /* transform: rotate(0deg) translate(0, 0) translateY(0); */
-    transition: transform .1s, background-color .3s;
-}/*
-.form-card.shine .bg-one {
-    transition: transform .5s, background-color .3s;
-}*/
-.form-card.open .bg-one {
-    transform: rotate(11.5deg) translate(10px, -4px) translateY(-10px);
+    /* TODO: transition: transform 1s is not working */
+    transition: transform 1s, background-color .3s;
 }
-.form-card .bg-one:hover {
-    transform: rotate(11.5deg) translate(10px, -4px) translateY(-27px);
-}
-
-.form-card .bg-two {
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-bufu);
-    position: absolute;
-    z-index: 2;
-    --transform-start:  rotate(0deg)  translate(0, 0)       translateY(0)    ;
-    --transform-end:    rotate(18deg) translate(15px, -8px) translateY(-10px);
-    /* transform: rotate(0deg) translate(0, 0) translateY(0); */
-    transition: transform .1s, background-color .3s;
-}/*
-.form-card.shine .bg-two {
-    transition: transform .5s, background-color .3s;
-}*/
-.form-card.open .bg-two {
-    transform: rotate(18deg) translate(15px, -8px) translateY(-10px);
-}
-.form-card .bg-two:hover {
-    transform: rotate(18deg) translate(15px, -8px) translateY(-27px);
-}
-
-.form-card .bg-three {
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-zio);
-    position: absolute;
-    z-index: 1;
-    --transform-start:  rotate(0deg)  translate(0, 0)       translateY(0)    ;
-    --transform-end:    rotate(24deg) translate(20px, -6px) translateY(-20px);
-    /* transform: rotate(0deg) translate(0, 0) translateY(0); */
-    transition: transform .1s, background-color .3s;
-}/*
-.form-card.shine .bg-three {
-    transition: transform .5s, background-color .3s;
-}*/
-.form-card.open .bg-three {
-    transform: rotate(24deg) translate(20px, -6px) translateY(-20px);
-}
-.form-card .bg-three:hover {
-    transform: rotate(24deg) translate(20px, -6px) translateY(-35px);
-}
-
 .form-card.fall .form-card-bg {
+    /* TODO: fix this pls lol */
     border-bottom-left-radius:  50%;
     border-bottom-right-radius: 35%;
-    
+    /* */
     animation-name: fallFromGraceBackground;
     animation-duration: 6s;
     animation-fill-mode: forwards;
+}
+.form-card .form-card-bg:hover {
+    transform: var(--transform-open) !important;
+}
+
+.form-card .bg-one {
+    z-index: 3;
+    background-color: var(--color-agi);
+    --transform-start:  rotate(0deg)    translate(0, 0)       translateY(0)    ;
+    --transform-end:    rotate(11.5deg) translate(10px, -4px) translateY(-10px);
+    --transform-open:   rotate(11.5deg) translate(10px, -4px) translateY(-27px);
+}
+
+.form-card .bg-two {
+    z-index: 2;
+    background-color: var(--color-bufu);
+    --transform-start:  rotate(0deg)  translate(0, 0)       translateY(0)    ;
+    --transform-end:    rotate(18deg) translate(15px, -8px) translateY(-10px);
+    --transform-open:   rotate(18deg) translate(15px, -8px) translateY(-27px);
+}
+
+.form-card .bg-three {
+    z-index: 1;
+    background-color: var(--color-zio);
+    --transform-start:  rotate(0deg)  translate(0, 0)       translateY(0)    ;
+    --transform-end:    rotate(24deg) translate(20px, -6px) translateY(-20px);
+    --transform-open:   rotate(24deg) translate(20px, -6px) translateY(-35px);
 }
 
 /* END BACKGROUND */
 
 /* START CARD AND BACKGROUND ANIMATIONS */
+/* TODO: add card back when rotating */
 
 @keyframes fallFromGraceCard {
     0% {
         transform: translate(-50%,-50%) translateY(-120vh) perspective(1200px) rotateY(0deg);
-        box-shadow: none;/*
-        box-shadow: rgb(255, 255, 255) 0px 0px 100px 15px;*/
+        box-shadow: none;
     }
     60% {
         transform: translate(-50%,-50%) translateY(0) perspective(1200px) rotateY(360deg);
-        box-shadow: none;/*
-        box-shadow: rgb(255, 255, 255) 0px 0px 100px 15px;*/
+        box-shadow: none;
     }
     80% {
         transform: translate(-50%,-50%) translateY(0) perspective(1200px) rotateY(360deg);
         box-shadow:
-          0 0 60px 30px #fff,  /* inner white */
-          0 0 100px 60px #f0f, /* middle magenta */
-          0 0 140px 90px #0ff; /* outer cyan */
+          0 0 60px 30px  #fff, 
+          0 0 100px 60px #f0f,
+          0 0 140px 90px #0ff;
     }
     100% {
         transform: translate(-50%,-50%) translateY(0) perspective(1200px) rotateY(360deg);
-        box-shadow: none;/*
-        box-shadow: rgb(255, 255, 255) 0px 0px 100px 15px;*/
+        box-shadow: none;
+    }
+}
+
+@keyframes fallFromGraceCardBack {
+    0% {
+        transform: perspective(1200px) rotateY(-180deg);
+    }
+    60%,100% {
+        transform: perspective(1200px) rotateY(180deg);
     }
 }
 
 @keyframes fallFromGraceBackground {
-    0% {
+    0%,60% {
         transform: var(--transform-start);
     }
-    60% {
-        transform: var(--transform-start);
-    }
-    80% {
-        transform: var(--transform-end);
-    }
-    100% {
+    75%,100% {
         transform: var(--transform-end);
     }
 }

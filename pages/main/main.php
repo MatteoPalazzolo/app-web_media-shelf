@@ -7,7 +7,7 @@ require_once __DIR__ . "/../../components/starry-background/starry-background.ph
 <?= file_get_contents("./main.css"); ?>
 <?= file_get_contents("./parallax-background.css"); ?>
 <?php for ($i=0; $i<50; $i++): ?>
-    .milky-way > svg:nth-child(<?= $i ?>) {
+    .parallax.shine .milky-way > svg:nth-child(<?= $i ?>) {
         animation: star-shine <?= randomFloat(1,3) ?>s infinite;
     }
 <?php endfor ?>
@@ -15,19 +15,6 @@ require_once __DIR__ . "/../../components/starry-background/starry-background.ph
 
 <main>
     <header>
-        <!-- 
-        <svg class="ui-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-            <circle style="fill:none;stroke:var(--color-agi);stroke-width:1.3;stroke-miterlimit:10;" cx="16" cy="16" r="11"/>
-        </svg>
-        <svg class="add-card" xmlns="http://www.w3.org/2000/svg" viewBox="-20.0 -10.0 128.0 120.0" onclick="toggleAddCardMenu();">
-            <circle style="fill:none;stroke:var(--color-agi);stroke-width:1.3;stroke-miterlimit:10;" cx="50%" cy="50%" r="100"/>
-            <g class="draw-card-icon">
-                <circle fill="var(--color-agi)" cx="47.5" cy="50" r="60"/>
-                <path fill="var(--color-contrast-agi)" d="m81.879 25.984-3.0859-1.043 0.71484-2.1133 3.0859 1.043z"/>
-                <path fill="var(--color-contrast-agi)" d="m58.73 3.4609-0.17188-1.6953-37.066 4.0547 3.4023 33.133-9.7891 12.418-0.125 0.1875c-0.10938 0.1875-2.6328 4.6211 0.61328 9.832 0.52344 0.83594 1.3086 1.7969 2.3047 3.0078 4.5352 5.5234 12.82 16.617 9.8984 33.832h3.3945c3.1719-18.68-5.9062-29.977-10.773-35.902-0.88281-1.0781-1.6484-2.0078-2.0547-2.6641-2.0078-3.2227-0.84375-5.9102-0.60547-6.3906l7.6211-9.668 1.9336 18.828 10.969-1.1523c-0.60156 4.8906-1.1875 9.4609-1.1992 9.5391l3.2344 0.41406c0.082032-0.63672 2-15.645 2.4492-20.234 0.19922-2.0156 1.1094-6.6797 5.3359-6.4062 2.6094 0.16406 2.9961 2.9961 3.0469 3.5117v18.566l0.14062 0.31641c7.668 17.16 0.86719 20.773 0.82422 20.793l-0.96875 0.42969v10.02l3.2617 0.003906v-8.0703c0.85547-0.64844 2.0781-1.8867 2.9102-4.0547 1.8438-4.8047 0.86328-11.574-2.9102-20.129v-3.8008l13.492 5.1875 13.281-39.32-3.0859-1.043-12.195 36.102-9.6758-3.7188 8.1484-0.85938-5.2695-51.453 22.859 8.4922-1.3984 4.1406 3.0859 1.043 2.4141-7.1406z"/>
-            </g>
-        </svg>
-        -->
         <svg id="add-card" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 261.02 261.02">
             <circle style="fill:none;stroke:var(--color-agi);stroke-miterlimit:10;stroke-width:10px;" cx="130.51" cy="130.51" r="125"/>
             <g id="draw-card-icon" onclick="toggleAddCardMenu();">
@@ -37,7 +24,7 @@ require_once __DIR__ . "/../../components/starry-background/starry-background.ph
             </g>
         </svg>
     </header>
-    <div class="parallax">
+    <div class="parallax shine">
         <?php 
             $star_count =   isset($_GET['num']) && $_GET['num'] > 0 && $_GET['num'] < 300 ? $_GET['num'] : 35; 
             $inv_strength = isset($_GET['str']) && $_GET['str'] > 0 && $_GET['str'] < 100 ? $_GET['str'] :  3; 

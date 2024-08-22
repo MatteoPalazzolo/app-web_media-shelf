@@ -3,20 +3,33 @@ require 'init-db-connection.php';
 
 // create media table if not exists
 try {
-    $sql = "CREATE TABLE IF NOT EXISTS media (
-                id                  INT             AUTO_INCREMENT PRIMARY KEY,
-                m_title             VARCHAR(255)    NOT NULL,
-                m_year              INT             NOT NULL,
-                m_rating            INT             NOT NULL,
-                m_type ENUM('Movie', 'Videogame', 'Anime', 'Cartoon', 'TV Series', 'Book', 'Manga') NOT NULL,
-                m_img_data          MEDIUMBLOB      NOT NULL,
-                m_color_one         VARCHAR(7)      NOT NULL,
-                m_color_two         VARCHAR(7)      NOT NULL,
-                m_color_three       VARCHAR(7)      NOT NULL,
-                m_active            TINYINT         NOT NULL,
-                UNIQUE (m_title)
-            )";
-    $pdo->exec($sql);
+    $pdo->exec("CREATE TABLE IF NOT EXISTS media (
+        id                  INT             AUTO_INCREMENT PRIMARY KEY,
+        m_title             VARCHAR(255)    NOT NULL,
+        m_year              INT             NOT NULL,
+        m_rating            INT             NOT NULL,
+        m_type ENUM('Movie', 'Videogame', 'Anime', 'Cartoon', 'TV Series', 'Book', 'Manga') NOT NULL,
+        m_img_data          MEDIUMBLOB      NOT NULL,
+        m_color_one         VARCHAR(7)      NOT NULL,
+        m_color_two         VARCHAR(7)      NOT NULL,
+        m_color_three       VARCHAR(7)      NOT NULL,
+        m_active            TINYINT         NOT NULL,
+        UNIQUE (m_title)
+    )");
+    $pdo->exec("CREATE TABLE IF NOT EXISTS tags (
+        id                  INT             AUTO_INCREMENT PRIMARY KEY,
+        t_name              VARCHAR(255)    NOT NULL,
+        t_description       TEXT            NOT NULL,
+        UNIQUE (t_name)
+    )");
+    $pdo->exec("CREATE TABLE IF NOT EXISTS media_tags (
+        id_media            INT             NOT NULL,
+        id_tag              INT             NOT NULL,
+        FOREIGN KEY (id_media) REFERENCES media(id),
+        FOREIGN KEY (id_tag)   REFERENCES tags(id),
+        PRIMARY KEY (id_media, id_tag)
+    )");
+    
 } catch (PDOException $e) {
     die("\nERROR: forge-db.php falied: " . $e->getMessage());
 }

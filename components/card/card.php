@@ -4,22 +4,22 @@
 
 <?php require_once __DIR__ . '/../../utils/utils.php'; ?>
 
-<?php function UI_RenderCard($title, $year, $rating, $img_data, $color_one, $color_two, $color_three) { ?>
-    <?php 
-    $finfo = new finfo(FILEINFO_MIME_TYPE);
-    $mime_type = $finfo->buffer($img_data);
-    ?>
-    <div class="card" style="--color-one: <?= $color_one ?>"
+<?php function UI_RenderCard($id, $title, $year, $rating, $color_one, $color_two, $color_three) { ?>
+    <div class="card" style="
+        --color-local-agi: <?= $color_one ?>;
+        --color-local-bufu: <?= $color_two ?>;
+        --color-local-zio: <?= $color_three ?>;
+        "
         draggable="true" ondragover="event.preventDefault()" ondrop="console.log(event)">
         <div class="bg-one"></div>
-        <div class="bg-two" draggable="true" style="background-color: <?= $color_two ?>;">
+        <div class="bg-two" draggable="true">
             <p>CALENDAR</p>
         </div>
-        <div class="bg-three" draggable="true" style="background-color: <?= $color_three ?>;">
+        <div class="bg-three" draggable="true">
             <p>EDIT</p>
         </div>
         <p class="year"><?= $year ?></p>
-        <img src="<?= 'data:'. $mime_type . ';base64,' . base64_encode($img_data) ?>" draggable="false">
+        <img src="api/get/image.php?id=<?= $id ?>" draggable="false">
         <h2 class="title"><?= $title ?></h2>
         <p class="rating"><?= calcStarRating($rating) ?></p>
     </div>

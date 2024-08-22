@@ -49,7 +49,6 @@
 
 <script>
 function refreshCardsListAnimated(color1, color2, color3) {
-    // TODO: may need to rename col order 
     if (color1) {
         // console.log("color1", color1);
         $("#rect-bg").attr("fill", color1);
