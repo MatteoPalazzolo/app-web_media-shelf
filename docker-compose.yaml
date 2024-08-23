@@ -8,21 +8,21 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: mediashelf
     ports:
-      - "5432:5432"
+      - 5432:5432
     volumes:
       - pgdata:/var/lib/postgresql/data
 
   app:
-    build: .
+    build: ./docker/app
     ports:
-      - "80:80"
+      - 80:80
     depends_on:
       - db
     volumes:
       - .:/var/www/html
  
   adminer:
-    image: adminer:latest
+    build: ./docker/adminer
     restart: always
     ports:
       - 8080:8080

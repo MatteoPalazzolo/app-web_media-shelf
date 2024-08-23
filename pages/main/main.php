@@ -26,13 +26,13 @@ require_once __DIR__ . "/../../components/starry-background/starry-background.ph
     </header>
     <div class="parallax shine">
         <?php 
-            $star_count =   isset($_GET['num']) && $_GET['num'] > 0 && $_GET['num'] < 300 ? $_GET['num'] : 35; 
-            $inv_strength = isset($_GET['str']) && $_GET['str'] > 0 && $_GET['str'] < 100 ? $_GET['str'] :  3; 
+            $count    = isset($_GET['num']) && $_GET['num'] > 0 && $_GET['num'] < 300 ? $_GET['num'] : 15; 
+            $strength = isset($_GET['str']) && $_GET['str'] > 0 && $_GET['str'] < 100 ? $_GET['str'] :  3; 
         ?>
         <div class="parallax-layer layer-back-back-back">
             <div class="milky-way back-back-back">
-                <?php for ($i=0; $i<$star_count; $i++) {
-                    $top =      randomInvFloat(0,100,$inv_strength);
+                <?php for ($i=0; $i<$count; $i++) {
+                    $top =      randomInvFloat(0,100,$strength);
                     $left =     randomFloat(0,100);
                     $scale =    randomFloat(20,35);
                     UI_RenderRandomStar($top,$left,$scale);
@@ -41,8 +41,8 @@ require_once __DIR__ . "/../../components/starry-background/starry-background.ph
         </div>
         <div class="parallax-layer layer-back-back">
             <div class="milky-way back-back">
-                <?php for ($i=0; $i<$star_count; $i++) {
-                    $top =      randomInvFloat(0,100,$inv_strength);
+                <?php for ($i=0; $i<$count; $i++) {
+                    $top =      randomInvFloat(0,100,$strength);
                     $left =     randomFloat(0,100);
                     $scale =    randomFloat(35,50);
                     UI_RenderRandomStar($top,$left,$scale);
@@ -51,8 +51,8 @@ require_once __DIR__ . "/../../components/starry-background/starry-background.ph
         </div>
         <div class="parallax-layer layer-back">
             <div class="milky-way back">
-                <?php for ($i=0; $i<$star_count; $i++) {
-                    $top =      randomInvFloat(0,100,$inv_strength);
+                <?php for ($i=0; $i<$count; $i++) {
+                    $top =      randomInvFloat(0,100,$strength);
                     $left =     randomFloat(0,100);
                     $scale =    randomFloat(50,65);
                     UI_RenderRandomStar($top,$left,$scale);
