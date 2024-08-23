@@ -3,7 +3,7 @@
     require_once __DIR__ . '/assets/php/utils.php';
 
     try {
-        $sql = "SELECT m_color_one, m_color_two, m_color_three FROM media WHERE m_active=1;";
+        $sql = "SELECT m_color_one, m_color_two, m_color_three FROM media WHERE m_active=true";
         $stmt = $pdo->query($sql);
         $entries = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if (!isset($entries[0])) {

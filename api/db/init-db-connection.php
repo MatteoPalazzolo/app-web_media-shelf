@@ -1,22 +1,13 @@
 <?php
-/*
-try {
-    $pdo = new PDO('sqlite:'. __DIR__ . '\\db.sqlite');
-    // Set error mode to exceptions
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage() . '<br>';
-}
-*/
 
-$host = "127.0.0.1";
-$username = "root";
-$password = "";
-$dbname = "mediashelf";
+// $host     = "localhost";
+$host     = "db";
+$dbname   = "mediashelf";
+$username = "postgres";
+$password = "postgres";
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    // Set error mode to exceptions
+    $pdo = new PDO("pgsql:host=$host;port=5432;dbname=$dbname", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("\nERROR: Connection failed: " . $e->getMessage());

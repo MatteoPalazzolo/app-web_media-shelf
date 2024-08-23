@@ -14,9 +14,11 @@ https://www.weatherapi.com/pricing.aspx
 ## WEATHER ICONS
 https://www.flaticon.com/free-icons/weather
 
-## USEFUL LINKS
+## DESIGN LINKS
 https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path
 
+## GITHUB
+https://github.com/mlocati/docker-php-extension-installer
 
 ## TODO
 
@@ -36,3 +38,19 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path
 - [ ] what should display if no rating yet?
 - [ ] how to display planning tag (to watch, watching, seen) for it to be CLEAR?
 - [ ] little icon for media type (Film, Anime, Videogames, ...), maybe a badge in SVG
+
+## DOCKER
+```
+docker ps -a
+
+docker volume ls
+docker volume inspect <name>
+docker volume rm <name>
+
+docker exec -it <id> bash
+\# exit
+
+docker compose up
+
+pg_isready -h localhost -p 5432
+```

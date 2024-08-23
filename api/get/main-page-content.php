@@ -7,7 +7,7 @@ require      __DIR__ . '/../db/init-db-connection.php';
 
 // create cards from db content
 try {
-    $sql = "SELECT id, m_title, m_year, m_rating, m_color_one, m_color_two, m_color_three FROM media ORDER BY id DESC;";
+    $sql = "SELECT id, m_title, m_year, m_rating, m_color_one, m_color_two, m_color_three FROM media ORDER BY id DESC";
     $stmt = $pdo->query($sql);
     $entries = $stmt->fetchAll(PDO::FETCH_ASSOC);
     foreach ($entries as $entry) {
@@ -22,5 +22,5 @@ try {
         );
     }
 } catch (PDOException $e) {
-    die("\nERROR: create cards from db content failed: " . $e->getMessage());
+    die("\nERROR: Create cards from db content failed: " . $e->getMessage());
 }

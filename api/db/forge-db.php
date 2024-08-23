@@ -1,26 +1,30 @@
 <?php
 require 'init-db-connection.php';
-
+/*
+try {
+    $pdo->exec("CREATE DATABASE mediashelf");
+} catch (PDOException $e) {
+    echo("\INFO: db already exists: " . $e->getMessage());
+}
+*/
 // create media table if not exists
 try {
     $pdo->exec("CREATE TABLE IF NOT EXISTS media (
-        id                  INT             AUTO_INCREMENT PRIMARY KEY,
-        m_title             VARCHAR(255)    NOT NULL,
+        id                  SERIAL          PRIMARY KEY,
+        m_title             VARCHAR(255)    NOT NULL UNIQUE,
         m_year              INT             NOT NULL,
         m_rating            INT             NOT NULL,
-        m_type ENUM('Movie', 'Videogame', 'Anime', 'Cartoon', 'TV Series', 'Book', 'Manga') NOT NULL,
-        m_img_data          MEDIUMBLOB      NOT NULL,
+        m_type              VARCHAR(225)    NOT NULL,
+        m_img_data          BYTEA           NOT NULL,
         m_color_one         VARCHAR(7)      NOT NULL,
         m_color_two         VARCHAR(7)      NOT NULL,
         m_color_three       VARCHAR(7)      NOT NULL,
-        m_active            TINYINT         NOT NULL,
-        UNIQUE (m_title)
+        m_active            BOOLEAN         NOT NULL
     )");
     $pdo->exec("CREATE TABLE IF NOT EXISTS tags (
-        id                  INT             AUTO_INCREMENT PRIMARY KEY,
-        t_name              VARCHAR(255)    NOT NULL,
-        t_description       TEXT            NOT NULL,
-        UNIQUE (t_name)
+        id                  SERIAL          PRIMARY KEY,
+        t_name              VARCHAR(255)    NOT NULL UNIQUE,
+        t_description       TEXT            NOT NULL
     )");
     $pdo->exec("CREATE TABLE IF NOT EXISTS media_tags (
         id_media            INT             NOT NULL,
@@ -46,26 +50,31 @@ function insertMedia($pdo, $title, $year, $rating, $type, $imgUrl, $colorTwo, $c
             return;
         }
 
+        // Get image data
+        $imgData = file_get_contents($imgUrl);
+
+        if (!$imgData) {
+            die("\nERROR: file_get_contents(img_url) failed");
+        }
+
+        $active = true;
+
         // Prepare the SQL statement
         $sql = "INSERT INTO media (m_title, m_year, m_rating, m_type, m_img_data, m_color_one, m_color_two, m_color_three, m_active) 
                 VALUES (:m_title, :m_year, :m_rating, :m_type, :m_img_data, :m_color_one, :m_color_two, :m_color_three, :m_active)";
         $stmt = $pdo->prepare($sql);
 
-        // Get image data
-        $imgData = file_get_contents($imgUrl);
+        $stmt->bindParam(':m_title',        $title);
+        $stmt->bindParam(':m_year',         $year,          PDO::PARAM_INT);
+        $stmt->bindParam(':m_rating',       $rating,        PDO::PARAM_INT);
+        $stmt->bindParam(':m_type',         $type);
+        $stmt->bindParam(':m_img_data',     $imgData,       PDO::PARAM_LOB);
+        $stmt->bindParam(':m_color_one',    $colorTwo);     //NOTICE: not colorOne
+        $stmt->bindParam(':m_color_two',    $colorTwo);
+        $stmt->bindParam(':m_color_three',  $colorThree);
+        $stmt->bindParam(':m_active',       $active,        PDO::PARAM_BOOL);
 
-        // Execute the statement
-        $stmt->execute([
-            ':m_title' => $title,
-            ':m_year' => $year,
-            ':m_rating' => $rating,
-            ':m_type' => $type,
-            ':m_img_data' => $imgData,
-            ':m_color_one' => $colorTwo, //NOTICE
-            ':m_color_two' => $colorTwo,
-            ':m_color_three' => $colorThree,
-            ':m_active' => 1
-        ]);
+        $stmt->execute();
     } catch (PDOException $e) {
         die("\nERROR: Could not insert record for '$title'. " . $e->getMessage());
     }
