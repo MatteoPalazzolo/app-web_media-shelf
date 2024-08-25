@@ -8,6 +8,7 @@ try {
 }
 */
 // create media table if not exists
+/*
 try {
     $pdo->exec("CREATE TABLE IF NOT EXISTS media (
         id                  SERIAL          PRIMARY KEY,
@@ -37,6 +38,7 @@ try {
 } catch (PDOException $e) {
     die("\nERROR: forge-db.php falied: " . $e->getMessage());
 }
+*/
 
 function insertMedia($pdo, $title, $year, $rating, $type, $imgUrl, $colorTwo, $colorThree) {
     try {

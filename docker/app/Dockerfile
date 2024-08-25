@@ -18,6 +18,6 @@ RUN docker-php-ext-install -j$(nproc) \
 
 COPY ./config/php.ini /usr/local/etc/php/
 
-COPY . /var/www/html/
+# COPY . /var/www/html/
 
 WORKDIR /var/www/html/

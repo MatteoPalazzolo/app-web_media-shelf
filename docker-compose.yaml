@@ -1,7 +1,7 @@
-name: media-shelf
+name: mediashelf
 services:
   db:
-    image: postgres:latest
+    build: ./docker/db
     restart: always
     environment:
       POSTGRES_USER: postgres
@@ -14,6 +14,7 @@ services:
 
   app:
     build: ./docker/app
+    restart: always
     ports:
       - 80:80
     depends_on:

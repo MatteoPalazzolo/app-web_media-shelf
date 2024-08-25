@@ -47,10 +47,13 @@ docker volume ls
 docker volume inspect <name>
 docker volume rm <name>
 
-docker exec -it <id> bash
-\# exit
+docker exec -it <id/name> bash
+exit
 
-docker compose up
+docker compose up --build -d
+
+docker container stop <id/name>
+docker compose down
 
 pg_isready -h localhost -p 5432
 ```

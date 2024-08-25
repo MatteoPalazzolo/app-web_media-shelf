@@ -1,7 +1,6 @@
 <?php
 
-// $host     = "localhost";
-$host     = "db";
+$host     = is_file("/.dockerenv") ? "db" : "localhost";
 $dbname   = "mediashelf";
 $username = "postgres";
 $password = "postgres";
