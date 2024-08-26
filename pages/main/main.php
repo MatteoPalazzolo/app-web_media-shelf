@@ -26,8 +26,8 @@ require_once __DIR__ . "/../../components/starry-background/starry-background.ph
     </header>
     <div class="parallax shine">
         <?php 
-            $count    = isset($_GET['num']) && $_GET['num'] > 0 && $_GET['num'] < 300 ? $_GET['num'] : 15; 
-            $strength = isset($_GET['str']) && $_GET['str'] > 0 && $_GET['str'] < 100 ? $_GET['str'] :  3; 
+            $count    = (int) (isset($_GET['num']) && $_GET['num'] >  0 && $_GET['num'] < 300 ? $_GET['num'] : 15); 
+            $strength = (int) (isset($_GET['str']) && $_GET['str'] >= 1 && $_GET['str'] < 100 ? $_GET['str'] :  3); 
         ?>
         <div class="parallax-layer layer-back-back-back">
             <div class="milky-way back-back-back">
@@ -71,6 +71,10 @@ require_once __DIR__ . "/../../components/starry-background/starry-background.ph
         url: '/api/get/main-page-content.php' + window.location.search,
         type: 'GET',
         success: function(response) {
+            var iserror = response.split("\n");
+            if (iserror[iserror.length - 1].slice(0,5) === "ERROR") {
+                alert(response);
+            }
             $("#card-container").html(response);
             $(".milky-way").css("height", $("#card-container").height());
         },

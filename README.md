@@ -23,10 +23,10 @@ https://github.com/mlocati/docker-php-extension-installer
 ## TODO
 
 #### NOW
-- [x] make fallFromGrace work on firefox
-- [x] make serve-images.php
-- [ ] implement shuffle animation and refactor fallFromGrace stuff
-- [ ] add tag selection to form and db
+- [ ] heavy refactoring to form.php
+- [ ] add tag selection to form.php and db
+- [ ] add media type selection to form.php
+- [ ] ordinare i media nella homepage in categorie diverse in base al tipo
 
 #### PROGRAMMING
 - [ ] creare pagina per editare una card
@@ -57,3 +57,8 @@ docker compose down
 
 pg_isready -h localhost -p 5432
 ```
+
+## File JS
+- librerie (tipo color-utils.js) -> tranquillamente utilizzabile come modulo 
+- codice legato all'html di una pagina, ma pensato per essere importato altrove (tipo form.php o refresh.php) \[modals] -> sarebbe carino avere un modulo js che abbia pieno controllo su una porzione dell'html a cui si debba accedere per triggerarne gli eventi
+- codice di una specifica pagina che setta gli event listener -> da lasciare come normale js, capire come referenziare in maniera  consistente gli elementi del dom: id? classi? come sono sicuro che non siano duplicati? convenzione?

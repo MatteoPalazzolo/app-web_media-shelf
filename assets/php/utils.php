@@ -33,11 +33,16 @@ function randomFloat($min, $max) {
 }
 
 function randomInvFloat($min, $max, $strenght) {
-    if ($strenght < 1) die("\nERROR: The param strenght must be > 1.");
-    $r = randomFloat(1, $strenght);
-    //rewritten $rn = ((1/$r) - 1/$strenght) / (1 - 1/$strenght);
-    $rn = ($strenght - $r) / ($r * ($strenght -1));
-    return $min + $rn * ($max - $min);
+    if ($strenght < 1) {
+        die("\nERROR: The param strenght must be >= 1.");
+    } elseif ($strenght === 1) {
+        return randomFloat($min, $max);
+    } else {
+        $r = randomFloat(1, $strenght);
+        //rewritten $rn = ((1/$r) - 1/$strenght) / (1 - 1/$strenght);
+        $rn = ($strenght - $r) / ($r * ($strenght -1));
+        return $min + $rn * ($max - $min);
+    }
 }
 
 /*

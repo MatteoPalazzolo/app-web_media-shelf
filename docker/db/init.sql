@@ -18,9 +18,7 @@ CREATE TABLE IF NOT EXISTS tags (
 );
 
 CREATE TABLE IF NOT EXISTS media_tags (
-    id_media            INT             NOT NULL,
-    id_tag              INT             NOT NULL,
-    FOREIGN KEY (id_media) REFERENCES media(id),
-    FOREIGN KEY (id_tag)   REFERENCES tags(id),
+    id_media    INT    NOT NULL    REFERENCES media(id),
+    id_tag      INT    NOT NULL    REFERENCES tags(id),
     PRIMARY KEY (id_media, id_tag)
 );

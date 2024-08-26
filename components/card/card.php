@@ -5,17 +5,17 @@
 <?php require_once __DIR__ . '/../../assets/php/utils.php'; ?>
 
 <?php function UI_RenderCard($id, $title, $year, $rating, $color_one, $color_two, $color_three) { ?>
-    <div draggable="true" ondragover="event.preventDefault()" ondrop="console.log(event)" class="card"
+    <div draggable="true" class="card"
         style="
             --color-local-agi: <?= $color_one ?>;
             --color-local-bufu: <?= $color_two ?>;
             --color-local-zio: <?= $color_three ?>;
         ">
         <div class="bg-one"></div>
-        <div class="bg-two" draggable="true">
+        <div class="bg-two">
             <p>INFO</p>
         </div>
-        <div class="bg-three" draggable="true">
+        <div class="bg-three">
             <p>EDIT</p>
         </div>
         <p class="year"><?= $year ?></p>
