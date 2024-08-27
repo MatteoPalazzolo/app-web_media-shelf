@@ -90,6 +90,6 @@ require_once __DIR__ . "/../../components/starry-background/starry-background.ph
 </script>
 
 <?php
-require_once __DIR__ . "/../../components/new-card-form/form.php";
+require_once __DIR__ . "/../../components/new-card-form-2/form.php";
 require_once __DIR__ . "/../../components/refresh-cards/refresh.php";
 ?>

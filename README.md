@@ -15,10 +15,11 @@ https://www.weatherapi.com/pricing.aspx
 https://www.flaticon.com/free-icons/weather
 
 ## DESIGN LINKS
-https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path
-
-## GITHUB
-https://github.com/mlocati/docker-php-extension-installer
+- https://codepen.io/petegarvin1/pen/bGBGvvK
+- https://codepen.io/cobra_winfrey/pen/ZNGQKx
+- https://codepen.io/AbubakerSaeed/pen/EJrRvY
+- https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path
+- https://codepen.io/jh3y/pen/qBqqKRw
 
 ## TODO
 
@@ -40,7 +41,7 @@ https://github.com/mlocati/docker-php-extension-installer
 - [ ] little icon for media type (Film, Anime, Videogames, ...), maybe a badge in SVG
 
 ## DOCKER
-```
+```shell
 docker ps -a
 
 docker volume ls

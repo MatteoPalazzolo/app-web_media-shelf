@@ -1,4 +1,4 @@
-.card {
+#card-container .card {
     width: fit-content;
     position: relative;
     display: flex;
@@ -7,15 +7,15 @@
     cursor: pointer;
     transition: transform .1s;
 }
-.card:hover {
+#card-container .card:hover {
     transform: scale(1.12);
     @media (max-width: 768px) {
         transform: scale(1.05);
     }
 }
 
-.card .bg-two p,
-.card .bg-three p {
+#card-container .card .bg-two p,
+#card-container .card .bg-three p {
     font-family: "PersonaBold", sans-serif;
     font-size: 1.4rem;
     transform: scaleX(1.1);
@@ -24,7 +24,7 @@
     width: 50%;
 }
 
-.card img {
+#card-container .card img {
     height: 325px;
     aspect-ratio: 9 / 13;
     object-fit: cover;
@@ -35,7 +35,7 @@
 }
 
 /*
-.card .bg-one {
+#card-container .card .bg-one {
     width: 100%;
     height: 100%;
     background-color: #76643e;
@@ -44,8 +44,7 @@
     z-index: 3;
 }
 */
-
-.card .bg-two {
+#card-container .card .bg-two {
     width: 100%;
     height: 100%;
     background-color: var(--color-local-bufu);
@@ -55,14 +54,14 @@
     transform: rotate(1.5deg) translate(0px);
     transition: transform .1s;
 }
-.card:hover:not(:active) > .bg-two {
+#card-container .card:hover:not(:active) > .bg-two {
     transform: rotate(5deg) translate(15px, -2px);
 }
-.card .bg-two:hover {
+#card-container .card .bg-two:hover {
     transform: rotate(5deg) translate(15px, -2px) translateY(-25px) !important;
 }
 
-.card .bg-three {
+#card-container .card .bg-three {
     width: 100%;
     height: 100%;
     background-color: var(--color-local-zio);
@@ -72,14 +71,14 @@
     transform: rotate(3deg) translate(0px);
     transition: transform .1s;
 }
-.card:hover:not(:active) > .bg-three {
+#card-container .card:hover:not(:active) > .bg-three {
     transform: rotate(10deg) translate(25px, -6px);
 }
-.card .bg-three:hover {
+#card-container .card .bg-three:hover {
     transform: rotate(10deg) translate(25px, -6px) translateY(-25px) !important;
 }
 
-.card .title {
+#card-container .card .title {
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -106,11 +105,11 @@
 
     transition: opacity .1s;
 }
-.card:hover:not(:active) > .title {
+#card-container .card:hover:not(:active) > .title {
     opacity: 1;
 }
 
-.card .year {
+#card-container .card .year {
     font-family: 'Persona';
     font-size: 34px;
     text-align: end;
@@ -124,11 +123,11 @@
     
     transition: transform .1s;
 }
-.card:hover:not(:active) > .year {
+#card-container .card:hover:not(:active) > .year {
     transform: translateY(-90%);
 }
 
-.card .rating {
+#card-container .card .rating {
     font-size: 3rem;
     /*
     unicode-bidi: bidi-override !important;
@@ -150,6 +149,6 @@
 
     transition: transform .1s;
 }
-.card:hover:not(:active) > .rating {
+#card-container .card:hover:not(:active) > .rating {
     transform: translateY(-50%) translateX(-95%);
 }
