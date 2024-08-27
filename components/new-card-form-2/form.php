@@ -1,6 +1,7 @@
 <style>
-<?= file_get_contents(__DIR__ . "/form.css"); ?>
-<?= file_get_contents(__DIR__ . "/layout.css"); ?>
+<?= file_get_contents(__DIR__ . "/css/form.css"); ?>
+<?= file_get_contents(__DIR__ . "/css/layout.css"); ?>
+<?= file_get_contents(__DIR__ . "/css/fall-from-grace.css"); ?>
 </style>
 
 <?php
@@ -8,15 +9,14 @@ define("ADD_IMG_PATH",      "assets/images/img-add.png");
 define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
 ?>
 
-<main id="new-card-form" class="open">
+<main id="new-card-form" class="">
     <div class="backdrop"></div>
-    <form class="form open">
-        <div class="container">
+    <form class="form">
 
             <card class="card one right">
                 <h1>PALETTE</h1>
             </card>
-
+            
             <card class="card two center">
 
                 <div id="file-url-input" class="file-url-input" class="submit">
@@ -48,19 +48,17 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
                 <h1>ADD TAG</h1>
                 <h1>RATING</h1>
             </card>
-
-        </div>
+            
     </form>
 </main>
 
-<script>
-    function toggleAddCardMenu() {
-        $("#new-card-form").toggleClass("open");
-    }
-</script>
-
 <script type="module">
-    import { setCardToCenter, toggleDeck } from "./<?= substr(__DIR__, 14); ?>/swap-cards.module.js";
+    import { setCardToCenter, toggleDeck } from "./<?= substr(__DIR__, 14); ?>/modules/swap-cards.module.js";
+    import { toggleAddCardMenu } from "./<?= substr(__DIR__, 14); ?>/modules/fall-from-grace.module.js";
+
     $("#new-card-form .card").on("click", setCardToCenter);
-    let meCook = 15;
+
+    Object.assign(window , {
+        toggleAddCardMenu
+    });
 </script>

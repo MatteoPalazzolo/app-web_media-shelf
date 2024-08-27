@@ -1,0 +1,46 @@
+#new-card-form.down .form {
+    --intro-scale: .6;
+
+    animation-name: fallFromGraceCard;
+    animation-duration: 6s;
+    animation-fill-mode: forwards;
+}
+#new-card-form .form.open .card {
+    animation-name: openDeck;
+    animation-duration: 1s;
+}
+
+@keyframes fallFromGraceCard {
+    0% {
+        scale: var(--intro-scale);
+        transform: translateY(-120vh) perspective(1200px) rotateY(0deg);
+        box-shadow: none;
+    }
+    60% {
+        scale: var(--intro-scale);
+        transform: translateY(0) perspective(1200px) rotateY(360deg);
+        box-shadow: none;
+    }
+    80% {
+        scale: 1;
+        transform: translateY(0) perspective(1200px) rotateY(360deg);
+        box-shadow:
+          0 0 60px 30px  #fff, 
+          0 0 100px 60px #f0f,
+          0 0 140px 90px #0ff;
+    }
+    100% {
+        scale: 1;
+        transform: translateY(0) perspective(1200px) rotateY(360deg);
+        box-shadow: none;
+    }
+}
+
+@keyframes openDeck {
+    from {
+        transform: none;
+    }
+    to {
+        transform: var(--open-transform);
+    }
+}

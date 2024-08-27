@@ -1,5 +1,5 @@
 <style>
-<?= file_get_contents(__DIR__ . "/form.css"); ?>
+<?= file_get_contents(__DIR__ . "/f.css"); ?>
 </style>
 
 <?php
@@ -88,17 +88,16 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
 let isAnimating = false;
 function toggleAddCardMenu(dudeJustCloseIt=false) {
     if (isAnimating) return;
-    isAnimating = true;
 
     if (dudeJustCloseIt) {
         justCloseIt();
     } else if ($("form.form").css("display") === "none") {
         fallFromGrace();
+        isAnimating = true;
+        setTimeout(() => isAnimating = false, 6000);
     } else {
         shatterInPieces();
     }
-    
-    setTimeout(() => isAnimating = false, 6000);
 }
 // private
 function fallFromGrace() {

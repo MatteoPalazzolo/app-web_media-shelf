@@ -38,7 +38,7 @@
 
 /* year */
 #new-card-form .card.two .year {
-    font-family: 'Persona';
+    font-family: 'HeavyHeap', sans-serif;
     font-size: 30px;
     text-align: end;
 
@@ -74,6 +74,7 @@
     transition: transform .1s;
 }
 
+/* title */
 #new-card-form .card.two .title {
     position: absolute;
     z-index: 5;

@@ -25,9 +25,11 @@ https://www.flaticon.com/free-icons/weather
 
 #### NOW
 - [ ] heavy refactoring to form.php
+    - [ ] add card back in fallFromGrace animation
 - [ ] add tag selection to form.php and db
 - [ ] add media type selection to form.php
 - [ ] ordinare i media nella homepage in categorie diverse in base al tipo
+- [ ] migrare a curl su php
 
 #### PROGRAMMING
 - [ ] creare pagina per editare una card

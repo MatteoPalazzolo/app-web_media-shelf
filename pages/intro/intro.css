@@ -23,7 +23,7 @@ body.intro {
     border: 8px solid var(--color-zio);
     background-color: var(--color-agi);
     
-    font-family: 'Persona';
+    font-family: 'HeavyHeap', sans-serif;
     font-size: 150px;
     
     transform: translate(-50%,-50%) rotate(-18deg) translateX(0);

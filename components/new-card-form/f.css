@@ -130,7 +130,7 @@
 
 
 .form-card .color-picker p {
-    font-family: "PersonaBold", sans-serif;
+    font-family: "MightySouly", sans-serif;
     font-size: 1.4rem;
     transform: scaleX(1.1);
     transform-origin: left;
@@ -205,7 +205,7 @@
 }
 
 .form-card .year {
-    font-family: 'Persona';
+    font-family: 'HeavyHeap', sans-serif;
     font-size: 30px;
     text-align: end;
 

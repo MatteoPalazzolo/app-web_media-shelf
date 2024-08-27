@@ -11,11 +11,10 @@
             --color-local-bufu: <?= $color_two ?>;
             --color-local-zio: <?= $color_three ?>;
         ">
-        <div class="bg-one"></div>
-        <div class="bg-two">
+        <div class="bg two dashed">
             <p>INFO</p>
         </div>
-        <div class="bg-three">
+        <div class="bg three dashed">
             <p>EDIT</p>
         </div>
         <p class="year"><?= $year ?></p>
