@@ -35,11 +35,14 @@ https://www.flaticon.com/free-icons/weather
 #### NOW
 - [ ] heavy refactoring to form.php
     - [ ] prototype of swap-card with card back and central card rotation
-    - [ ] front layout for form cards 
-- [ ] add tag selection to form.php and db
-- [ ] add media type selection to form.php
+    - [ ] front layout for form cards
+    - [ ] add tag selection to form.php and db
+    - [ ] add media type selection to form.php
 - [ ] ordinare i media nella homepage in categorie diverse in base al tipo
 - [ ] migrare a curl su php
+- [ ] js api
+    - [ ] fetch api: get passing url params to the server
+    - [ ] color api: set global palette and find higher contrast color
 
 #### PROGRAMMING
 - [ ] creare pagina per editare una card

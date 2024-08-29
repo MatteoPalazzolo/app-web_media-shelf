@@ -1,6 +1,10 @@
 <?php
 require_once __DIR__ . "/../../assets/php/utils.php";
 require_once __DIR__ . "/../../components/starry-background/starry-background.php";
+
+$count        = (int) (isset($_GET['num']) && $_GET['num'] >  0 && $_GET['num'] < 300 ? $_GET['num'] : 15); 
+$strength     = (int) (isset($_GET['str']) && $_GET['str'] >= 1 && $_GET['str'] < 100 ? $_GET['str'] :  3);
+$form_version = (int) (isset($_GET['formv']) && $_GET['formv'] >= 1 && $_GET['formv'] <= 3 ? $_GET['formv'] :  1);
 ?>
 
 <style>
@@ -25,10 +29,6 @@ require_once __DIR__ . "/../../components/starry-background/starry-background.ph
         </svg>
     </header>
     <div class="parallax shine">
-        <?php 
-            $count    = (int) (isset($_GET['num']) && $_GET['num'] >  0 && $_GET['num'] < 300 ? $_GET['num'] : 15); 
-            $strength = (int) (isset($_GET['str']) && $_GET['str'] >= 1 && $_GET['str'] < 100 ? $_GET['str'] :  3); 
-        ?>
         <div class="parallax-layer layer-back-back-back">
             <div class="milky-way back-back-back">
                 <?php for ($i=0; $i<$count; $i++) {
@@ -90,6 +90,6 @@ require_once __DIR__ . "/../../components/starry-background/starry-background.ph
 </script>
 
 <?php
-require_once __DIR__ . "/../../components/new-card-form-3/form.php";
+require_once __DIR__ . "/../../components/new-card-form-$form_version/form.php";
 require_once __DIR__ . "/../../components/refresh-cards/refresh.php";
 ?>

@@ -1,7 +1,7 @@
 <style>
 <?= file_get_contents(__DIR__ . "/css/form.css"); ?>
 <?= file_get_contents(__DIR__ . "/css/layout.css"); ?>
-<?= file_get_contents(__DIR__ . "/css/fall-from-grace.css"); ?>
+<?= file_get_contents(__DIR__ . "/css/animation.css"); ?>
 </style>
 
 <?php
@@ -16,14 +16,14 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
 
             <div class="card one left">
                 <div class="front">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1">
-                        <g><polygon points="0,0 1,0 1,1" style="fill:lime;" /></g>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1" class="flip-icon">
+                        <g><polygon points="0,0 1,0 1,1"/></g>
                     </svg>
 
                 </div>
                 <div class="back">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1">
-                        <g><polygon points="0,0 0,1 1,0" style="fill:lime;" /></g>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1" class="flip-icon">
+                        <g><polygon points="0,0 0,1 1,0"/></g>
                     </svg>
 
                 </div>
@@ -31,10 +31,10 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
 
             <div class="card two center">
                 <div class="front">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1">
-                        <g><polygon points="0,0 1,0 1,1" style="fill:lime;" /></g>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1" class="flip-icon">
+                        <g><polygon points="0,0 1,0 1,1"/></g>
                     </svg>
-
+                    <!--
                     <div id="file-url-input" class="file-url-input" class="submit">
                         <input  class="url-input" type="text">
                         <input  class="hidden-input" type="hidden" name="image_url">
@@ -54,11 +54,11 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
                     <p class="rating"> ☆☆☆☆☆ </p>
 
                     <input class="title" name="title" type="text" placeholder="Titolo" required />
-
+                    -->
                 </div>
                 <div class="back">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1">
-                        <g><polygon points="0,0 0,1 1,0" style="fill:lime;" /></g>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1" class="flip-icon">
+                        <g><polygon points="0,0 0,1 1,0"/></g>
                     </svg>
                     <!-- <img class="icon" onclick="() => alert(1)" src="https://cdn-icons-png.flaticon.com/512/8387/8387055.png"> -->
 
@@ -67,8 +67,8 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
 
             <div class="card three right">
                 <div class="front">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1">
-                        <g><polygon points="0,0 1,0 1,1" style="fill:lime;" /></g>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1" class="flip-icon">
+                        <g><polygon points="0,0 1,0 1,1"/></g>
                     </svg>
 
                     <h1>ANNO</h1>
@@ -79,8 +79,8 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
 
                 </div>
                 <div class="back">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1">
-                        <g><polygon points="0,0 0,1 1,0" style="fill:lime;" /></g>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1" class="flip-icon">
+                        <g><polygon points="0,0 0,1 1,0"/></g>
                     </svg>
 
                 </div>
@@ -93,13 +93,16 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
 <script type="module">
     import { 
         setCardToCenter, 
-        toggleDeck 
+        toggleDeck,
+        flipCard
     } from "./<?= substr(__DIR__, 14); ?>/modules/swap-cards.module.js";
     import { 
         toggleAddCardMenu
     } from "./<?= substr(__DIR__, 14); ?>/modules/fall-from-grace.module.js";
-
+    
+    // $(".toggle-card").on("click", toggleDeck);
     $("#new-card-form .card").on("click", setCardToCenter);
+    $("#new-card-form .card .flip-icon g").on("click", flipCard);
 
     Object.assign(window , {
         toggleAddCardMenu

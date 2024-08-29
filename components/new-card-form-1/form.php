@@ -1,5 +1,5 @@
 <style>
-<?= file_get_contents(__DIR__ . "/f.css"); ?>
+<?= file_get_contents(__DIR__ . "/form.css"); ?>
 </style>
 
 <?php
@@ -42,19 +42,19 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
             <input style="display: none;" type="submit" id="subimit-form" >
 
             <div class="frontface">
-                <input 
-                    class="year"
-                    name="year"
-                    type="text"
-                    inputmode="numeric"
-                    maxlength="4"
-                    pattern="\d{1,4}"
-                    placeholder="1998"
-                    required />
+            <input 
+                class="year"
+                name="year"
+                type="text"
+                inputmode="numeric"
+                maxlength="4"
+                pattern="\d{1,4}"
+                placeholder="1492"
+                required />
             
-                <label style="cursor: pointer;" id="image-label" for="image-input">
-                    <img src="<?= ADD_IMG_PATH ?>"
-                        onerror="this.src = this.src === '<?= BROKEN_IMG_PATH ?>' ? undefined : '<?= BROKEN_IMG_PATH ?>';" />
+            <label style="cursor: pointer;" id="image-label" for="image-input">
+                <img src="<?= ADD_IMG_PATH ?>"
+                     onerror="this.src = this.src === '<?= BROKEN_IMG_PATH ?>' ? undefined : '<?= BROKEN_IMG_PATH ?>';" />
                 </label>
                 <input 
                     id="image-input" 
@@ -77,27 +77,27 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
                     <input type="hidden" name="image_url">
                     <img src="assets/icons/stars.png" >
                 </div>
-
             </div>
             
         </div>
     </form>
 </main>
 
-<script>
+<script type="module">
 let isAnimating = false;
 function toggleAddCardMenu(dudeJustCloseIt=false) {
     if (isAnimating) return;
+    isAnimating = true;
 
     if (dudeJustCloseIt) {
         justCloseIt();
     } else if ($("form.form").css("display") === "none") {
         fallFromGrace();
-        isAnimating = true;
-        setTimeout(() => isAnimating = false, 6000);
     } else {
         shatterInPieces();
     }
+    
+    setTimeout(() => isAnimating = false, 6000);
 }
 // private
 function fallFromGrace() {
@@ -283,5 +283,7 @@ $("form.form").on("submit", function(e) {
         alert("ERROR: No image selected");
     }
 });
-
+Object.assign(window , {
+    toggleAddCardMenu
+});
 </script>

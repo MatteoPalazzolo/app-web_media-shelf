@@ -1,0 +1,140 @@
+#new-card-form {
+    --card-width: 350px;
+
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .3s;
+}
+#new-card-form.down {
+    pointer-events: all;
+    opacity: 1;
+}
+
+#new-card-form .backdrop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    background-color: #07091d;
+}
+
+#new-card-form .form {
+    perspective: 1px;
+    transform-style: preserve-3d;
+}
+#new-card-form .form {
+    position: relative;
+    /* width: var(--card-width); */
+    height: 65%;
+    aspect-ratio: 9/13;
+    perspective: inherit;
+    transform-style: preserve-3d;
+}
+
+/* *********************************** */
+/* *********************************** */
+/* ******** CONTAINER LAYOUT ********* */
+/* *********************************** */
+/* *********************************** */
+
+#new-card-form .container {
+    position: relative;
+    height: 500px;
+    aspect-ratio: 9 / 13;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+#new-card-form .container .card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+#new-card-form .container .card * {
+    backface-visibility: hidden;
+}
+#new-card-form .container .card .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    transform: rotateY(180deg);
+}
+
+#new-card-form .container .card .front .flip-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+}
+#new-card-form .container .card .back .flip-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+}
+#new-card-form .container .card .flip-icon g {
+    cursor: pointer;
+    fill: var(--color-zio);
+}
+
+/* *********************************** */
+/* *********************************** */
+/* *********************************** */
+/* *********************************** */
+/* *********************************** */
+
+#new-card-form .container .card {
+    transform-origin: center center;
+    transform-style: preserve-3d;
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    transition: transform .1s, rotate .5s;
+    
+    --rotate-y: 0deg;
+}
+#new-card-form .card.flip {
+    --rotate-y: 180deg !important;
+}
+#new-card-form .container.open .card.center {
+    transform: translate3d(-60%, 0, 0px) rotateY(var(--rotate-y));
+    cursor: pointer;
+}
+#new-card-form .container.open .card.left {
+    transform: translate3d(0, 0, -200px) rotateY(var(--rotate-y));
+    cursor: pointer;
+}
+#new-card-form .container.open .card.right {
+    transform: translate3d(60%, 0, -400px) rotateY(var(--rotate-y));
+    cursor: pointer;
+}
+
+#new-card-form .card.center {
+    z-index: 5;
+}
+
+#new-card-form .card.one {
+    background-color: aqua;
+}
+#new-card-form .card.two {
+    background-color: blueviolet;
+}
+#new-card-form .card.three {
+    background-color: burlywood;
+}
