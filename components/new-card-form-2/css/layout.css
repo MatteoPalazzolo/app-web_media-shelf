@@ -33,11 +33,15 @@
 }
 
 #new-card-form .form {
+    perspective: 1px;
+    transform-style: preserve-3d;
+}
+#new-card-form .form {
     position: relative;
     /* width: var(--card-width); */
     height: 65%;
     aspect-ratio: 9/13;
-    perspective: 10px;
+    perspective: inherit;
     transform-style: preserve-3d;
 }
 #new-card-form .card {
@@ -46,7 +50,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-
+    /*
+    perspective: inherit; */
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
     transform: translate3d(0, 0, 0) rotate(0deg);
     transition: transform .1s, scale .1s;
 }
@@ -71,10 +78,16 @@
     transform: var(--open-transform);
     cursor: pointer;
 }
+
 #new-card-form .form .card.center {
     z-index: 100;
 }
-
+/*
+#new-card-form .form.open .card.center {
+    --open-transform: rotateY(180deg);
+    transform: var(--open-transform);
+}
+*/
 #new-card-form .form.open .card:not(.center):hover {
     scale: 1.02;
 }

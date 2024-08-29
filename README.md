@@ -18,14 +18,24 @@ https://www.flaticon.com/free-icons/weather
 - https://codepen.io/petegarvin1/pen/bGBGvvK
 - https://codepen.io/cobra_winfrey/pen/ZNGQKx
 - https://codepen.io/AbubakerSaeed/pen/EJrRvY
-- https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path
 - https://codepen.io/jh3y/pen/qBqqKRw
+- https://codepen.io/jcoulterdesign/pen/PXygYN
+- https://codepen.io/nitishkmrk/pen/jyYEop
+- https://codepen.io/fernandopasik/pen/AvELMG
+- https://codepen.io/designcouch/pen/abRNObK
+- https://codepen.io/svensonWho/pen/yLZzqGL
+- https://codepen.io/t_afif/pen/WNzKJgZ
+
+- https://developer.mozilla.org/en-US/docs/Web/CSS/clip-paths
+- https://developer.mozilla.org/en-US/docs/Web/CSS/view-timeline
+- https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip
 
 ## TODO
 
 #### NOW
 - [ ] heavy refactoring to form.php
-    - [ ] add card back in fallFromGrace animation
+    - [ ] prototype of swap-card with card back and central card rotation
+    - [ ] front layout for form cards 
 - [ ] add tag selection to form.php and db
 - [ ] add media type selection to form.php
 - [ ] ordinare i media nella homepage in categorie diverse in base al tipo

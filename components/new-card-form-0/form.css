@@ -1,0 +1,275 @@
+.separator {
+    position: fixed;
+    z-index: 9;
+    background-color: #00000000;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transition: background-color .8s ease-in-out;
+}
+.separator.show {
+    background-color: #000000;
+}
+
+.form-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    
+    z-index: 10;
+
+    width: fit-content;
+    backface-visibility: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    width: fit-content;
+
+    transform-style: preserve-3d;
+}
+.form-card.fall {
+    animation-name: fallFromGraceCard;
+    animation-duration: 6s;
+    animation-fill-mode: forwards;
+}
+.form-card .backface {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-zio);
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+
+/* START BACKGROUND */
+
+.form-card .form-card-bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /* transform: rotate(0deg) translate(0, 0) translateY(0); */
+    /* TODO: transition: transform 1s is not working */
+    transition: transform 1s, background-color .3s;
+}
+.form-card.fall .form-card-bg {
+    backface-visibility: hidden;
+    animation-name: fallFromGraceBackground;
+    animation-duration: 6s;
+    animation-fill-mode: forwards;
+}
+.form-card .form-card-bg:hover {
+    transform: var(--transform-open) !important;
+}
+
+.form-card .bg-one {
+    z-index: 3;
+    background-color: var(--color-agi);
+    --transform-start:  rotate(0deg)    translate(0, 0)       translateY(0)    ;
+    --transform-end:    rotate(11.5deg) translate(10px, -4px) translateY(-10px);
+    --transform-open:   rotate(11.5deg) translate(10px, -4px) translateY(-27px);
+}
+
+.form-card .bg-two {
+    z-index: 2;
+    background-color: var(--color-bufu);
+    --transform-start:  rotate(0deg)  translate(0, 0)       translateY(0)    ;
+    --transform-end:    rotate(18deg) translate(15px, -8px) translateY(-10px);
+    --transform-open:   rotate(18deg) translate(15px, -8px) translateY(-27px);
+}
+
+.form-card .bg-three {
+    z-index: 1;
+    background-color: var(--color-zio);
+    --transform-start:  rotate(0deg)  translate(0, 0)       translateY(0)    ;
+    --transform-end:    rotate(24deg) translate(20px, -6px) translateY(-20px);
+    --transform-open:   rotate(24deg) translate(20px, -6px) translateY(-35px);
+}
+
+/* END BACKGROUND */
+
+/* START CARD AND BACKGROUND ANIMATIONS */
+/* TODO: add card back when rotating */
+
+@keyframes fallFromGraceCard {
+    0% {
+        transform: translate(-50%,-50%) translateY(-120vh) perspective(1200px) rotateY(0deg);
+        box-shadow: none;
+    }
+    60% {
+        transform: translate(-50%,-50%) translateY(0) perspective(1200px) rotateY(360deg);
+        box-shadow: none;
+    }
+    80% {
+        transform: translate(-50%,-50%) translateY(0) perspective(1200px) rotateY(360deg);
+        box-shadow:
+          0 0 60px 30px  #fff, 
+          0 0 100px 60px #f0f,
+          0 0 140px 90px #0ff;
+    }
+    100% {
+        transform: translate(-50%,-50%) translateY(0) perspective(1200px) rotateY(360deg);
+        box-shadow: none;
+    }
+}
+
+@keyframes fallFromGraceBackground {
+    0%,60% {
+        transform: var(--transform-start);
+    }
+    75%,100% {
+        transform: var(--transform-end);
+    }
+}
+
+/* END CARD AND BACKGROUND ANIMATIONS */
+
+
+.form-card .color-picker p {
+    font-family: "MightySouly", sans-serif;
+    font-size: 1.4rem;
+    transform: scaleX(1.1);
+    transform-origin: left;
+    margin-left: 5px;
+    width: 50%;
+    transition: font-size .1s;
+}
+.form-card .color-picker:hover p {
+    font-size: 1.8rem;
+}
+.form-card .color-picker input {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.form-card .color-picker label img {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 25px;
+    height: 25px;
+    background-color: #00000000;
+    cursor: pointer;
+    transition: transform .1s;
+}
+.form-card .color-picker:hover label img {
+    transform: scale(1.2);
+}
+.form-card .color-picker label img:hover {
+    transform: scale(1.4);
+}
+
+.form-card #image-label > img {
+    height: 500px;
+    aspect-ratio: 9 / 13;
+    object-fit: cover;
+    background-color: #aaaaaa;
+
+    position: relative;
+    z-index: 4;
+}
+
+.form-card .title {
+    position: absolute;
+    z-index: 5;
+    bottom: 0;
+    left: 50%;
+
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 10px;
+    padding-bottom: 5px;
+
+    text-align: center;
+    background-image: linear-gradient(#00000000, #00000099, #000000CC, #000000FF);
+
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 20px;    
+    color: whitesmoke;
+
+    opacity: 1;
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    transform: translateX(-50%);
+
+    transition: opacity .1s;
+}
+
+.form-card .year {
+    font-family: 'HeavyHeap';
+    font-size: 30px;
+    text-align: end;
+
+    width: 18%;
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    z-index: -1;
+    color: white;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    transform: translateY(-100%);
+    transition: transform .1s;
+}
+
+.form-card .rating {
+    font-size: 4.5rem;
+    writing-mode: vertical-rl;
+    direction: rtl;
+    text-align: center;
+
+    height: 100%;
+
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) translateX(-100%);
+    transition: transform .1s;
+}
+
+.form-card .submit {
+    position: absolute;
+    top: -50px;
+    left: 0;
+}
+
+.form-card #input-image-url {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 6;
+
+    display: flex;
+    flex-direction: row-reverse;
+}
+.form-card #input-image-url > input {
+    background-color: #00000000;
+    border: none;
+    outline: none;
+    border-bottom: solid #6AACFF 1px;
+    width: 92%;
+    font-size: 0.9em;
+    padding-left: 5px;
+    color: #6AACFF;
+}
+.form-card #input-image-url > img {
+    width: 8%;
+    transition: transform .1s;
+}
+.form-card #input-image-url > img:hover {
+    transform: scale(1.1);
+}

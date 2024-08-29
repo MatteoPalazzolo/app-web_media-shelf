@@ -1,4 +1,28 @@
 /* file-input-label */
+#new-card-form .card.two .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-image: url("assets/images/card-back-2.jpg");
+    background-position: center;
+    background-size: contain;
+
+    transform: rotateY(180deg);
+    backface-visibility: hidden;/*
+    z-index: 200;*/
+}
+#new-card-form .card.two .back .icon {
+    width: 50%;
+    aspect-ratio: 1/1;
+}
+
 #new-card-form .card.two .file-input-label > img {
     width: 100%;
     height: 100%;
