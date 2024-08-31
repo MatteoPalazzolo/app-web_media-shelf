@@ -1,5 +1,5 @@
 <?php 
-
+/*
 function calcStarRating($rating) {
     if ($rating < 0 || $rating > 5) {
         return "invalid number";
@@ -13,7 +13,7 @@ function calcStarRating($rating) {
         }
     }
     return $out;
-}
+}*/
 
 function isColorBright($color) {
     if (strlen($color) !== 7)

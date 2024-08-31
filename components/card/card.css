@@ -123,14 +123,11 @@
 }
 
 #card-container .card .rating {
-    font-size: 3rem;
-    /*
-    unicode-bidi: bidi-override !important;
-    direction: unset !important;
-    text-align:right;
-    */
-    writing-mode: vertical-rl;
-    text-align: center;
+    padding-right: 5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 
     height: 100%;
     
@@ -146,4 +143,19 @@
 }
 #card-container .card:hover:not(:active) > .rating {
     transform: translateY(-50%) translateX(-95%);
+}
+/*
+#card-container .card .rating .empty-star-icon {
+    font-size: 40px;
+    color: var(--color-local-agi);
+    text-shadow: 
+        color-mix(in srgb, var(--color-local-zio) 25%, transparent) 0px 54px 55px,
+        color-mix(in srgb, var(--color-local-zio) 12%, transparent) 0px -12px 30px,
+        color-mix(in srgb, var(--color-local-zio) 12%, transparent) 0px 4px 6px,
+        color-mix(in srgb, var(--color-local-zio) 17%, transparent) 0px 12px 13px,
+        color-mix(in srgb, var(--color-local-zio)  9%, transparent) 0px -3px 5px
+}*/
+
+#card-container .card .rating .empty-star-icon {
+    width: 50px;
 }
