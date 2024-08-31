@@ -1,13 +1,15 @@
-<style>
-<?= file_get_contents(__DIR__ . "/css/form.css"); ?>
-<?= file_get_contents(__DIR__ . "/css/layout.css"); ?>
-<?= file_get_contents(__DIR__ . "/css/animation.css"); ?>
-</style>
-
 <?php
 define("ADD_IMG_PATH",      "assets/images/img-add.png");
 define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
+include_once "../../assets/php/utils.php";
 ?>
+
+<link rel="stylesheet" type="text/css" href="<?= getLocalDir(__DIR__) . '/css/fix.css' ?>" />
+<link rel="stylesheet" type="text/css" href="<?= getLocalDir(__DIR__) . '/css/form.css' ?>" />
+<link rel="stylesheet" type="text/css" href="<?= getLocalDir(__DIR__) . '/css/layout.css' ?>" />
+<link rel="stylesheet" type="text/css" href="<?= getLocalDir(__DIR__) . '/css/card-one.css' ?>" />
+<link rel="stylesheet" type="text/css" href="<?= getLocalDir(__DIR__) . '/css/animation.css' ?>" />
+
 
 <main id="new-card-form" class="down">
     <div class="backdrop"></div>
@@ -15,46 +17,40 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
         <div class="container open">
 
             <div class="card one left">
+
                 <div class="front">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1" class="flip-icon">
                         <g><polygon points="0,0 1,0 1,1"/></g>
                     </svg>
+
+                    <h1 class="title">TAGS</h1>
+                    <div class="tag-list">
+                        <p>#hola</p>
+                        <p>#persona</p>
+                        <p>#chirurgo</p>
+                        <p>#spatola</p>
+                        <p>#supercalifragilistichespiralidoso</p>
+                        <p>#roccia</p>
+                    </div>
+                    <div class="ratings">*****</div>
 
                 </div>
                 <div class="back">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1" class="flip-icon">
                         <g><polygon points="0,0 0,1 1,0"/></g>
                     </svg>
+                    <h1>demo</h1>
 
                 </div>
             </div>
 
             <div class="card two center">
+
                 <div class="front">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1" class="flip-icon">
                         <g><polygon points="0,0 1,0 1,1"/></g>
                     </svg>
-                    <!--
-                    <div id="file-url-input" class="file-url-input" class="submit">
-                        <input  class="url-input" type="text">
-                        <input  class="hidden-input" type="hidden" name="image_url">
-                        <img    class="icon" src="assets/icons/stars.png">
-                    </div>
-                
-                    <label id="file-input-label" class="file-input-label" for="file-input">
-                        <img src="<?= ADD_IMG_PATH ?>"
-                            onerror="this.src = this.src === '<?= BROKEN_IMG_PATH ?>' ? undefined : '<?= BROKEN_IMG_PATH ?>';"
-                        />
-                    </label>
-                    <input id="file-input" name="image" type="file" accept="image/*" style="display: none;" />
 
-                    <input class="year" name="year" type="text" inputmode="numeric"
-                        maxlength="4" pattern="\d{1,4}" placeholder="1492" required />
-
-                    <p class="rating"> ☆☆☆☆☆ </p>
-
-                    <input class="title" name="title" type="text" placeholder="Titolo" required />
-                    -->
                 </div>
                 <div class="back">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1" class="flip-icon">
@@ -82,6 +78,7 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1" class="flip-icon">
                         <g><polygon points="0,0 0,1 1,0"/></g>
                     </svg>
+                    <h1>RATING 2</h1>
 
                 </div>
             </div>

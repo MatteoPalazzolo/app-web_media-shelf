@@ -1,0 +1,19 @@
+
+/* FIREFOX: fix cards click eclipsed by .form and .container *//* breaks stuff on Chrome
+#new-card-form .form,
+#new-card-form .form .container {
+    pointer-events: none;
+}
+#new-card-form .container.open .card {
+    pointer-events: all;
+}*/
+
+/* FIREFOX: fix broken backface-visibility *//* broken lol
+#new-card-form .container .card * {
+    rotate: X 0deg; -> now the backface is empty lol
+}*/
+
+/* FIREFOX: not showing card back *//*
+#new-card-form .container .card .flip-icon {
+    z-index: 1000;
+}*/

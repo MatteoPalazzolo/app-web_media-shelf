@@ -23,7 +23,7 @@ function setCardToCenter(e) {
     if (!$(".container")[0].classList.contains("open"))
         return;
     if (e.currentTarget.classList.contains("center")) {
-        console.log(e.currentTarget)
+        //console.log(e.currentTarget)
         return;
     }
     $(".card.center").removeClass("flip");
@@ -52,7 +52,6 @@ function flipCard(e) {
         return;
 
     $(parent).toggleClass("flip");
-    console.log(parent)
 
     /*
     if (parent.classList.contains("flip")) {

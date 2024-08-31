@@ -65,6 +65,10 @@
     width: 100%;
     height: 100%;
 }
+#new-card-form .container .card > * {
+    width: 100%;
+    height: 100%;
+}
 #new-card-form .container .card * {
     backface-visibility: hidden;
 }
@@ -114,7 +118,7 @@
 }
 #new-card-form .container.open .card.center {
     transform: translate3d(-60%, 0, 0px) rotateY(var(--rotate-y));
-    cursor: pointer;
+    cursor: auto;
 }
 #new-card-form .container.open .card.left {
     transform: translate3d(0, 0, -200px) rotateY(var(--rotate-y));

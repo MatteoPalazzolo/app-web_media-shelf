@@ -59,3 +59,7 @@ function generateRandomString($length) {
     return $randomString;
 }
 */
+
+function getLocalDir($dir) {
+    return substr($dir, 14);
+}

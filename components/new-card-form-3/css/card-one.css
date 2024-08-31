@@ -1,0 +1,34 @@
+#new-card-form .card.one .front {
+    display: grid;
+    grid-template-columns: 82% 1fr;
+    grid-template-rows: auto 1fr;
+}
+
+#new-card-form .card.one .front .title {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    
+    height: fit-content;
+
+    padding: 5px;
+    font-size: 2.25rem;
+    text-align: center;
+    font-family: "MightySouly";
+    font-weight: 200;
+}
+#new-card-form .card.one .front .tag-list {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+
+    height: fit-content;
+
+    padding-left: 15px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#new-card-form .card.one .front .ratings {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3; 
+}

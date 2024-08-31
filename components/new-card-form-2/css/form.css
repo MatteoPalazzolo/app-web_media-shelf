@@ -15,8 +15,8 @@
     background-size: contain;
 
     transform: rotateY(180deg);
-    backface-visibility: hidden;/*
-    z-index: 200;*/
+    backface-visibility: hidden;
+    
 }
 #new-card-form .card.two .back .icon {
     width: 50%;
