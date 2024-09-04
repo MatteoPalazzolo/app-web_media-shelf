@@ -4,11 +4,11 @@ const BEARS = [
     "ʕ·ᴥ·ʔ",
     "ʕ •ᴥ•ʔ",
     "ʕ•ᴥ• ʔ",
-    "ʕっ•ᴥ•ʔっ",
+    // too high: "ʕっ•ᴥ•ʔっ",
     "ʕ •`ᴥ•´ʔ",
     "ʕ♥ᴥ♥ʔ",
     "ʕᵔᴥᵔʔ",
-    "ʕ◉ᴥ◉ʔ",
+    // too high: "ʕ◉ᴥ◉ʔ",
     "ʕ´•ᴥ•`ʔ"
 ]
 shuffleBear();
@@ -17,7 +17,7 @@ function keydownAddTag(e) {
     let tagName = e.currentTarget.textContent;
     if (e.key === 'Enter') {
         e.preventDefault();
-        addTag(e, tagName);
+        addTag(tagName);
         e.currentTarget.textContent = "";
     }
     else if (tagName.length > 30) {
@@ -27,11 +27,13 @@ function keydownAddTag(e) {
 
 function clickAddTag(e) {
     let tagName = $(this).parent().children()[1].textContent;
-    addTag(e, tagName);
+    addTag(tagName);
     $(this).parent().children()[1].textContent = "";
 }
 
-function addTag(e, tagName) {
+function addTag(tagName) {
+    shuffleBear();
+
     if (!tagName || tagName.length === 0) {
         console.error("ERROR: tag can't be empty.");
         return;
@@ -51,7 +53,6 @@ function addTag(e, tagName) {
         </i>
     `);
 
-    shuffleBear();
 }
 
 function delTag() {

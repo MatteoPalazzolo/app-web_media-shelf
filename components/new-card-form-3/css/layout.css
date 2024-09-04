@@ -69,7 +69,7 @@
 #new-card-form .container .card * {
     backface-visibility: hidden;
 }
-#new-card-form .container .card .back {
+#new-card-form .container .card > .back {
     position: absolute;
     top: 0;
     left: 0;

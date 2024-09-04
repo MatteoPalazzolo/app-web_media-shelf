@@ -5,9 +5,21 @@ include_once "../../assets/php/utils.php";
 include_once "../../assets/php/svg.php";
 ?>
 
+<?php function UI_YearInput($active=false) { ?>
+    <input  class="year" 
+            type="text"
+            inputmode="numeric"
+            maxlength="4"
+            pattern="\d{1,4}"
+            placeholder="1998"
+            <?= $active ? "data-disabled" : ""?>
+    >
+<?php } ?>
+
 <link rel="stylesheet" type="text/css" href="<?= getLocalDir(__DIR__) . '/css/fix.css' ?>" />
 <link rel="stylesheet" type="text/css" href="<?= getLocalDir(__DIR__) . '/css/layout.css' ?>" />
 <link rel="stylesheet" type="text/css" href="<?= getLocalDir(__DIR__) . '/css/card-one.css' ?>" />
+<link rel="stylesheet" type="text/css" href="<?= getLocalDir(__DIR__) . '/css/card-three.css' ?>" />
 <link rel="stylesheet" type="text/css" href="<?= getLocalDir(__DIR__) . '/css/animation.css' ?>" />
 
 <style>
@@ -67,12 +79,29 @@ include_once "../../assets/php/svg.php";
             <div class="card three right">
                 <div class="front">
                     <?php UI_FlipIconRight() ?>
+                        
+                    <!-- TODO: use a span -->
+                    <textarea class="title" type="text"></textarea>
 
-                    <h1>ANNO</h1>
-                    <h1>TITOLO</h1>
-                    <h1>TAG</h1>
-                    <h1>ADD TAG</h1>
-                    <h1>RATING</h1>
+                    <div class="band back-back">
+                        <?= UI_YearInput() ?>
+                        <?= UI_YearInput() ?>
+                        <?= UI_YearInput() ?>
+                        <?= UI_YearInput(true) ?>
+                    </div>
+                        
+                    <div class="band back">
+                        <?= UI_YearInput() ?>
+                        <?= UI_YearInput() ?>
+                        <?= UI_YearInput() ?>
+                        <?= UI_YearInput(true) ?>
+                    </div>
+
+                    <div class="band front">
+                        <?= UI_YearInput() ?>
+                        <?= UI_YearInput() ?>
+                        <?= UI_YearInput(true) ?>
+                    </div>
 
                 </div>
                 <div class="back">
@@ -87,6 +116,7 @@ include_once "../../assets/php/svg.php";
     </form>
 </main>
 
+<script src="./assets/js/autoresize.jquery.js"></script>
 <script type="module">
     import { 
         setCardToCenter, 
@@ -104,6 +134,10 @@ include_once "../../assets/php/svg.php";
     import {
         clickSelectRating
     } from "<?= './' . getLocalDir(__DIR__) . '/modules/ratings.module.js' ?>";
+    import {
+        keydownPreventOverflowingYears,
+        keyupUpdateYears
+    } from "<?= './' . getLocalDir(__DIR__) . '/modules/year.module.js' ?>";
 
     // $(".toggle-card").on("click", toggleDeck);
     $("#new-card-form .card").on("click", setCardToCenter);
@@ -114,6 +148,10 @@ include_once "../../assets/php/svg.php";
     $("#new-card-form #tag-list").on("click", ".btn-del-tag", delTag);
 
     $("#new-card-form .star-icon").on("click", clickSelectRating);
+    $("#new-card-form .year").on("keydown", keydownPreventOverflowingYears);
+    $("#new-card-form .year").on("keyup", keyupUpdateYears);
+
+    $("#new-card-form .card.three > .front textarea.title").autoResize();
     
     Object.assign(window , {
         toggleAddCardMenu
