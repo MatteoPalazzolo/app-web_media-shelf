@@ -28,19 +28,14 @@ include_once "../../assets/php/svg.php";
                     <?php UI_FlipIconRight() ?>
                     
                     <h1 class="title">TAGS</h1>
-                    <ul class="tag-list">
-                        <!--
-                        <i># hola</i>
-                        <i># persona</i>
-                        <i># chirurgo</i>
-                        <i># spatola</i>
-                        <i># supercalifragilistichespiralidoso</i>
-                        <i># roccia</i>
-                        -->
-                        <i class="add-tag">
+                    <ul id="tag-list" class="tag-list">
+                        
+                        <i id="add-tag" class="add-tag">
                             <p>#</p>
                             <span role="textbox" contenteditable></span>
+                            <i class="btn-add-tag bi-check" type="button"></i>
                         </i>
+                        
                     </ul>
                     <div class="ratings">
                         <?php for ($i=0; $i<7; $i++) {
@@ -101,23 +96,19 @@ include_once "../../assets/php/svg.php";
     import { 
         toggleAddCardMenu
     } from "<?= './' . getLocalDir(__DIR__) . '/modules/fall-from-grace.module.js' ?>";
+    import {
+        keydownAddTag,
+        clickAddTag,
+        delTag
+    } from "<?= './' . getLocalDir(__DIR__) . '/modules/tags.module.js' ?>";
 
     // $(".toggle-card").on("click", toggleDeck);
     $("#new-card-form .card").on("click", setCardToCenter);
     $("#new-card-form .card .flip-icon g").on("click", flipCard);
-    
-    $("#new-card-form .card.one .front .tag-list .add-tag span").on("keydown", e => {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            if (e.currentTarget.textContent.length > 0) {
-                $("#new-card-form .card.one .front .tag-list .add-tag").before(`<i># ${e.currentTarget.textContent}</i>`);
-                e.currentTarget.textContent = "";
-            }
-        }
-        else if (e.currentTarget.textContent.length > 30) {
-            e.preventDefault();
-        }
-    });
+        
+    $("#new-card-form .card.one .front .tag-list .add-tag span").on("keydown", keydownAddTag);
+    $("#new-card-form #tag-list").on("click", ".btn-add-tag", clickAddTag);
+    $("#new-card-form #tag-list").on("click", ".btn-del-tag", delTag);
     
     Object.assign(window , {
         toggleAddCardMenu

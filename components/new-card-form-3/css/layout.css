@@ -119,10 +119,12 @@
 }
 #new-card-form .container.open .card.left {
     transform: translate3d(-60%, -25%, -200px) rotateY(var(--rotate-y)) rotate(-5deg);
+    user-select: none;
     cursor: pointer;
 }
 #new-card-form .container.open .card.right {
     transform: translate3d(80%, 25%, -200px) rotateY(var(--rotate-y)) rotate(8deg);
+    user-select: none;
     cursor: pointer;
 }
 
