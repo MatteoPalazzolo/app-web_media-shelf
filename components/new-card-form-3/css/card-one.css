@@ -110,10 +110,15 @@
     flex-direction: column;
     justify-content: space-evenly;
 }
+#new-card-form .card.one .front .ratings svg {
+    stroke: var(--color-zio);
+}
+#new-card-form .card.one .front .ratings svg.check {
+    fill: var(--color-zio);
+}
+/*
 #new-card-form .card.one .front .ratings svg:nth-child(1),
 #new-card-form .card.one .front .ratings svg:nth-child(2) {
     display: none;
 }
-#new-card-form .card.one .front .ratings * {
-    stroke: var(--color-contrast-agi);
-}
+*/

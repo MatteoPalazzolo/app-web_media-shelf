@@ -19,7 +19,7 @@
         <h2 class="title"><?= $title ?></h2>
         <div class="rating">
             <?php for ($i=0; $i<$rating; $i++) {
-                UI_EmptyStarSvg2();
+                UI_StarSvg();
             } ?>
         </div>
     </div>

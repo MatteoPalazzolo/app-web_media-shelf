@@ -79,22 +79,22 @@
     transform: rotateY(180deg);
 }
 
-#new-card-form .container .card .front .flip-icon {
+#new-card-form .container .card .flip-icon {
     position: absolute;
     top: 0;
-    right: 0;
-    width: 50px;
-}
-#new-card-form .container .card .back .flip-icon {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50px;
+    width: 25px;
 }
 #new-card-form .container .card .flip-icon g {
     cursor: pointer;
     fill: var(--color-zio);
 }
+#new-card-form .container .card .flip-icon.right {
+    right: 0;
+}
+#new-card-form .container .card .flip-icon.left {
+    left: 0;
+}
+
 
 /* *********************************** */
 /* *********************************** */

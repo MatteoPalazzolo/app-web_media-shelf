@@ -35,11 +35,11 @@ include_once "../../assets/php/svg.php";
                             <span role="textbox" contenteditable></span>
                             <i class="btn-add-tag bi-check" type="button"></i>
                         </i>
-                        
+
                     </ul>
                     <div class="ratings">
                         <?php for ($i=0; $i<7; $i++) {
-                            UI_EmptyStarSvg2();
+                            UI_StarSvg();
                         } ?>
                     </div>
 
@@ -101,14 +101,19 @@ include_once "../../assets/php/svg.php";
         clickAddTag,
         delTag
     } from "<?= './' . getLocalDir(__DIR__) . '/modules/tags.module.js' ?>";
+    import {
+        clickSelectRating
+    } from "<?= './' . getLocalDir(__DIR__) . '/modules/ratings.module.js' ?>";
 
     // $(".toggle-card").on("click", toggleDeck);
     $("#new-card-form .card").on("click", setCardToCenter);
     $("#new-card-form .card .flip-icon g").on("click", flipCard);
         
     $("#new-card-form .card.one .front .tag-list .add-tag span").on("keydown", keydownAddTag);
-    $("#new-card-form #tag-list").on("click", ".btn-add-tag", clickAddTag);
+    $("#new-card-form #tag-list .btn-add-tag").on("click", clickAddTag);
     $("#new-card-form #tag-list").on("click", ".btn-del-tag", delTag);
+
+    $("#new-card-form .star-icon").on("click", clickSelectRating);
     
     Object.assign(window , {
         toggleAddCardMenu
