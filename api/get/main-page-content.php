@@ -26,27 +26,3 @@ try {
 }
 
 ?>
-
-<!-- bind drag events to the cards -->
-<script>
-$(document).ready(() => {
-    let draggedElement = null;
-    $('.card[draggable="true"]').on('dragstart', e => {
-        draggedElement = e.currentTarget;
-    })
-    $('.card[draggable="true"]').on('dragover', e => {
-        if (draggedElement !== e.currentTarget)
-            e.preventDefault();
-    })
-    $('.card[draggable="true"]').on('drop', e => {
-        e.preventDefault();
-        if (draggedElement && draggedElement !== e.currentTarget) {
-            // Chat GPT: NON HO IDEA DI PERCHÈ FUNZIONI!!
-            let temp = document.createElement('div');
-            e.currentTarget.before(temp);
-            draggedElement.before(e.currentTarget);
-            temp.replaceWith(draggedElement);
-        }
-    })
-});
-</script>

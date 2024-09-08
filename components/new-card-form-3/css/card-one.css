@@ -112,6 +112,7 @@
 }
 #new-card-form .card.one > .front .ratings svg {
     stroke: var(--color-zio);
+    cursor: pointer;
 }
 #new-card-form .card.one > .front .ratings svg.check {
     fill: var(--color-zio);

@@ -1,0 +1,59 @@
+#card-container {
+    
+    .star {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        width: 60px;
+
+        font-size: 80px;
+        
+        offset-path: path("M187,36.25c75.82-31.53,179.81-49.33,192-23,13.23,28.57-82.27,107.68-177,150-76.22,34.05-186.43,59.69-200,33C-12.46,167.87,82.09,79.86,187,36.25Z");
+        offset-anchor: 180px 100px;
+        offset-rotate: 0deg;
+    
+        z-index: -1;
+
+        --time: 3s;
+    }
+    .star > svg {
+        fill:   var(--color-local-zio);
+        stroke: none; /* var(--color-local-agi); */
+    }
+
+    .star.orbit {
+        animation-name: orbit;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        animation-duration: var(--time);
+        animation-delay: calc((var(--time) / (var(--count-stars)*3)) * var(--id));
+    }
+
+}
+
+@keyframes orbit {
+    0% {
+        offset-distance: 100%;
+        z-index: -1;
+    }
+    24.9% {
+        z-index: -1;
+    }
+    25% {
+        z-index: 6;
+    }
+    74.9% {
+        z-index: 6;
+    }
+    75% {
+        z-index: -1;
+    }
+    100% {
+        offset-distance: 0%;
+        z-index: -1;
+    }
+}
