@@ -7,23 +7,10 @@
         transform: translate(-50%, -50%);
         
         width: 60px;
-
-        font-size: 80px;
-        
-        offset-path: path("M187,36.25c75.82-31.53,179.81-49.33,192-23,13.23,28.57-82.27,107.68-177,150-76.22,34.05-186.43,59.69-200,33C-12.46,167.87,82.09,79.86,187,36.25Z");
-        offset-anchor: 180px 100px;
-        offset-rotate: 0deg;
-    
         z-index: -1;
-
-        --time: 3s;
-    }
-    .star > svg {
-        fill:   var(--color-local-zio);
-        stroke: none; /* var(--color-local-agi); */
-    }
-
-    .star.orbit {
+        font-size: 80px;
+        offset-rotate: 0deg;
+        
         animation-name: orbit;
         animation-iteration-count: 1;
         animation-timing-function: linear;
@@ -31,19 +18,52 @@
         animation-fill-mode: forwards;
         animation-duration: var(--time);
         animation-delay: calc((var(--time) / (var(--count-stars)*3)) * var(--id));
+        animation-play-state: paused;
+
+        opacity: 0;
+        transition: opacity .1s;
     }
+    .star > svg {
+        fill:   var(--color-local-zio);
+        stroke: none;
+    }
+    .card:hover > .star {
+        animation-play-state: running;
+        opacity: 1;
+    }
+
+    /* https://yqnn.github.io/svg-path-editor/ */
+    /* larga */
+    .card[data-path="1"] .star {
+        offset-path: path("M187,36.25c75.82-31.53,179.81-49.33,192-23,13.23,28.57-82.27,107.68-177,150-76.22,34.05-186.43,59.69-200,33C-12.46,167.87,82.09,79.86,187,36.25Z");
+        offset-anchor: 180px 100px;
+        --time: 2.5s;
+    }
+    /* stretta */
+    .card[data-path="2"] .star {
+        offset-path: path("M 168.3 36.25 c 68.238 -31.53 161.829 -49.33 172.8 -23 c 11.907 28.57 -74.043 107.68 -159.3 150 c -68.598 34.05 -167.787 59.69 -180 33 C -11.214 167.87 73.881 79.86 168.3 36.25 Z");
+        offset-anchor: 150px 90px;
+        --time: 2.5s;
+    }
+    /* zig-zag */
+    .card[data-path="3"] .star {
+        offset-path: path("M 187 36.25 c 75.82 -31.53 74 27.75 192 -23 c 13.23 28.57 -82.27 107.68 -177 150 c -76.22 34.05 -161 -19.25 -200 33 C -12.46 167.87 82.09 79.86 187 36.25 Z");
+        offset-anchor: 180px 100px;
+        --time: 1.8s;
+    }
+    
 
 }
 
 @keyframes orbit {
     0% {
-        offset-distance: 100%;
+        offset-distance: 90%;
         z-index: -1;
     }
-    24.9% {
+    19.9% {
         z-index: -1;
     }
-    25% {
+    20% {
         z-index: 6;
     }
     74.9% {

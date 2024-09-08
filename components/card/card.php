@@ -7,7 +7,8 @@ require_once __DIR__ . '/../../assets/php/svg.php';
 <link rel="stylesheet" type="text/css" href="<?= getLocalDir(__DIR__) . '/css/card.css' ?>" />
 
 <?php function UI_RenderCard($id, $title, $year, $rating, $color_one, $color_two, $color_three) { ?>
-    <div draggable="true" class="card" style=" 
+    <div draggable="true" class="card" data-path="<?= random_int(1,4) ?>"
+        style=" 
         --color-local-agi: <?= $color_one ?>; 
         --color-local-bufu: <?= $color_two ?>; 
         --color-local-zio: <?= $color_three ?>; 
@@ -39,7 +40,7 @@ require_once __DIR__ . '/../../assets/php/svg.php';
 
 <!-- bind drag events to the cards -->
 <script type="module">
-
+/*
 import {
     startAnimation,
     endAnimation
@@ -47,6 +48,7 @@ import {
 
 $("#card-container > .card").on("mouseenter", startAnimation);
 $("#card-container > .card").on("mouseleave", endAnimation);
+*/
 
 $(document).ready(() => {
     let draggedElement = null;
