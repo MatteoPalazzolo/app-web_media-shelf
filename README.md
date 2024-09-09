@@ -76,6 +76,16 @@ docker compose down
 pg_isready -h localhost -p 5432
 ```
 
+## GIT
+```shell
+git branch
+git checkout <branch-name>
+git merge <branch-name>
+
+# creates and checks out to the new branch
+git checkout -b <branch-name>
+```
+
 ## File JS
 - librerie (tipo color-utils.js) -> tranquillamente utilizzabile come modulo 
 - codice legato all'html di una pagina, ma pensato per essere importato altrove (tipo form.php o refresh.php) \[modals] -> sarebbe carino avere un modulo js che abbia pieno controllo su una porzione dell'html a cui si debba accedere per triggerarne gli eventi
