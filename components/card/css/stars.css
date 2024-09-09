@@ -9,47 +9,41 @@
         width: 60px;
         z-index: -1;
         font-size: 80px;
+
         offset-rotate: 0deg;
         
-        animation-name: orbit;
-        animation-iteration-count: 1;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        animation-fill-mode: forwards;
-        animation-duration: var(--time);
-        animation-delay: calc((var(--time) / (var(--count-stars)*3)) * var(--id));
-        animation-play-state: paused;
-
         opacity: 0;
         transition: opacity .1s;
     }
     .star > svg {
         fill:   var(--color-local-zio);
         stroke: none;
+        filter: drop-shadow(0px 0px 2px color-mix(in srgb, var(--color-local-agi)  40%, transparent));
     }
     .card:hover > .star {
-        animation-play-state: running;
+        animation-name: orbit;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        animation-duration: var(--orbit-animation-duration);
+        animation-delay: calc((var(--orbit-animation-duration) / (var(--stars-number)*3)) * var(--star-id));
+
         opacity: 1;
     }
 
-    /* https://yqnn.github.io/svg-path-editor/ */
-    /* larga */
-    .card[data-path="1"] .star {
-        offset-path: path("M187,36.25c75.82-31.53,179.81-49.33,192-23,13.23,28.57-82.27,107.68-177,150-76.22,34.05-186.43,59.69-200,33C-12.46,167.87,82.09,79.86,187,36.25Z");
-        offset-anchor: 180px 100px;
-        --time: 2.5s;
-    }
-    /* stretta */
-    .card[data-path="2"] .star {
-        offset-path: path("M 168.3 36.25 c 68.238 -31.53 161.829 -49.33 172.8 -23 c 11.907 28.57 -74.043 107.68 -159.3 150 c -68.598 34.05 -167.787 59.69 -180 33 C -11.214 167.87 73.881 79.86 168.3 36.25 Z");
+    /*
+    https://yqnn.github.io/svg-path-editor/
+    */
+    .card[data-path="linear"] .star {
+        offset-path: path("M168.3 36.25c68.238-31.53 161.829-49.33 172.8-23 11.907 28.57-74.043 107.68-159.3 150-68.598 34.05-167.787 59.69-180 33-13.014-28.38 72.081-116.39 166.5-160Z");
         offset-anchor: 150px 90px;
-        --time: 2.5s;
+        --orbit-animation-duration: 2.2s;
     }
-    /* zig-zag */
-    .card[data-path="3"] .star {
-        offset-path: path("M 187 36.25 c 75.82 -31.53 74 27.75 192 -23 c 13.23 28.57 -82.27 107.68 -177 150 c -76.22 34.05 -161 -19.25 -200 33 C -12.46 167.87 82.09 79.86 187 36.25 Z");
-        offset-anchor: 180px 100px;
-        --time: 1.8s;
+    .card[data-path="bounce"] .star {
+        offset-path: path("M168.3 36.25c68.238-31.53 66.6 27.75 172.8-23 11.907 28.57-74.043 107.68-159.3 150-68.598 34.05-144.9-19.25-180 33C-11.214 167.87 73.881 79.86 168.3 36.25Z");
+        offset-anchor: 150px 100px;
+        --orbit-animation-duration: 1.8s;
     }
     
 
