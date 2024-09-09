@@ -81,7 +81,10 @@ include_once "../../assets/php/svg.php";
                     <?php UI_FlipIconRight() ?>
                         
                     <!-- TODO: use a span -->
-                    <textarea class="title" type="text"></textarea>
+                    <!-- <textarea class="title" type="text"></textarea> -->
+                    <div class="title">
+                        <span contenteditable></span>
+                    </div>
 
                     <div class="band back-back">
                         <?= UI_YearInput() ?>
@@ -91,7 +94,7 @@ include_once "../../assets/php/svg.php";
                     </div>
                         
                     <div class="band back">
-                        <?= UI_YearInput() ?>
+                        <?= UI_YearInput(true) ?>
                         <?= UI_YearInput() ?>
                         <?= UI_YearInput() ?>
                         <?= UI_YearInput(true) ?>

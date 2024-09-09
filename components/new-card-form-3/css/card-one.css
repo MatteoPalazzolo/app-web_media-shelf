@@ -1,125 +1,132 @@
-#new-card-form .card.one > .front {
-    display: grid;
-    grid-template-columns: 82% 1fr;
-    grid-template-rows: auto 1fr;
-    background-color: var(--color-bufu);
-}
+#new-card-form {
+        
+    .card.one > .front {
+        display: grid;
+        grid-template-columns: 82% 1fr;
+        grid-template-rows: auto 1fr;
+        background-color: var(--color-bufu);
+        background-image: url("../../../assets/images/polar-bear.svg");
+        background-repeat: no-repeat; 
+        background-position: bottom 10px right 200px ;
+        background-size: 50%;
+    }
 
-#new-card-form .card.one > .front .title {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
+    .card.one > .front .title {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        
+        height: fit-content;
+
+        padding: 5px;
+        padding-bottom: calc(20px - 10px);
+
+        font-size: 2.5rem;
+        text-align: center;
+        font-family: "MightySouly";
+        font-weight: 200;
+    }
+
+
+    .card.one > .front .tag-list {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+
+        height: fit-content;
+
+        padding-left: 15px;
+        padding-right: 10px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 9px 9px;
+
+        overflow-y: hidden;
+    }
+    .card.one > .front .tag-list > * {
+        display: inline-block;
+        padding: 5px;
+        border-radius: 5px;
+
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 1rem;
+        font-style: normal;
+
+        background-color: var(--color-zio);
+    }
+
+    .card.one > .front .tag-list i i {
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color .1s;
+    }
+    .card.one > .front .tag-list i i:hover {
+        background-color: #00000034;
+    }
+    .card.one > .front .tag-list i i:active {
+        background-color: #0000006e;
+    }
+
+    .card.one > .front .tag-list > i:not(.add-tag) {
+        flex-grow: 1;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+    }
+
+    .card.one > .front .tag-list i.add-tag {
+        width: fit-content;
+        max-width: calc(100% - 10px);
+    }
+    .card.one > .front .tag-list i.add-tag:focus-within {
+        box-shadow: #06182c66 0px 0px 0px 2px, #06182ca6 0px 4px 6px -1px;
+    }
+    .card.one > .front .tag-list i.add-tag p {
+        display: inline;
+    }
+    .card.one > .front .tag-list i.add-tag span { 
+        display: inline;
+        border: none;
+        outline: none;
+
+        min-width: 100px;
+        width: fit-content;
+        overflow: hidden;
+        text-overflow: hidden;
+        white-space: nowrap;
+
+        cursor: text;
+        text-decoration-line: underline;
+    }
+    .card.one > .front .tag-list .add-tag span:empty::before {
+        content: attr(data-bear);
+        display: inline-block;
+        transition: opacity .1s;
+        opacity: .5;
+    }
+    .card.one > .front:not(:focus) .tag-list .add-tag span:empty:focus::before {
+        opacity: .8;
+    }
+
+
+    .card.one > .front .ratings {
+        grid-column: 2 / 3;
+        grid-row: 1 / 3; 
+
+        padding-left: 9px;
+        padding-right: 9px;
+        background-color: var(--color-agi);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .card.one > .front .ratings svg {
+        stroke: var(--color-zio);
+        cursor: pointer;
+    }
+    .card.one > .front .ratings svg.check {
+        fill: var(--color-zio);
+    }
     
-    height: fit-content;
-
-    padding: 5px;
-    padding-bottom: calc(20px - 10px);
-
-    font-size: 2.5rem;
-    text-align: center;
-    font-family: "MightySouly";
-    font-weight: 200;
 }
-
-
-#new-card-form .card.one > .front .tag-list {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-
-    height: fit-content;
-
-    padding-left: 15px;
-    padding-right: 10px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 9px 9px;
-}
-#new-card-form .card.one > .front .tag-list > * {
-    display: inline-block;
-    padding: 5px;
-    border-radius: 5px;
-
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1rem;
-    font-style: normal;
-
-    background-color: var(--color-zio);
-}
-
-#new-card-form .card.one > .front .tag-list i i {
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color .1s;
-}
-#new-card-form .card.one > .front .tag-list i i:hover {
-    background-color: #00000034;
-}
-#new-card-form .card.one > .front .tag-list i i:active {
-    background-color: #0000006e;
-}
-
-#new-card-form .card.one > .front .tag-list > i:not(.add-tag) {
-    flex-grow: 1;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-}
-
-#new-card-form .card.one > .front .tag-list i.add-tag {
-    width: fit-content;
-    max-width: calc(100% - 10px);
-}
-#new-card-form .card.one > .front .tag-list i.add-tag p {
-    display: inline;
-}
-#new-card-form .card.one > .front .tag-list i.add-tag span { 
-    display: inline;
-    border: none;
-    outline: none;
-
-    min-width: 100px;
-    width: fit-content;
-    overflow: hidden;
-    text-overflow: hidden;
-    white-space: nowrap;
-
-    cursor: text;
-    text-decoration-line: underline;
-}
-#new-card-form .card.one > .front .tag-list .add-tag span:empty::before {
-    content: attr(data-bear);
-    display: inline-block;
-    transition: opacity .1s;
-    opacity: .5;
-}
-#new-card-form .card.one > .front:not(:focus) .tag-list .add-tag span:empty:focus::before {
-    opacity: .8;
-}
-
-
-#new-card-form .card.one > .front .ratings {
-    grid-column: 2 / 3;
-    grid-row: 1 / 3; 
-
-    padding-left: 9px;
-    padding-right: 9px;
-    background-color: var(--color-agi);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-#new-card-form .card.one > .front .ratings svg {
-    stroke: var(--color-zio);
-    cursor: pointer;
-}
-#new-card-form .card.one > .front .ratings svg.check {
-    fill: var(--color-zio);
-}
-/*
-#new-card-form .card.one > .front .ratings svg:nth-child(1),
-#new-card-form .card.one > .front .ratings svg:nth-child(2) {
-    display: none;
-}
-*/

@@ -1,64 +1,99 @@
-#new-card-form .card.three > .front {
-    position: relative;
-    overflow: hidden;
-}
+#new-card-form {
+    
+    .card.three > .front {
+        position: relative;
+        overflow: hidden;
+    }
 
-#new-card-form .card.three > .front input {
-    outline: none;
-    border: none;
-}
+    .card.three > .front > .title {
 
-#new-card-form .card.three > .front textarea.title {
-    width: 100%;
-    font-size: 5rem;
-    word-wrap: break-word;
-    height: fit-content;
-    overflow: hidden;
-    background: transparent;
+        & {
+            width: 100%;
+            height: 60%;
 
-    outline: none;
-    border: none;
-}
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-#new-card-form .card.three > .front .band {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    padding: 5px 0;
- 
-    background-color: var(--color-agi);
-    border: dashed black 8px;
+        & > span {
+            display: block;
+            width: 94%;
+            padding: 3%;
 
-    height: fit-content;
+            font-size: 3.75rem;
+            font-family: 'StencilArmy';
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+            text-align: center;
+            word-wrap: break-word;
+            white-space: normal;
+            overflow: hidden;
 
-    transform: var(--transform);
-    width: var(--width);
-}
-#new-card-form .card.three > .front .band input.year {
-    text-align: center;
-    font-size: 3.75rem;
-    width: 200px;
-    background-color: transparent;
-    color: var(--color-contrast-agi);
-}
-#new-card-form .card.three > .front .band input.year::placeholder {
-    color: var(--color-contrast-agi);
-    opacity: 1; /* Firefox */
-}
+            outline: none;
+            border: none;
+        }
 
-#new-card-form .card.three > .front .band.back-back {
-    --transform: translateX(-50%) translateY(-180px) scale(.6) rotate(-18deg);
-    --width: 200%;
-}
-#new-card-form .card.three > .front .band.back {
-    --transform: translateX(-50%) translateY(-100px) scale(.8) rotate(-32deg);
-    --width: 400%;
-}
-#new-card-form .card.three > .front .band.front {
-    --transform: translateX(-50%) translateY(-100px) rotate(12deg);
-    --width: 140%;
+        & > span:empty::before {
+            content: "DON'T LOOK HERE LILL BUDDY";
+            display: inline-block;
+            transition: opacity .1s;
+            opacity: .5;
+        }
+        & > span:empty:focus::before {
+            content: "TOO LATE!";
+            opacity: .8;
+            text-shadow: red 2px 5px;
+        }
+
+    }
+
+    .card.three > .front .band {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        padding: 5px 0;
+    
+        background-color: var(--color-agi);
+        border: dashed black 8px;
+
+        height: fit-content;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transform: var(--transform);
+        width: var(--width);
+    }
+    .card.three > .front .band input.year {
+        width: 200px;
+
+        text-align: center;
+        font-size: 3.75rem;
+        font-family: 'OctinSpraypaint';
+        color: var(--color-contrast-agi);
+        
+        outline: none;
+        border: none;
+        
+        background-color: transparent;
+    }
+    .card.three > .front .band input.year::placeholder {
+        color: var(--color-contrast-agi);
+        opacity: .25; /* Firefox */
+    }
+
+    .card.three > .front .band.back-back {
+        --transform: translateX(-50%) translateY(-180px) scale(.6) rotate(-18deg);
+        --width: 200%;
+    }
+    .card.three > .front .band.back {
+        --transform: translateX(-50%) translateY(-100px) scale(.8) rotate(-32deg);
+        --width: 400%;
+    }
+    .card.three > .front .band.front {
+        --transform: translateX(-50%) translateY(-100px) rotate(12deg);
+        --width: 140%;
+    }
+
 }

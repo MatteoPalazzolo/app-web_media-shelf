@@ -1,12 +1,22 @@
 ## FONTS
-https://www.1001fonts.com/heavy-heap-font.html
-https://www.fontspace.com/mighty-souly-font-f111821
-https://www.fontspace.com/gildeon-font-f109208
+- https://www.1001fonts.com/heavy-heap-font.html
+- https://www.fontspace.com/mighty-souly-font-f111821
+- https://www.fontspace.com/gildeon-font-f109208
+- https://www.1001fonts.com/octin-spraypaint-free-font.html
+- https://www.1001fonts.com/ringbearer-font.html
+- https://www.fontspace.com/airborne-86-stencil-font-f46490
 
 ## ICONS
 [Twinkle icons created by meaicon - Flaticon](https://www.flaticon.com/free-icons/twinkle)
 [Image by freepik](https://www.freepik.com/free-vector/flat-sparkling-star-collection_15591227.htm#fromView=keyword&page=1&position=2&uuid=b7a01977-91ce-4b36-98a2-10a11ce26070")
 [Card by sundari sugiyono from Noun Project (CC BY 3.0)](https://thenounproject.com/browse/icons/term/card/)
+
+## BEAR BACKGROUND
+- https://www.freepik.com/free-vector/hand-drawn-bear-outline-illustration_27596234.htm
+- https://www.svgrepo.com/vectors/teddy-bear/
+- https://iconscout.com/illustration/brown-bear-couple-11884961
+- https://www.freepik.com/free-vector/cute-bear-holding-love-heart-cartoon-vector-icon-illustration-animal-nature-icon-concept-isolated_33633063.htm
+- https://pixabay.com/vectors/polar-bear-baby-animal-cute-kawaii-6387496/
 
 ## WEATHER API
 https://www.weatherapi.com/pricing.aspx

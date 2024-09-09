@@ -1,16 +1,35 @@
-/* INIT FONT */
+/* USED FONTS */
 @font-face {
     font-family: 'HeavyHeap';
-    src: url('../../assets/fonts/heavy-heap-rg.otf');
+    src: url('../../assets/fonts/HeavyHeap.otf');
 }
 @font-face {
     font-family: 'MightySouly';
-    src: url('../../assets/fonts/MightySouly-lxggD.ttf');
+    src: url('../../assets/fonts/MightySouly.ttf');
 }
 @font-face {
-    font-family: 'Gildeon';
-    src: url('../../assets/fonts/Gildeon-GO7ZZ.otf');
+    font-family: 'OctinSpraypaint';
+    src: url('../../assets/fonts/OctinSpraypaint.otf');
 }
+@font-face {
+    font-family: 'StencilArmy';
+    src: url('../../assets/fonts/StencilArmy.otf');
+}
+
+/* UNUSED FONTS *//*
+@font-face {
+    font-family: 'Gildeon';
+    src: url('../../assets/fonts/Gildeon.otf');
+}
+@font-face {
+    font-family: 'Ringbearer';
+    src: url('../../assets/fonts/Ringbearer.ttf');
+}
+@font-face {
+    font-family: 'Airborne86Stencil';
+    src: url('../../assets/fonts/Airborne86Stencil.otf');
+}
+*/
 
 /* BASE STYLE */
 * {
@@ -20,5 +39,4 @@
 
 :root {
     font-size: 16px;
-  white-space: nowrap;  
 }
