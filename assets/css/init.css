@@ -40,3 +40,7 @@
 :root {
     font-size: 16px;
 }
+
+.display-none {
+    display: none !important;
+}

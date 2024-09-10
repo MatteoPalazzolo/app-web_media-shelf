@@ -19,6 +19,7 @@ include_once "../../assets/php/svg.php";
 <link rel="stylesheet" type="text/css" href="<?= getLocalDir(__DIR__) . '/css/fix.css' ?>" />
 <link rel="stylesheet" type="text/css" href="<?= getLocalDir(__DIR__) . '/css/layout.css' ?>" />
 <link rel="stylesheet" type="text/css" href="<?= getLocalDir(__DIR__) . '/css/card-one.css' ?>" />
+<link rel="stylesheet" type="text/css" href="<?= getLocalDir(__DIR__) . '/css/card-two.css' ?>" />
 <link rel="stylesheet" type="text/css" href="<?= getLocalDir(__DIR__) . '/css/card-three.css' ?>" />
 <link rel="stylesheet" type="text/css" href="<?= getLocalDir(__DIR__) . '/css/animation.css' ?>" />
 
@@ -31,7 +32,7 @@ include_once "../../assets/php/svg.php";
 
 <main id="new-card-form" class="down">
     <div class="backdrop"></div>
-    <form class="form">
+    <form class="form" method="post" action="api/post/submit-card.php">
         <div class="container open">
 
             <div class="card one left">
@@ -68,11 +69,21 @@ include_once "../../assets/php/svg.php";
                 <div class="front">
                     <?php UI_FlipIconRight() ?>
 
+                    <label style="cursor: pointer;" id="image-label" for="form-image" class="image-label">
+                        <img src="<?= ADD_IMG_PATH ?>" onerror="this.src = this.src === '<?= BROKEN_IMG_PATH ?>' ? undefined : '<?= BROKEN_IMG_PATH ?>';" />
+                    </label>
+                    <input id="form-image" style="display: none;" name="image" type="file" accept="image/*" />
+
+                    <div id="form-url" class="form-url" class="submit">
+                        <input class="url" type="text" />
+                        <?php UI_StarButton() ?>
+                    </div>
+
                 </div>
                 <div class="back">
                     <?php UI_FlipIconLeft() ?>    
                     <!-- <img class="icon" onclick="() => alert(1)" src="https://cdn-icons-png.flaticon.com/512/8387/8387055.png"> -->
-
+                    <button ></button>
                 </div>
             </div>
 
@@ -119,7 +130,6 @@ include_once "../../assets/php/svg.php";
     </form>
 </main>
 
-<script src="./assets/js/autoresize.jquery.js"></script>
 <script type="module">
     import { 
         setCardToCenter, 
@@ -132,15 +142,20 @@ include_once "../../assets/php/svg.php";
     import {
         keydownAddTag,
         clickAddTag,
-        delTag
-    } from "<?= './' . getLocalDir(__DIR__) . '/modules/tags.module.js' ?>";
+        delTag,
+        val as formTagsDict
+    } from "<?= './' . getLocalDir(__DIR__) . '/modules/form-tags.module.js' ?>";
     import {
-        clickSelectRating
-    } from "<?= './' . getLocalDir(__DIR__) . '/modules/ratings.module.js' ?>";
+        clickSelectRating,
+        val as formRatingDict
+    } from "<?= './' . getLocalDir(__DIR__) . '/modules/form-rating.module.js' ?>";
     import {
         keydownPreventOverflowingYears,
         keyupUpdateYears
-    } from "<?= './' . getLocalDir(__DIR__) . '/modules/year.module.js' ?>";
+    } from "<?= './' . getLocalDir(__DIR__) . '/modules/form-year.module.js' ?>";
+    import {
+        val as formImageDict
+    } from "<?= './' . getLocalDir(__DIR__) . '/modules/form-image.module.js' ?>";
 
     // $(".toggle-card").on("click", toggleDeck);
     $("#new-card-form .card").on("click", setCardToCenter);
@@ -154,9 +169,52 @@ include_once "../../assets/php/svg.php";
     $("#new-card-form .year").on("keydown", keydownPreventOverflowingYears);
     $("#new-card-form .year").on("keyup", keyupUpdateYears);
 
-    $("#new-card-form .card.three > .front textarea.title").autoResize();
-    
-    Object.assign(window , {
-        toggleAddCardMenu
+    $("form.form").on("submit", function(e) {
+        e.preventDefault();
+        sendForm();
     });
+    
+    function sendForm() {
+        console.log(formImageDict.imageFile);
+
+        const formData = new FormData();
+        formTagsDict.tags.forEach(t => formData.append("tags[]", t));
+        formData.append("title",        $("#new-card-form .card.three .title > span").text());
+        formData.append("year",         $("#new-card-form .card.three .year").val());
+        formData.append("tags",         formTagsDict.tags);
+        formData.append("type",         "Movie");
+        formData.append("color_one",    "#443388");
+        formData.append("color_two",    "#880011");
+        formData.append("color_three",  "#004499");
+        formData.append("rating",       formRatingDict.rating);
+        formData.append("image_url",    formImageDict.imageUrl);
+        formData.append("image",        formImageDict.imageFile);
+
+        $.ajax({
+            type: 'POST',
+            url: 'api/post/submit-card.php', 
+            data: formData,
+            processData: false, // Required for FormData
+            contentType: false, // Required for FormData
+            success: function(response) {
+                console.log(response);
+                var iserror = response.split("\n");
+                if (iserror[iserror.length - 1].slice(0,5) === "ERROR") {
+                    alert(response);
+                } else {
+                    // update palette
+                    // close form window
+                }
+            },
+            error: function() {
+                alert("ERROR: An error occurred while submitting the form.");
+            } 
+        });
+    }
+      
+    Object.assign(window, {
+        toggleAddCardMenu,
+        sendForm
+    });
+
 </script>

@@ -42,19 +42,19 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
             <input style="display: none;" type="submit" id="subimit-form" >
 
             <div class="frontface">
-            <input 
-                class="year"
-                name="year"
-                type="text"
-                inputmode="numeric"
-                maxlength="4"
-                pattern="\d{1,4}"
-                placeholder="1492"
-                required />
-            
-            <label style="cursor: pointer;" id="image-label" for="image-input">
-                <img src="<?= ADD_IMG_PATH ?>"
-                     onerror="this.src = this.src === '<?= BROKEN_IMG_PATH ?>' ? undefined : '<?= BROKEN_IMG_PATH ?>';" />
+                <input 
+                    class="year"
+                    name="year"
+                    type="text"
+                    inputmode="numeric"
+                    maxlength="4"
+                    pattern="\d{1,4}"
+                    placeholder="1492"
+                    required />
+                
+                <label style="cursor: pointer;" id="image-label" for="image-input">
+                    <img src="<?= ADD_IMG_PATH ?>"
+                        onerror="this.src = this.src === '<?= BROKEN_IMG_PATH ?>' ? undefined : '<?= BROKEN_IMG_PATH ?>';" />
                 </label>
                 <input 
                     id="image-input" 
@@ -283,6 +283,7 @@ $("form.form").on("submit", function(e) {
         alert("ERROR: No image selected");
     }
 });
+
 Object.assign(window , {
     toggleAddCardMenu
 });

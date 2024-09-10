@@ -1,4 +1,7 @@
-let tags = [];
+const val = {
+    tags: []
+};
+
 const BEARS = [
     "ʕ•ᴥ•ʔ",
     "ʕ·ᴥ·ʔ",
@@ -39,12 +42,12 @@ function addTag(tagName) {
         return;
     }
 
-    if (tags.includes(tagName)) {
+    if (val.tags.includes(tagName)) {
         console.error("ERROR: two tags with the same name are not allowed.");
         return;
     }
 
-    tags.push(tagName);
+    val.tags.push(tagName);
     $("#new-card-form .card.one .front .tag-list .add-tag").before(`
         <i>
             <p>#</p>
@@ -58,8 +61,8 @@ function addTag(tagName) {
 function delTag() {
     let tagName = $(this).parent().children()[1].innerHTML;
 
-    if (tags.includes(tagName)) {
-        tags.splice(tags.indexOf(tagName), 1);
+    if (val.tags.includes(tagName)) {
+        val.tags.splice(val.tags.indexOf(tagName), 1);
         $(this).parent().remove();
     } else {
         console.error("ERROR: removing an invalid tag.");
@@ -72,6 +75,7 @@ function shuffleBear() {
 }
 
 export {
+    val,
     keydownAddTag,
     clickAddTag,
     delTag

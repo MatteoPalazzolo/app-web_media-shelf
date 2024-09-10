@@ -21,6 +21,8 @@
             width: 94%;
             padding: 3%;
 
+            cursor: text;
+
             font-size: 3.75rem;
             font-family: 'StencilArmy';
 
@@ -35,12 +37,14 @@
 
         & > span:empty::before {
             content: "DON'T LOOK HERE LILL BUDDY";
+            cursor: text;
             display: inline-block;
             transition: opacity .1s;
             opacity: .5;
         }
         & > span:empty:focus::before {
             content: "TOO LATE!";
+            cursor: text;
             opacity: .8;
             text-shadow: red 2px 5px;
         }

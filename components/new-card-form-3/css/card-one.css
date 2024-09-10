@@ -33,13 +33,15 @@
 
         height: fit-content;
 
-        padding-left: 15px;
-        padding-right: 10px;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
         gap: 9px 9px;
 
+        padding-top: 5px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 10px;
         overflow-y: hidden;
     }
     .card.one > .front .tag-list > * {

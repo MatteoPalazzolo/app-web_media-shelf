@@ -16,7 +16,7 @@ $file_url = "";
 if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
     $file_url = $_FILES["image"]["tmp_name"];
 } 
-elseif (isset($_POST["image_url"])) {
+elseif (isset($_POST["image_url"]) && $_POST["image_url"] !== "") {
     $file_url = $_POST["image_url"];
 }
 else {
@@ -34,11 +34,15 @@ if (!isset($mime_to_extension[$mime_type])) {
 }
 
 // DATA VALIDATION
+// validate title
+if ($_POST["title"] === "") {
+    die("\nERROR: The title can't be empty.");
+}
 // validate year
 if (!preg_match('/^\d{1,4}$/', $_POST["year"])) {
     die("\nERROR: The year is not in a valid format.");
 }
-// validate color one, two and three
+// validate colors
 if (!preg_match('/^#[0-9A-Fa-f]{6}$/', $_POST["color_one"]) ||
     !preg_match('/^#[0-9A-Fa-f]{6}$/', $_POST["color_two"]) || 
     !preg_match('/^#[0-9A-Fa-f]{6}$/', $_POST["color_three"])) {
@@ -60,9 +64,10 @@ try {
             VALUES (:m_title, :m_year, :m_rating, :m_type, :m_img_data, :m_color_one, :m_color_two, :m_color_three, :m_active);";
     $stmt = $pdo->prepare($sql);
 
+    //TODO: bind tags to db
     $title       = htmlspecialchars($_POST["title"]);
     $year        = $_POST["year"];
-    $rating      = 5;                           //TODO: add to form
+    $rating      = $_POST["rating"];
     $type        = $_POST['type'] ?? 'Movie';   //TODO: add to form
     $color_one   = $_POST["color_one"];
     $color_two   = $_POST["color_two"];
