@@ -58,7 +58,7 @@
         padding: 5px 0;
     
         background-color: var(--color-agi);
-        border: dashed black 8px;
+        border: dashed #000000aa 8px;
 
         height: fit-content;
 

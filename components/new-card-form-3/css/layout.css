@@ -104,8 +104,9 @@
 
 #new-card-form .container .card {
     transform-origin: center center;
-    transform-style: preserve-3d;
-    transform: translate3d(0, 0, 0) rotate(0deg);
+    transform-style: preserve-3d;/*
+    transform: translate3d(0, 0, 0) rotate(0deg);*/
+    transform: none;
     transition: transform .1s, rotate .5s;
     
     --rotate-y: 0deg;
@@ -114,16 +115,19 @@
     --rotate-y: 180deg !important;
 }
 #new-card-form .container.open .card.center {
-    transform: translate3d(0, 0, 0px) rotateY(var(--rotate-y));
+    --transform: translate3d(0, 0, 0px) rotateY(var(--rotate-y));
+    transform: var(--transform);
     cursor: auto;
 }
 #new-card-form .container.open .card.left {
-    transform: translate3d(-60%, -25%, -200px) rotateY(var(--rotate-y)) rotate(-5deg);
+    --transform: translate3d(-60%, -25%, -200px) rotateY(var(--rotate-y)) rotate(-5deg);
+    transform: var(--transform);
     user-select: none;
     cursor: pointer;
 }
 #new-card-form .container.open .card.right {
-    transform: translate3d(80%, 25%, -200px) rotateY(var(--rotate-y)) rotate(8deg);
+    --transform: translate3d(80%, 25%, -200px) rotateY(var(--rotate-y)) rotate(8deg);
+    transform: var(--transform);
     user-select: none;
     cursor: pointer;
 }

@@ -1,0 +1,45 @@
+#new-card-form.down .form {
+    will-change: box-shadow, transform, scale;
+    animation: FallFromGrace 5s linear;
+}
+
+@keyframes FallFromGrace {
+    0% {
+        scale: .7;
+        transform: translateY(-200%) rotateY(360deg);
+    }
+    50% {
+        scale: .7;
+        transform: translateY(0)  rotateY(0);
+        box-shadow: none;
+    }
+    70% {
+        box-shadow:
+          0 0 60px 30px  #fff, 
+          0 0 100px 60px #f0f,
+          0 0 140px 90px #0ff;
+    }
+    75% {
+        scale: .7;
+        transform: translateY(0)  rotateY(0);
+        box-shadow: none;
+    }
+    100% {
+        scale: 1;
+        transform: translateY(0)  rotateY(0);
+    }
+}
+
+#new-card-form.down .container.open .card {
+    will-change: transform;
+    animation: OpenDeck .8s;
+}
+
+@keyframes OpenDeck {
+    from {
+        transform: none;
+    }
+    to {
+        transform: var(--transform);
+    }
+}

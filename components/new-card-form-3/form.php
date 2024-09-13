@@ -21,7 +21,7 @@ include_once "../../assets/php/svg.php";
 <link rel="stylesheet" type="text/css" href="<?= getLocalDir(__DIR__) . '/css/card-one.css' ?>" />
 <link rel="stylesheet" type="text/css" href="<?= getLocalDir(__DIR__) . '/css/card-two.css' ?>" />
 <link rel="stylesheet" type="text/css" href="<?= getLocalDir(__DIR__) . '/css/card-three.css' ?>" />
-<link rel="stylesheet" type="text/css" href="<?= getLocalDir(__DIR__) . '/css/animation.css' ?>" />
+<link rel="stylesheet" type="text/css" href="<?= getLocalDir(__DIR__) . '/css/fall-from-grace.css' ?>" />
 
 <style>
 #new-card-form {
@@ -30,10 +30,10 @@ include_once "../../assets/php/svg.php";
 </style>
 
 
-<main id="new-card-form" class="down">
+<main id="new-card-form" class=""> <!-- .down -->
     <div class="backdrop"></div>
     <form class="form" method="post" action="api/post/submit-card.php">
-        <div class="container open">
+        <div class="container"> <!-- .open -->
 
             <div class="card one left">
 
@@ -178,10 +178,16 @@ include_once "../../assets/php/svg.php";
         console.log(formImageDict.imageFile);
 
         const formData = new FormData();
-        formTagsDict.tags.forEach(t => formData.append("tags[]", t));
+
+        if (formTagsDict.tags.lenght > 0) {
+            formTagsDict.tags.forEach(t => formData.append("tags[]", t));
+        } else {
+            formData.append("tags[]", "");
+
+        }
+
         formData.append("title",        $("#new-card-form .card.three .title > span").text());
         formData.append("year",         $("#new-card-form .card.three .year").val());
-        formData.append("tags",         formTagsDict.tags);
         formData.append("type",         "Movie");
         formData.append("color_one",    "#443388");
         formData.append("color_two",    "#880011");

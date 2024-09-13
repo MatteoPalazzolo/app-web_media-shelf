@@ -1,5 +1,8 @@
 <?php
 
+print_r($_POST["tags"]);
+die("\nERROR: test"); 
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST')
     die("\nERROR: request method not allowed");
 
