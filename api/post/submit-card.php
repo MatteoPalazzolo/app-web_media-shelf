@@ -1,8 +1,5 @@
 <?php
 
-print_r($_POST["tags"]);
-die("\nERROR: test"); 
-
 if ($_SERVER['REQUEST_METHOD'] !== 'POST')
     die("\nERROR: request method not allowed");
 
@@ -51,6 +48,20 @@ if (!preg_match('/^#[0-9A-Fa-f]{6}$/', $_POST["color_one"]) ||
     !preg_match('/^#[0-9A-Fa-f]{6}$/', $_POST["color_three"])) {
     die("\nERROR: The colors are not in a valid format.");
 }
+// validate tags
+if (isset($_POST["tags"])) {
+    $_POST["tags"] = array_map('trim', $_POST["tags"]);
+    foreach ($_POST["tags"] as $tag) {
+        if ($tag === "") {
+            die("\nERROR: empty tags are not allowed.");
+        }
+        if (strlen($tag) > 50) {
+            die("\nERROR: one of the tags is too long.");
+        }
+    }
+} else {
+    $_POST["tags"] = [];
+}
 // validate type // TODO: to add in the form
 if(!in_array($_GET['type'] ?? 'Movie', ['Movie', 'Videogame', 'Anime', 'Cartoon', 'TV Series', 'Book', 'Manga'])) {
     die("\nERROR: The media type is not valid.");
@@ -61,14 +72,49 @@ require __DIR__ . "/../db/init-db-connection.php";
 
 try {
     $pdo->beginTransaction();
+    
+    //QUERY: add new tags to db
+    // workaround to make it RETURN the id even if the tag already exists
+    $sql = "INSERT INTO tags (t_name, t_description) 
+            VALUES (:t_name, :t_description)
+            ON CONFLICT (t_name) DO UPDATE SET t_name = EXCLUDED.t_name
+            RETURNING id;";
+    $stmt = $pdo->prepare($sql);
+
+    $tagIdList = [];
+
+    foreach ($_POST["tags"] as $tag) {
+        $name = htmlspecialchars($tag);
+        $description = "";
+
+        $stmt->bindParam(':t_name',        $name        );
+        $stmt->bindParam(':t_description', $description );
+
+        $stmt->execute();
+
+        $tagIdList[] = $stmt->fetchColumn();
+    }
+
+    //QUERY: check if title already in db
+    $sql = "SELECT 1 from media WHERE m_title = :m_title";
+    $stmt = $pdo->prepare($sql);
+
+    $title = htmlspecialchars(trim($_POST["title"]));
+
+    $stmt->bindParam(':m_title', $title);
+    $stmt->execute();
+
+    $repetition = $stmt->fetchColumn();
+    if ($repetition === 1) {
+        die("\nERROR: the current title is already registered.");
+    }
 
     //QUERY: add new card to the db
     $sql = "INSERT INTO media (m_title, m_year, m_rating, m_type, m_img_data, m_color_one, m_color_two, m_color_three, m_active) 
-            VALUES (:m_title, :m_year, :m_rating, :m_type, :m_img_data, :m_color_one, :m_color_two, :m_color_three, :m_active);";
+            VALUES (:m_title, :m_year, :m_rating, :m_type, :m_img_data, :m_color_one, :m_color_two, :m_color_three, :m_active)
+            RETURNING id;";
     $stmt = $pdo->prepare($sql);
 
-    //TODO: bind tags to db
-    $title       = htmlspecialchars($_POST["title"]);
     $year        = $_POST["year"];
     $rating      = $_POST["rating"];
     $type        = $_POST['type'] ?? 'Movie';   //TODO: add to form
@@ -89,11 +135,23 @@ try {
 
     $stmt->execute();
 
-    //QUERY: set as active only the new card 
+    $mediaId = $stmt->fetchColumn();
+
+    //QUERY: set only the new card as active
     $sql = "UPDATE media SET m_active=false WHERE m_title != :m_title";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':m_title', $title);
     $stmt->execute();
+
+    //QUERY: link new card and new tags
+    $sql = "INSERT INTO media_tags (id_media, id_tag) VALUES (:id_media, :id_tag);";
+    $stmt = $pdo->prepare($sql);
+
+    foreach ($tagIdList as $tagId) {
+        $stmt->bindParam(':id_media',   $mediaId);
+        $stmt->bindParam(':id_tag',     $tagId  );
+        $stmt->execute();
+    }
 
     $pdo->commit();
 

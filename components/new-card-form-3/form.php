@@ -175,17 +175,14 @@ include_once "../../assets/php/svg.php";
     });
     
     function sendForm() {
-        console.log(formImageDict.imageFile);
-
         const formData = new FormData();
-
+        /*
         if (formTagsDict.tags.lenght > 0) {
-            formTagsDict.tags.forEach(t => formData.append("tags[]", t));
         } else {
             formData.append("tags[]", "");
+        }*/
 
-        }
-
+        formTagsDict.tags.forEach(t => formData.append("tags[]", t));
         formData.append("title",        $("#new-card-form .card.three .title > span").text());
         formData.append("year",         $("#new-card-form .card.three .year").val());
         formData.append("type",         "Movie");
@@ -203,6 +200,7 @@ include_once "../../assets/php/svg.php";
             processData: false, // Required for FormData
             contentType: false, // Required for FormData
             success: function(response) {
+                console.log(xhr);
                 console.log(response);
                 var iserror = response.split("\n");
                 if (iserror[iserror.length - 1].slice(0,5) === "ERROR") {
