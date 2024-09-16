@@ -184,10 +184,10 @@ include_once "../../assets/php/svg.php";
         formTagsDict.tags.forEach(t => formData.append("tags[]", t));
         formData.append("title",        $("#new-card-form .card.three .title > span").text());
         formData.append("year",         $("#new-card-form .card.three .year").val());
-        formData.append("type",         "Movie");
         formData.append("color_one",    "#443388");
         formData.append("color_two",    "#880011");
         formData.append("color_three",  "#004499");
+        formData.append("type",         formMediaDict.media);
         formData.append("rating",       formRatingDict.rating);
         formData.append("image_url",    formImageDict.imageUrl);
         formData.append("image",        formImageDict.imageFile);
@@ -199,7 +199,6 @@ include_once "../../assets/php/svg.php";
             processData: false, // Required for FormData
             contentType: false, // Required for FormData
             success: function(response) {
-                console.log(xhr);
                 console.log(response);
                 var iserror = response.split("\n");
                 if (iserror[iserror.length - 1].slice(0,5) === "ERROR") {

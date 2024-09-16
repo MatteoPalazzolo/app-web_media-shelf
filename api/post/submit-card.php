@@ -62,8 +62,8 @@ if (isset($_POST["tags"])) {
 } else {
     $_POST["tags"] = [];
 }
-// validate type // TODO: to add in the form
-if(!in_array($_GET['type'] ?? 'Movie', ['Movie', 'Videogame', 'Anime', 'Cartoon', 'TV Series', 'Book', 'Manga'])) {
+// validate type // OPTIONAL
+if(isset($_POST['type']) && !in_array($_POST['type'], ['Movie', 'Videogame', 'Anime', 'Cartoon', 'TV Series', 'Book', 'Manga'])) {
     die("\nERROR: The media type is not valid.");
 }
 
@@ -117,7 +117,7 @@ try {
 
     $year        = $_POST["year"];
     $rating      = $_POST["rating"];
-    $type        = $_POST['type'] ?? 'Movie';   //TODO: add to form
+    $type        = $_POST['type'] ?? 'Movie';
     $color_one   = $_POST["color_one"];
     $color_two   = $_POST["color_two"];
     $color_three = $_POST["color_three"];
