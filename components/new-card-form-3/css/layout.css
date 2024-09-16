@@ -76,7 +76,16 @@
     width: 100%;
     height: 100%;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     transform: rotateY(180deg);
+}
+#new-card-form .container .card > .back > img.media {
+    width: 40%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
 }
 
 #new-card-form .container .card .flip-icon {

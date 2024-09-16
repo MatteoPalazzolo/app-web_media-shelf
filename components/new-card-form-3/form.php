@@ -59,8 +59,7 @@ include_once "../../assets/php/svg.php";
                 </div>
                 <div class="back">
                     <?php UI_FlipIconLeft() ?>
-                    <h1>demo</h1>
-
+                    <img class="media" src="">
                 </div>
             </div>
 
@@ -82,8 +81,7 @@ include_once "../../assets/php/svg.php";
                 </div>
                 <div class="back">
                     <?php UI_FlipIconLeft() ?>    
-                    <!-- <img class="icon" onclick="() => alert(1)" src="https://cdn-icons-png.flaticon.com/512/8387/8387055.png"> -->
-                    <button ></button>
+                    <img class="media" src="">
                 </div>
             </div>
 
@@ -120,9 +118,7 @@ include_once "../../assets/php/svg.php";
                 </div>
                 <div class="back">
                     <?php UI_FlipIconLeft() ?>
-
-                    <h1>RATING 2</h1>
-
+                    <img class="media" src="">
                 </div>
             </div>
 
@@ -156,6 +152,9 @@ include_once "../../assets/php/svg.php";
     import {
         val as formImageDict
     } from "<?= './' . getLocalDir(__DIR__) . '/modules/form-image.module.js' ?>";
+    import {
+        val as formMediaDict
+    } from "<?= './' . getLocalDir(__DIR__) . '/modules/form-media.module.js' ?>";
 
     // $(".toggle-card").on("click", toggleDeck);
     $("#new-card-form .card").on("click", setCardToCenter);
