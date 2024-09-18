@@ -55,6 +55,14 @@ git checkout -b <branch-name>
 [Image by freepik](https://www.freepik.com/free-vector/flat-sparkling-star-collection_15591227.htm#fromView=keyword&page=1&position=2&uuid=b7a01977-91ce-4b36-98a2-10a11ce26070")
 [Card by sundari sugiyono from Noun Project (CC BY 3.0)](https://thenounproject.com/browse/icons/term/card/)
 
+#### MEDIA TYPE ICONS
+- https://thenounproject.com/icon/film-7210841/
+- https://thenounproject.com/icon/tv-7210847/
+- https://thenounproject.com/icon/controller-7178840/
+- https://thenounproject.com/icon/book-7217516/
+- https://thenounproject.com/icon/comic-book-4780020/
+- https://thenounproject.com/icon/madara-6834529/
+
 #### BEAR BACKGROUND
 - https://www.freepik.com/free-vector/hand-drawn-bear-outline-illustration_27596234.htm
 - https://www.svgrepo.com/vectors/teddy-bear/
