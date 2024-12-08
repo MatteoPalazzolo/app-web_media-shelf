@@ -36,14 +36,14 @@
         }
 
         & > span:empty::before {
-            content: "DON'T LOOK HERE LILL BUDDY";
+            content: "THE TITLE OF THE MEDIA";
             cursor: text;
             display: inline-block;
             transition: opacity .1s;
             opacity: .5;
         }
         & > span:empty:focus::before {
-            content: "TOO LATE!";
+            content: "BU!!";
             cursor: text;
             opacity: .8;
             text-shadow: red 2px 5px;

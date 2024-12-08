@@ -4,7 +4,7 @@ require_once __DIR__ . "/../../components/starry-background/starry-background.ph
 
 $count        = (int) (isset($_GET['num']) && $_GET['num'] >  0 && $_GET['num'] < 300 ? $_GET['num'] : 15); 
 $strength     = (int) (isset($_GET['str']) && $_GET['str'] >= 1 && $_GET['str'] < 100 ? $_GET['str'] :  3);
-$form_version = (int) (isset($_GET['fv']) && $_GET['fv']   >= 1 && $_GET['fv'] <= 3   ? $_GET['fv']  :  1);
+$form_version = (int) (isset($_GET['fv']) && $_GET['fv']   >= 1 && $_GET['fv'] <= 3   ? $_GET['fv']  :  3);
 ?>
 
 <style>

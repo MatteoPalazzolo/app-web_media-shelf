@@ -15,7 +15,10 @@
 ```shell
 docker compose up --build -d
 ```
-visitare http://localhost:80/ 
+visitare http://localhost:80/?num=100&str=3
+i parametri num e str permettono di influenzare la generazione procedurale delle stelle nello sfondo
+num: quante stelle per layer (ci sono 3 layer)
+str: quanto forte le vuoi raggruppate verso l'alto
 
 #### DOCKER
 ```shell

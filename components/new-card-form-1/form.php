@@ -67,7 +67,7 @@ define("BROKEN_IMG_PATH",   "assets/images/img-error.png");
                     class="title"
                     name="title"
                     type="text"
-                    placeholder="Amogus - The Legent of The SUS"
+                    placeholder="The Title of The Media"
                     required />
 
                 <p class="rating"> ☆☆☆☆☆ </p>
