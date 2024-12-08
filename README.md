@@ -11,6 +11,11 @@
 - [ ] little icon for media type (Film, Anime, Videogames, ...), maybe a badge in SVG
 
 ## CMD
+#### RUN
+```shell
+docker compose up --build -d
+```
+visitare http://localhost:80/ 
 
 #### DOCKER
 ```shell
