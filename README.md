@@ -1,3 +1,8 @@
+
+<img width="1920" height="910" alt="Immagine 2025-09-26 160302" src="https://github.com/user-attachments/assets/aa7cdf80-3968-42e5-a5d0-ba2cca332369" />
+
+https://github.com/user-attachments/assets/40da47cc-4e87-43f4-94e3-c1928eace2b2
+
 ## TODO
 
 #### NOW
