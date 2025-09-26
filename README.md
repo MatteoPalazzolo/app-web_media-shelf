@@ -8,7 +8,7 @@ L'interfaccia grafica è ispirata a quella di Persona 4.
 Una volta caricata l'immagine, un sistema seleziona i 3 colori più presenti e li usa per creare dinamicamente una palette, che verrà poi utilizzata per colorare la carta.
 Era anche possibile impostare la palette di una carta come globale, applicando lo stile su tutto il documento (attivabile solo da codice tramite console perchè non completamente implementato).
 
-Con questo progetto ho provato a stravolgere un po' di concetti di design per vedere quanto fosse complesso coniugare semplicità e creatività, ma ho presto scoperto che c'è un motivo se i form non sono implementati con carte volanti che si aprono a ventaglio :)
+Con questo progetto ho provato a stravolgere un po' di concetti di design per vedere quanto fosse complesso coniugare usabilità e creatività, ma ho presto scoperto che c'è un motivo se i form non sono implementati con carte volanti che si aprono a ventaglio :)
 
 
 ## PREVIEW
