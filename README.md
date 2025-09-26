@@ -1,3 +1,16 @@
+## DESCRIZIONE
+
+Progetto svolto nell'arco del mese di Settembre del 2024.
+Ho utilizzato Web Vanilla + JQuery, PHP, PostgreSQL e Docker.
+Durante lo sviluppo il sito permetteva di caricare nuovi media sul db compilando il form sulle carte che cadono dall'alto, ma poco prima di abbandonare il progetto ho modificato quel codice e adesso non è utilizzabile.
+Ho cercato di fare il tutto con meno sovrastrutture possibili, rimandendo su HTML, CSS e PHP, aiutandomi con JQuery per interfacciarmi più agevolmente al DOM da JS.
+L'interfaccia grafica è ispirata a quella di Persona 4.
+Una volta caricata l'immagine, un sistema seleziona i 3 colori più presenti e li usa per creare dinamicamente una palette, che verrà poi utilizzata per colorare la carta.
+Era anche possibile impostare la palette di una carta come globale, applicando lo stile su tutto il documento (attivabile solo da codice tramite console perchè non completamente implementato).
+
+Con questo progetto ho provato a stravolgere un po' di concetti di design per vedere quanto fosse complesso coniugare semplicità e creatività, ma ho presto scoperto che c'è un motivo se i form non sono implementati con carte volanti che si aprono a ventaglio :)
+
+
 ## PREVIEW
 
 <img width="1920" height="910" alt="cover" src="https://github.com/user-attachments/assets/aa7cdf80-3968-42e5-a5d0-ba2cca332369" />
